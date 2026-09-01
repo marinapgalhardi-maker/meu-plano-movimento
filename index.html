@@ -8,13 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Meu Plano">
 <link rel="manifest" href="./manifest.json">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Meu Plano">
 <title>Meu Plano de Movimento</title>
 <style>
-:root{--v1:#1B5E20;--v2:#2E7D32;--v3:#388E3C;--v4:#81C784;--v5:#C8E6C9;--v6:#E8F5E9;--v7:#F1F8F1;--azul:#1565C0;--azul-cl:#E3F2FD;--roxo:#6A1B9A;--roxo-cl:#F3E5F5;--am:#F57F17;--am-cl:#FFFDE7;--verm:#C62828;--verm-cl:#FFEBEE;--border:#e0e0e0;}
+:root{--v1:#1B5E20;--v2:#2E7D32;--v3:#388E3C;--v4:#81C784;--v5:#C8E6C9;--v6:#E8F5E9;--v7:#F1F8F1;--azul:#1565C0;--azul-cl:#E3F2FD;--roxo:#6A1B9A;--roxo-cl:#F3E5F5;--am:#F57F17;--am-cl:#FFFDE7;--verm:#C62828;--verm-cl:#FFEBEE;--lj:#E65100;--lj-cl:#FFF3E0;--border:#e0e0e0;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-height:100vh;}
 .app{max-width:480px;margin:0 auto;padding:0 0 80px 0;background:#fff;min-height:100vh;}
@@ -22,25 +18,20 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .header h1{font-size:17px;font-weight:600;}
 .header p{font-size:11px;opacity:0.85;margin-top:2px;}
 .tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(6,1fr);z-index:100;}
-.tab-item{padding:8px 4px 6px;text-align:center;cursor:pointer;border:none;background:none;font-family:inherit;}
-.tab-icon{font-size:20px;display:block;color:#aaa;}
-.tab-label{font-size:10px;color:#aaa;display:block;margin-top:2px;}
+.tab-item{padding:8px 2px 6px;text-align:center;cursor:pointer;border:none;background:none;font-family:inherit;}
+.tab-icon{font-size:18px;display:block;color:#aaa;}
+.tab-label{font-size:9px;color:#aaa;display:block;margin-top:2px;}
 .tab-item.active .tab-icon,.tab-item.active .tab-label{color:var(--v3);}
 .section{display:none;padding:1rem;}
 .section.active{display:block;}
 .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-bottom:0.75rem;}
 .card-title{font-size:12px;font-weight:600;color:var(--v2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;}
-.day-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--v5);}
-.day-row:last-child{border-bottom:none;}
-.day-label{font-size:13px;font-weight:600;color:var(--v1);min-width:64px;}
-.day-act{font-size:13px;color:#555;flex:1;}
 .badge{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;}
 .badge-azul{background:var(--azul-cl);color:var(--azul);}
 .badge-am{background:var(--am-cl);color:var(--am);}
 .badge-gray{background:#eee;color:#888;}
-.anchor-box{background:var(--v5);border:1px solid var(--v4);border-radius:8px;padding:10px 12px;margin-top:0.75rem;}
-.anchor-box p{font-size:13px;color:var(--v1);font-weight:600;}
-.anchor-box span{font-size:12px;color:var(--v2);}
+.badge-verde{background:var(--v5);color:var(--v1);}
+.badge-lj{background:var(--lj-cl);color:var(--lj);}
 .circ-selector{display:flex;gap:8px;margin-bottom:1rem;}
 .circ-btn{flex:1;padding:8px;border:1px solid var(--v4);border-radius:8px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;text-align:center;font-family:inherit;}
 .circ-btn.active{background:var(--v3);color:#fff;border-color:var(--v3);}
@@ -89,104 +80,143 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .meta-box{background:var(--am-cl);border:1px solid #FFE082;border-radius:8px;padding:10px 12px;margin-bottom:0.75rem;}
 .meta-box p{font-size:13px;color:var(--am);font-weight:600;}
 .meta-box span{font-size:12px;color:#795548;}
+/* ENERGIA */
+.nivel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
+.nivel-btn{padding:10px 8px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:12px;color:#555;cursor:pointer;text-align:center;font-family:inherit;}
+.nivel-btn.active{border-color:var(--v3);background:var(--v6);color:var(--v1);font-weight:600;}
+.nivel-icon{font-size:20px;display:block;margin-bottom:4px;}
+.treino-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
+.treino-check{padding:8px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:12px;color:#555;cursor:pointer;text-align:center;font-family:inherit;}
+.treino-check.active{border-color:var(--azul);background:var(--azul-cl);color:var(--azul);font-weight:600;}
+.deficit-box{border-radius:10px;padding:12px;text-align:center;margin-bottom:0.75rem;}
+.deficit-label{font-size:12px;margin-bottom:4px;}
+.deficit-val{font-size:28px;font-weight:700;}
+.deficit-sub{font-size:11px;margin-top:4px;opacity:0.8;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--v5);}
+.stat-row:last-child{border-bottom:none;}
+.stat-label{font-size:13px;color:#555;}
+.stat-val{font-size:13px;font-weight:600;color:var(--v1);}
+/* CALORIAS IA */
+.ia-input-area{width:100%;padding:10px;border:1px solid var(--v4);border-radius:8px;font-size:13px;font-family:inherit;resize:none;background:var(--v6);min-height:80px;}
+.ia-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;margin-top:8px;}
+.ia-loading{text-align:center;padding:16px;color:#888;font-size:13px;font-style:italic;}
+.refeicao-card{background:var(--v7);border:1px solid var(--v5);border-radius:10px;padding:12px;margin-bottom:8px;}
+.refeicao-titulo{font-size:13px;font-weight:600;color:var(--v1);margin-bottom:6px;}
+.refeicao-totals{font-size:11px;color:#888;margin-bottom:8px;}
+.alim-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;}
+.alim-row:last-child{border-bottom:none;}
+.alim-desc{font-size:12px;color:#444;flex:1;}
+.alim-vals{font-size:11px;color:#888;margin-left:8px;white-space:nowrap;}
+.rm-btn-sm{background:none;border:none;color:#ddd;font-size:14px;cursor:pointer;padding:0 4px;margin-left:4px;}
+.totais-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
+.tot-card{background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:10px;text-align:center;}
+.tot-label{font-size:10px;color:#888;margin-bottom:2px;}
+.tot-val{font-size:18px;font-weight:600;}
+.tot-meta{font-size:10px;color:#888;margin-top:2px;}
+.prog-bar{height:6px;background:var(--v5);border-radius:3px;overflow:hidden;margin-top:4px;}
+.prog-fill{height:100%;border-radius:3px;transition:width 0.3s;}
+.prog-label{font-size:11px;color:#888;margin-bottom:2px;}
+/* HISTORICO */
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .cal-nav-btn{background:var(--v6);border:1px solid var(--v4);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:18px;color:var(--v2);display:flex;align-items:center;justify-content:center;font-family:inherit;}
 .cal-month{font-size:15px;font-weight:600;color:var(--v1);}
-.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#666;}
-.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#666;}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .cal-table{width:100%;border-collapse:collapse;}
 .cal-table th{font-size:11px;color:var(--v3);text-align:center;padding:4px 0;font-weight:600;}
 .cal-cell{text-align:center;padding:2px;}
-.cal-btn{width:38px;height:38px;border-radius:8px;border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;margin:0 auto;font-family:inherit;}
+.cal-btn{width:42px;height:42px;border-radius:8px;border:none;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;margin:0 auto;font-family:inherit;}
 .cal-btn:disabled{cursor:default;opacity:0.35;}
-.cal-num{font-size:13px;color:#222;line-height:1;}
+.cal-num{font-size:12px;color:#222;line-height:1;}
 .cal-btn.today{border:2px solid var(--azul);}
 .cal-btn.today .cal-num{color:var(--azul);font-weight:700;}
-.cal-btn.done{background:var(--v3);}
-.cal-btn.done .cal-num{color:#fff;font-weight:600;}
-.cal-btn.partial{background:var(--v5);}
-.cal-btn.partial .cal-num{color:var(--v1);font-weight:600;}
+.cal-btn.has-data{background:var(--v6);}
 .cal-dots{display:flex;gap:2px;justify-content:center;min-height:6px;}
 .cal-dot{width:5px;height:5px;border-radius:50%;}
-.month-total{font-size:12px;color:#666;text-align:center;margin-top:8px;}
-.streak-row{display:flex;gap:8px;margin-top:12px;}
-.streak-card{flex:1;background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:10px;text-align:center;}
-.streak-num{font-size:20px;font-weight:600;color:var(--v2);}
-.streak-label{font-size:11px;color:var(--v3);margin-top:2px;}
-.prog-bar{height:6px;background:var(--v5);border-radius:3px;overflow:hidden;margin-top:4px;}
-.prog-fill{height:100%;background:var(--v3);border-radius:3px;transition:width 0.3s;}
-.prog-label{font-size:12px;color:var(--v2);margin-bottom:4px;}
-.add-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;margin-top:4px;}
-.bio-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
-.bio-stat{background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:10px;text-align:center;}
-.bio-stat-label{font-size:11px;color:#666;margin-bottom:4px;}
-.bio-stat-val{font-size:18px;font-weight:600;color:var(--v2);}
-.bio-stat-unit{font-size:11px;color:#888;}
-.bio-stat-badge{font-size:10px;padding:2px 6px;border-radius:10px;margin-top:3px;display:inline-block;font-weight:500;}
-.bio-hist-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--v5);}
-.bio-hist-row:last-child{border-bottom:none;}
-.bio-hist-date{font-size:12px;font-weight:600;color:var(--v1);min-width:80px;}
-.bio-hist-vals{flex:1;display:flex;gap:6px;flex-wrap:wrap;}
-.bio-chip{font-size:11px;background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;}
-.bio-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
-.rec-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:0.75rem;}
-.rec-meta-card{background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:8px;text-align:center;}
-.rec-meta-label{font-size:10px;color:#888;margin-bottom:2px;}
-.rec-meta-val{font-size:16px;font-weight:600;}
-.rec-meta-sub{font-size:10px;color:#888;}
-.refeicao-row{padding:10px 0;border-bottom:1px solid var(--v5);}
-.refeicao-row:last-child{border-bottom:none;}
-.refeicao-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
-.refeicao-nome{font-size:13px;font-weight:600;color:var(--v1);}
-.refeicao-totals{font-size:11px;color:#888;}
-.alimento-row{display:flex;align-items:center;gap:8px;padding:4px 0;}
-.alimento-desc{font-size:12px;color:#444;flex:1;}
-.alimento-vals{font-size:11px;color:#888;white-space:nowrap;}
-.rm-alimento{background:none;border:none;color:#ccc;font-size:16px;cursor:pointer;padding:0 4px;}
-.add-alimento-btn{width:100%;padding:7px;border:1px dashed var(--v4);border-radius:8px;background:transparent;color:var(--v2);font-size:12px;cursor:pointer;margin-top:6px;font-family:inherit;}
-.refeicao-add-btn{width:100%;padding:10px;border:1px solid var(--v4);border-radius:8px;background:var(--v6);color:var(--v2);font-size:13px;cursor:pointer;margin-top:4px;font-family:inherit;}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:300;align-items:flex-end;justify-content:center;}
+/* MODAL DIA */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:flex-end;justify-content:center;}
 .modal-bg.open{display:flex;}
 .modal{background:#fff;border-radius:16px 16px 0 0;padding:1.25rem;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;}
-.modal-title{font-size:15px;font-weight:600;color:var(--v1);margin-bottom:1rem;}
-.field-label{font-size:12px;color:var(--v2);margin-bottom:5px;display:block;font-weight:500;}
-.field-row{margin-bottom:0.85rem;}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.modal-title{font-size:15px;font-weight:600;color:var(--v1);}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:#aaa;padding:0;}
+.dia-section{margin-bottom:1rem;}
+.dia-section-title{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.dia-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.dia-stat{background:var(--v6);border-radius:8px;padding:8px;text-align:center;}
+.dia-stat-label{font-size:10px;color:#888;margin-bottom:2px;}
+.dia-stat-val{font-size:16px;font-weight:600;color:var(--v1);}
+.dia-deficit{border-radius:8px;padding:10px;text-align:center;margin-bottom:8px;}
+.alim-item{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:12px;color:#444;}
+.alim-item:last-child{border-bottom:none;}
+.bio-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
+.save-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;}
+input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(--v4);border-radius:8px;font-size:13px;background:var(--v6);font-family:inherit;}
+.field-label{font-size:12px;color:var(--v2);margin-bottom:4px;display:block;font-weight:500;}
+.add-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;margin-top:4px;}
 .toggle-group{display:flex;gap:6px;flex-wrap:wrap;}
 .toggle-btn{padding:6px 10px;border:1px solid var(--v4);border-radius:20px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;font-family:inherit;}
 .toggle-btn.on{background:var(--v3);color:#fff;border-color:var(--v3);}
-.save-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;margin-top:4px;font-family:inherit;}
-.cancel-btn{width:100%;padding:8px;background:transparent;color:#888;border:none;font-size:13px;cursor:pointer;margin-top:6px;font-family:inherit;}
-.walk-entry{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px;}
-.walk-label{font-size:11px;color:#666;margin-bottom:3px;}
-.walk-input{width:100%;padding:8px;border:1px solid var(--v4);border-radius:8px;font-size:14px;background:var(--v6);font-family:inherit;}
-.rm-btn{width:34px;height:38px;border:1px solid #ffcdd2;border-radius:8px;background:#fff5f5;color:#c62828;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;}
-.add-walk-btn{width:100%;padding:8px;border:1px dashed var(--v4);border-radius:8px;background:transparent;color:var(--v2);font-size:13px;cursor:pointer;margin-top:2px;font-family:inherit;}
-.walk-summary{font-size:12px;color:var(--v2);margin-top:6px;font-style:italic;line-height:1.5;}
-input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(--v4);border-radius:8px;font-size:13px;background:var(--v6);font-family:inherit;}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="header">
     <h1>Meu plano de movimento</h1>
-    <p>Força · Yoga · Caminhada · Nutrição · Bioimpedância</p>
+    <p>Energia · Treinos · Calorias · Histórico</p>
   </div>
 
-  <div id="semana" class="section active">
+  <!-- ENERGIA -->
+  <div id="energia" class="section active">
     <div class="card">
-      <div class="card-title">Esta semana</div>
-      <div class="day-row"><span class="day-label">Segunda</span><span class="day-act">Circuito força</span><span class="badge badge-azul">Academia</span></div>
-      <div class="day-row"><span class="day-label">Terça</span><span class="day-act">Yoga</span><span class="badge badge-am">Aula</span></div>
-      <div class="day-row"><span class="day-label">Quarta</span><span class="day-act">Circuito força</span><span class="badge badge-azul">Academia</span></div>
-      <div class="day-row"><span class="day-label">Quinta</span><span class="day-act">Yoga</span><span class="badge badge-am">Aula</span></div>
-      <div class="day-row"><span class="day-label">Sexta</span><span class="day-act">Livre</span><span class="badge badge-gray">—</span></div>
-      <div class="day-row"><span class="day-label">Sábado</span><span class="day-act">Livre</span><span class="badge badge-gray">—</span></div>
-      <div class="day-row"><span class="day-label">Domingo</span><span class="day-act">Descanso</span><span class="badge badge-gray">—</span></div>
+      <div class="card-title" id="energia-date"></div>
+      <div class="deficit-box" id="deficit-box" style="background:var(--v6)">
+        <div class="deficit-label" style="color:#888">Déficit do dia</div>
+        <div class="deficit-val" id="deficit-val" style="color:var(--v2)">— kcal</div>
+        <div class="deficit-sub" id="deficit-sub" style="color:#888">registre os dados abaixo</div>
+      </div>
+      <div class="stat-row"><span class="stat-label">Gasto estimado</span><span class="stat-val" id="gasto-val">— kcal</span></div>
+      <div class="stat-row"><span class="stat-label">Consumido</span><span class="stat-val" id="consumido-val">— kcal</span></div>
+      <div class="stat-row"><span class="stat-label">Proteína</span><span class="stat-val" id="prot-val">— g</span></div>
     </div>
-    <div class="anchor-box"><p>🚶 Caminhada — todo dia</p><span>O compromisso inegociável. Pelo menos 10 min.</span></div>
+
+    <div class="card">
+      <div class="card-title">Passos hoje</div>
+      <input type="number" id="passos-input" placeholder="ex: 8500" style="margin-bottom:8px" oninput="calcGasto()">
+      <div style="font-size:11px;color:#888">Se não souber, deixa em branco — use o nível de atividade abaixo</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Nível de atividade do dia</div>
+      <div class="nivel-grid">
+        <button class="nivel-btn" onclick="setNivel('sedentario')"><span class="nivel-icon">🪑</span>Muito sentada</button>
+        <button class="nivel-btn" onclick="setNivel('leve')"><span class="nivel-icon">🚶</span>Pouco ativa</button>
+        <button class="nivel-btn" onclick="setNivel('moderado')"><span class="nivel-icon">🏃</span>Moderada</button>
+        <button class="nivel-btn" onclick="setNivel('ativo')"><span class="nivel-icon">💪</span>Muito ativa</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Treinos feitos hoje</div>
+      <div class="treino-check-grid">
+        <button class="treino-check" onclick="toggleTreino('academia_a')">Academia A</button>
+        <button class="treino-check" onclick="toggleTreino('academia_b')">Academia B</button>
+        <button class="treino-check" onclick="toggleTreino('casa_1')">Casa 1</button>
+        <button class="treino-check" onclick="toggleTreino('casa_2')">Casa 2</button>
+        <button class="treino-check" onclick="toggleTreino('yoga')">Yoga</button>
+        <button class="treino-check" onclick="toggleTreino('corrida')">Corrida/Esteira</button>
+      </div>
+      <div style="margin-top:8px;">
+        <label class="field-label">Minutos de esteira/corrida (se fez)</label>
+        <input type="number" id="min-esteira" placeholder="ex: 30" oninput="calcGasto()">
+      </div>
+    </div>
+
+    <button class="add-btn" onclick="saveEnergia()">Salvar dia</button>
   </div>
 
+  <!-- ACADEMIA -->
   <div id="academia" class="section">
     <div class="hipo-box">
       <div class="hipo-title">🫁 Hipopressivo — antes de tudo (5 min)</div>
@@ -203,6 +233,7 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
     <div id="ac-b" class="circ-content"><div class="card"><div class="bloco-header"><div class="bloco-title">3 rodadas · sem descanso entre exercícios</div></div><div id="ex-ac-b"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div></div>
   </div>
 
+  <!-- CASA -->
   <div id="casa" class="section">
     <div class="hipo-box">
       <div class="hipo-title">🫁 Hipopressivo — antes de tudo (5 min)</div>
@@ -225,38 +256,61 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
     </div>
   </div>
 
+  <!-- CORRIDA -->
   <div id="corrida" class="section">
     <div class="meta-box"><p>🏃 Meta: correr 5km</p><span>Progressão de 8 semanas · partindo de 6.0 km/h</span></div>
     <div class="aviso-box"><div class="aviso-title">Atenção — diástase</div><div class="aviso-text">Antes da fase 4 (corrida contínua), avalie com fisioterapeuta de assoalho pélvico.</div></div>
     <div id="fases-corrida"></div>
   </div>
 
-  <div id="nutri" class="section">
+  <!-- CALORIAS IA -->
+  <div id="calorias" class="section">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-        <span style="font-size:14px;font-weight:600;color:var(--v1)" id="nutri-date-label"></span>
-        <div style="display:flex;gap:6px;"><button class="cal-nav-btn" onclick="changeNutriDay(-1)">‹</button><button class="cal-nav-btn" onclick="changeNutriDay(1)">›</button></div>
+        <span style="font-size:13px;font-weight:600;color:var(--v1)" id="cal-date-label"></span>
+        <div style="display:flex;gap:6px;"><button class="cal-nav-btn" onclick="changeCalDay(-1)">‹</button><button class="cal-nav-btn" onclick="changeCalDay(1)">›</button></div>
       </div>
-      <div class="rec-meta">
-        <div class="rec-meta-card"><div class="rec-meta-label">Calorias</div><div class="rec-meta-val" id="tot-kcal" style="color:var(--verm)">0</div><div class="rec-meta-sub">meta ~1.250</div></div>
-        <div class="rec-meta-card"><div class="rec-meta-label">Proteína</div><div class="rec-meta-val" id="tot-prot" style="color:var(--v2)">0g</div><div class="rec-meta-sub">meta ~80g</div></div>
-        <div class="rec-meta-card"><div class="rec-meta-label">Refeições</div><div class="rec-meta-val" id="tot-ref" style="color:var(--azul)">0</div><div class="rec-meta-sub">registradas</div></div>
+      <div class="totais-bar">
+        <div class="tot-card"><div class="tot-label">Calorias</div><div class="tot-val" id="tot-kcal" style="color:var(--verm)">0</div><div class="tot-meta">meta ~1.250</div><div class="prog-bar"><div class="prog-fill" id="kcal-bar" style="width:0%;background:var(--verm)"></div></div></div>
+        <div class="tot-card"><div class="tot-label">Proteína</div><div class="tot-val" id="tot-prot" style="color:var(--v2)">0g</div><div class="tot-meta">meta ~80g</div><div class="prog-bar"><div class="prog-fill" id="prot-bar" style="width:0%;background:var(--v3)"></div></div></div>
       </div>
-      <div style="margin-bottom:6px;"><div class="prog-label">Calorias</div><div class="prog-bar"><div class="prog-fill" id="kcal-bar" style="width:0%;background:var(--verm)"></div></div></div>
-      <div><div class="prog-label">Proteína</div><div class="prog-bar"><div class="prog-fill" id="prot-bar" style="width:0%"></div></div></div>
     </div>
-    <div class="card" id="refeicoes-container"></div>
-    <button class="refeicao-add-btn" onclick="addRefeicao()">+ Adicionar refeição</button>
+
+    <div class="card">
+      <div class="card-title">Registrar com IA</div>
+      <div style="font-size:12px;color:#666;margin-bottom:8px">Descreva o que comeu — a IA estima as calorias e proteína automaticamente</div>
+      <textarea class="ia-input-area" id="ia-input" placeholder="ex: café da manhã — 2 ovos mexidos, tapioca com queijo e café sem açúcar"></textarea>
+      <button class="ia-btn" onclick="registrarComIA()">✨ Registrar com IA</button>
+      <div id="ia-status" style="font-size:12px;color:#888;margin-top:6px;text-align:center"></div>
+    </div>
+
+    <div id="refeicoes-lista"></div>
   </div>
 
-  <div id="bio" class="section">
+  <!-- HISTÓRICO -->
+  <div id="historico" class="section">
     <div class="card">
-      <div style="font-size:13px;font-weight:600;color:var(--v1);margin-bottom:4px">Último registro</div>
-      <div style="font-size:11px;color:#888;margin-bottom:10px" id="bio-last-date">Nenhum registro ainda</div>
-      <div class="bio-stat-grid" id="bio-stats"></div>
+      <div class="cal-nav">
+        <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+        <span class="cal-month" id="cal-month-label"></span>
+        <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--v3)"></div>Energia registrada</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--azul)"></div>Treino</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--am)"></div>Calorias</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--lj)"></div>Bioimpedância</div>
+      </div>
+      <table class="cal-table"><thead><tr id="cal-head"></tr></thead><tbody id="cal-body"></tbody></table>
+      <div class="month-total" id="month-total" style="font-size:12px;color:#666;text-align:center;margin-top:8px;"></div>
     </div>
+
+    <!-- Bioimpedância no histórico -->
     <div class="card">
-      <div style="font-size:13px;font-weight:600;color:var(--v1);margin-bottom:10px">Novo registro</div>
+      <div class="card-title">Bioimpedância</div>
+      <div style="font-size:11px;color:#888;margin-bottom:10px" id="bio-last-date">Nenhum registro ainda</div>
+      <div class="bio-form-grid" id="bio-last-stats"></div>
+      <div style="font-size:13px;font-weight:600;color:var(--v1);margin:12px 0 8px">Novo registro</div>
       <div class="bio-form-grid">
         <div><label class="field-label" style="margin-bottom:3px">Peso (kg)</label><input type="number" id="b-peso" step="0.1" placeholder="56.5"></div>
         <div><label class="field-label" style="margin-bottom:3px">Gordura (%)</label><input type="number" id="b-gord" step="0.1" placeholder="33.6"></div>
@@ -266,115 +320,98 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
         <div><label class="field-label" style="margin-bottom:3px">Massa óssea (kg)</label><input type="number" id="b-osso" step="0.01" placeholder="2.73"></div>
       </div>
       <button class="save-btn" onclick="saveBio()">Salvar medição</button>
-    </div>
-    <div class="card">
-      <div style="font-size:13px;font-weight:600;color:var(--v1);margin-bottom:10px">Histórico</div>
+
+      <div style="font-size:13px;font-weight:600;color:var(--v1);margin:16px 0 8px">Histórico de medições</div>
       <div id="bio-hist-list"><div style="font-size:12px;color:#888;text-align:center;padding:10px">Nenhum registro ainda</div></div>
     </div>
   </div>
-
-  <div id="historico" class="section">
-    <div class="card">
-      <div class="cal-nav">
-        <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
-        <span class="cal-month" id="cal-month-label"></span>
-        <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
-      </div>
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--v3)"></div>Caminhada</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--v5)"></div>Yoga/Força</div>
-        <div class="legend-item"><div class="legend-dot" style="background:transparent;border:2px solid var(--azul)"></div>Hoje</div>
-      </div>
-      <table class="cal-table"><thead><tr id="cal-head"></tr></thead><tbody id="cal-body"></tbody></table>
-      <div class="month-total" id="month-total"></div>
-      <div class="streak-row">
-        <div class="streak-card"><div class="streak-num" id="s1">0</div><div class="streak-label">sequência</div></div>
-        <div class="streak-card"><div class="streak-num" id="s2">0</div><div class="streak-label">dias caminhada</div></div>
-        <div class="streak-card"><div class="streak-num" id="s3">0</div><div class="streak-label">min total</div></div>
-      </div>
-    </div>
-    <div class="card"><div class="prog-label">Este mês</div><div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div></div>
-    <button class="add-btn" onclick="openModal(null)">+ Registrar atividade de hoje</button>
-  </div>
 </div>
 
+<!-- BARRA DE NAVEGAÇÃO -->
 <nav class="tab-bar">
-  <button class="tab-item active" onclick="switchTab('semana')"><span class="tab-icon">📅</span><span class="tab-label">Semana</span></button>
-  <button class="tab-item" onclick="switchTab('academia')"><span class="tab-icon">🏋️</span><span class="tab-label">Academia</span></button>
-  <button class="tab-item" onclick="switchTab('casa')"><span class="tab-icon">🏠</span><span class="tab-label">Casa</span></button>
-  <button class="tab-item" onclick="switchTab('corrida')"><span class="tab-icon">🏃</span><span class="tab-label">Corrida</span></button>
-  <button class="tab-item" onclick="switchTab('nutri')"><span class="tab-icon">🥗</span><span class="tab-label">Calorias</span></button>
-  <button class="tab-item" onclick="switchTab('historico')"><span class="tab-icon">📊</span><span class="tab-label">Histórico</span></button>
+  <button class="tab-item active" onclick="switchTab('energia',this)"><span class="tab-icon">⚡</span><span class="tab-label">Energia</span></button>
+  <button class="tab-item" onclick="switchTab('academia',this)"><span class="tab-icon">🏋️</span><span class="tab-label">Academia</span></button>
+  <button class="tab-item" onclick="switchTab('casa',this)"><span class="tab-icon">🏠</span><span class="tab-label">Casa</span></button>
+  <button class="tab-item" onclick="switchTab('corrida',this)"><span class="tab-icon">🏃</span><span class="tab-label">Corrida</span></button>
+  <button class="tab-item" onclick="switchTab('calorias',this)"><span class="tab-icon">🥗</span><span class="tab-label">Calorias</span></button>
+  <button class="tab-item" onclick="switchTab('historico',this)"><span class="tab-icon">📊</span><span class="tab-label">Histórico</span></button>
 </nav>
 
-<div class="modal-bg" id="modal-bg" onclick="bgClick(event)">
-  <div class="modal">
-    <div class="modal-title" id="modal-title">Registrar</div>
-    <div class="field-row"><label class="field-label">Caminhadas do dia</label><div id="walk-entries"></div><button class="add-walk-btn" onclick="addWalkEntry()">+ Adicionar caminhada</button><div class="walk-summary" id="walk-summary"></div></div>
-    <div class="field-row"><label class="field-label">Yoga</label><div class="toggle-group"><div class="toggle-btn" id="yoga-sim" onclick="tog('yoga',true)">Fiz</div><div class="toggle-btn" id="yoga-nao" onclick="tog('yoga',false)">Não fiz</div></div></div>
-    <div class="field-row"><label class="field-label">Treino de força</label><div class="toggle-group"><div class="toggle-btn" id="f-A" onclick="tog('forca','A')">Academia A</div><div class="toggle-btn" id="f-B" onclick="tog('forca','B')">Academia B</div><div class="toggle-btn" id="f-C1" onclick="tog('forca','C1')">Casa 1</div><div class="toggle-btn" id="f-C2" onclick="tog('forca','C2')">Casa 2</div><div class="toggle-btn" id="f-N" onclick="tog('forca','N')">Não fiz</div></div></div>
-    <button class="save-btn" onclick="saveDay()">Salvar</button>
-    <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
-  </div>
-</div>
-
-<div class="modal-bg" id="alim-modal-bg" onclick="bgClickAlim(event)">
-  <div class="modal">
-    <div class="modal-title">Adicionar alimento</div>
-    <div class="field-row"><label class="field-label">Descrição</label><input type="text" id="alim-desc" placeholder="ex: 2 ovos mexidos"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.85rem;"><div><label class="field-label">Calorias (kcal)</label><input type="number" id="alim-kcal" placeholder="140" min="0"></div><div><label class="field-label">Proteína (g)</label><input type="number" id="alim-prot" placeholder="12" min="0" step="0.1"></div></div>
-    <button class="save-btn" onclick="saveAlimento()">Adicionar</button>
-    <button class="cancel-btn" onclick="closeAlimModal()">Cancelar</button>
-  </div>
+<!-- MODAL DIA -->
+<div class="modal-bg" id="dia-modal" onclick="closeDiaModal(event)">
+  <div class="modal" id="dia-modal-content"></div>
 </div>
 
 <script>
+const KEY='meuplanomov_v2';
+let DB={};
+try{DB=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+if(!DB.energia)DB.energia={};
+if(!DB.nutri)DB.nutri={};
+if(!DB.bio)DB.bio=[];
+
+function saveDB(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){alert('Erro ao salvar. Verifique o espaço do navegador.');}}
+function dk(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function todayDK(){return dk(new Date());}
+
+// TAB
+function switchTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-item').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  if(id==='historico')renderCal();
+  if(id==='calorias')renderCalorias();
+  if(id==='energia')initEnergia();
+}
+
+// EXERCÍCIOS
 const EXERCISES={
   'ex-ac-a':[
-    {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter+como+fazer'},
+    {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter'},
     {n:2,cls:'ex-a',name:'Remada no TRX',detail:'TRX · 12 reps',obs:null,band:null,desc:'Segure as alças, incline o corpo para trás. Puxe o peito em direção às mãos dobrando os cotovelos.',yt:'https://www.youtube.com/results?search_query=remada+TRX+como+fazer'},
-    {n:3,cls:'ex-a',name:'Agachamento sumô com halter',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Pés bem abertos, pontas para fora. Desça empurrando joelhos para fora até a coxa ficar paralela ao chão.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+halter+como+fazer'},
-    {n:4,cls:'ex-a',name:'Dead bug',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos sem arquear as costas.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio+como+fazer'},
-    {n:5,cls:'ex-a',name:'Desenvolvimento com halteres',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Sente com halteres nos ombros. Empurre para cima até os braços estenderem. Desça controlado.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+halteres+ombro+como+fazer'},
+    {n:3,cls:'ex-a',name:'Agachamento sumô com halter',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Pés bem abertos, pontas para fora. Desça empurrando joelhos para fora até a coxa ficar paralela ao chão.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+halter'},
+    {n:4,cls:'ex-a',name:'Dead bug',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos sem arquear as costas.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
+    {n:5,cls:'ex-a',name:'Desenvolvimento com halteres',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Sente com halteres nos ombros. Empurre para cima até os braços estenderem. Desça controlado.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+halteres+ombro'},
   ],
   'ex-ac-b':[
-    {n:1,cls:'ex-b',name:'Avanço com halteres (lunge)',detail:'Halteres · 10 reps cada lado',obs:null,band:null,desc:'Passo à frente, desça o joelho traseiro sem tocar o chão. Empurre o calcanhar para subir.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+halteres+como+fazer'},
-    {n:2,cls:'ex-b',name:'Supino inclinado com halteres',detail:'Halteres + banco · 12 reps',obs:null,band:null,desc:'Banco a 30-45°. Empurre os halteres para cima e desça controlado sentindo o peitoral superior.',yt:'https://www.youtube.com/results?search_query=supino+inclinado+halteres+como+fazer'},
-    {n:3,cls:'ex-b',name:'Elevação pélvica unilateral',detail:'Chão · 12 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Ponte com uma perna estendida no ar. Eleve usando só a perna de apoio.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+unilateral+como+fazer'},
-    {n:4,cls:'ex-b',name:'Rosca direta com barra',detail:'Barra · 12 reps',obs:null,band:null,desc:'Em pé, palmas para cima, cotovelos fixos. Dobre os braços trazendo a barra até os ombros.',yt:'https://www.youtube.com/results?search_query=rosca+direta+barra+como+fazer'},
-    {n:5,cls:'ex-b',name:'Bird dog',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Quadril nivelado. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio+como+fazer'},
+    {n:1,cls:'ex-b',name:'Avanço com halteres (lunge)',detail:'Halteres · 10 reps cada lado',obs:null,band:null,desc:'Passo à frente, desça o joelho traseiro sem tocar o chão. Empurre o calcanhar para subir.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+halteres'},
+    {n:2,cls:'ex-b',name:'Supino inclinado com halteres',detail:'Halteres + banco · 12 reps',obs:null,band:null,desc:'Banco a 30-45°. Empurre os halteres para cima e desça controlado sentindo o peitoral superior.',yt:'https://www.youtube.com/results?search_query=supino+inclinado+halteres'},
+    {n:3,cls:'ex-b',name:'Elevação pélvica unilateral',detail:'Chão · 12 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Ponte com uma perna estendida no ar. Eleve usando só a perna de apoio.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+unilateral'},
+    {n:4,cls:'ex-b',name:'Rosca direta com barra',detail:'Barra · 12 reps',obs:null,band:null,desc:'Em pé, palmas para cima, cotovelos fixos. Dobre os braços trazendo a barra até os ombros.',yt:'https://www.youtube.com/results?search_query=rosca+direta+barra'},
+    {n:5,cls:'ex-b',name:'Bird dog',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Quadril nivelado. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
   ],
   'ex-ca-1a':[
-    {n:1,cls:'ex-c',name:'Ponte de glúteo com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Deite, joelhos dobrados, band acima dos joelhos. Empurre joelhos para fora. Eleve o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band+como+fazer'},
-    {n:2,cls:'ex-c',name:'Agachamento com mini band',detail:'12 reps',obs:null,band:'Amarelo ou Vermelho — acima dos joelhos',desc:'Band acima dos joelhos. Agachamento empurrando joelhos para fora contra o elástico.',yt:'https://www.youtube.com/results?search_query=agachamento+mini+band+como+fazer'},
-    {n:3,cls:'ex-c',name:'Abdução lateral deitada',detail:'15 reps cada lado',obs:null,band:'Verde ou Azul — tornozelos',desc:'Deite de lado, band nos tornozelos, pé em flexão. Eleve a perna de cima devagar.',yt:'https://www.youtube.com/results?search_query=abducao+lateral+mini+band+como+fazer'},
-    {n:4,cls:'ex-c',name:'Dead bug',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio+como+fazer'},
+    {n:1,cls:'ex-c',name:'Ponte de glúteo com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Deite, joelhos dobrados, band acima dos joelhos. Empurre joelhos para fora. Eleve o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
+    {n:2,cls:'ex-c',name:'Agachamento com mini band',detail:'12 reps',obs:null,band:'Amarelo ou Vermelho — acima dos joelhos',desc:'Band acima dos joelhos. Agachamento empurrando joelhos para fora contra o elástico.',yt:'https://www.youtube.com/results?search_query=agachamento+mini+band'},
+    {n:3,cls:'ex-c',name:'Abdução lateral deitada',detail:'15 reps cada lado',obs:null,band:'Verde ou Azul — tornozelos',desc:'Deite de lado, band nos tornozelos, pé em flexão. Eleve a perna de cima devagar.',yt:'https://www.youtube.com/results?search_query=abducao+lateral+mini+band'},
+    {n:4,cls:'ex-c',name:'Dead bug',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
   ],
   'ex-ca-1b':[
-    {n:1,cls:'ex-c',name:'Chute de glúteo com mini band',detail:'15 reps cada lado',obs:null,band:'Azul ou Amarelo — tornozelos',desc:'De quatro apoios, band nos tornozelos. Empurre o calcanhar para o teto a 90°.',yt:'https://www.youtube.com/results?search_query=chute+gluteo+mini+band+como+fazer'},
-    {n:2,cls:'ex-c',name:'Avanço com mini band',detail:'10 reps cada lado',obs:null,band:'Azul ou Amarelo — acima dos joelhos',desc:'Lunge com band. Empurre o joelho da frente para fora ao descer.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+mini+band+como+fazer'},
-    {n:3,cls:'ex-c',name:'Ponte unilateral com band',detail:'12 reps cada lado',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Ponte com uma perna no ar e band acima dos joelhos.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+unilateral+mini+band+como+fazer'},
-    {n:4,cls:'ex-c',name:'Bird dog',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio+como+fazer'},
+    {n:1,cls:'ex-c',name:'Chute de glúteo com mini band',detail:'15 reps cada lado',obs:null,band:'Azul ou Amarelo — tornozelos',desc:'De quatro apoios, band nos tornozelos. Empurre o calcanhar para o teto a 90°.',yt:'https://www.youtube.com/results?search_query=chute+gluteo+mini+band'},
+    {n:2,cls:'ex-c',name:'Avanço com mini band',detail:'10 reps cada lado',obs:null,band:'Azul ou Amarelo — acima dos joelhos',desc:'Lunge com band. Empurre o joelho da frente para fora ao descer.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+mini+band'},
+    {n:3,cls:'ex-c',name:'Ponte unilateral com band',detail:'12 reps cada lado',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Ponte com uma perna no ar e band acima dos joelhos.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+unilateral+mini+band'},
+    {n:4,cls:'ex-c',name:'Bird dog',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
   ],
   'ex-ca-2a':[
-    {n:1,cls:'ex-d',name:'Remada com tubular',detail:'12 reps',obs:null,band:'Tubular Verde ou Vermelho',desc:'Sente no chão, elástico nos pés. Puxe as alças em direção ao abdômen.',yt:'https://www.youtube.com/results?search_query=remada+sentado+elastico+tubular+como+fazer'},
-    {n:2,cls:'ex-d',name:'Desenvolvimento com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Em pé, pise no centro. Segure as alças nos ombros. Empurre para cima.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+elastico+tubular+como+fazer'},
-    {n:3,cls:'ex-d',name:'Agachamento sumô com mini band',detail:'12 reps',obs:null,band:'Mini band Vermelho ou Preto',desc:'Pés bem abertos, band acima dos joelhos. Desça empurrando joelhos para fora.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+mini+band+como+fazer'},
-    {n:4,cls:'ex-d',name:'Prancha modificada (joelhos)',detail:'30 seg',obs:'Core seguro para diástase',band:null,desc:'Apoie antebraços e joelhos. Corpo reto. Contraia o abdômen sem empurrar a barriga.',yt:'https://www.youtube.com/results?search_query=prancha+joelhos+modificada+como+fazer'},
+    {n:1,cls:'ex-d',name:'Remada com tubular',detail:'12 reps',obs:null,band:'Tubular Verde ou Vermelho',desc:'Sente no chão, elástico nos pés. Puxe as alças em direção ao abdômen.',yt:'https://www.youtube.com/results?search_query=remada+elastico+tubular'},
+    {n:2,cls:'ex-d',name:'Desenvolvimento com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Em pé, pise no centro. Segure as alças nos ombros. Empurre para cima.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+elastico+tubular'},
+    {n:3,cls:'ex-d',name:'Agachamento sumô com mini band',detail:'12 reps',obs:null,band:'Mini band Vermelho ou Preto',desc:'Pés bem abertos, band acima dos joelhos. Desça empurrando joelhos para fora.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+mini+band'},
+    {n:4,cls:'ex-d',name:'Prancha modificada (joelhos)',detail:'30 seg',obs:'Core seguro para diástase',band:null,desc:'Apoie antebraços e joelhos. Corpo reto. Contraia o abdômen sem empurrar a barriga.',yt:'https://www.youtube.com/results?search_query=prancha+joelhos+modificada'},
   ],
   'ex-ca-2b':[
-    {n:1,cls:'ex-d',name:'Rosca bíceps com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Pise no centro. Palmas para cima, cotovelos fixos. Dobre os braços.',yt:'https://www.youtube.com/results?search_query=rosca+biceps+elastico+tubular+como+fazer'},
-    {n:2,cls:'ex-d',name:'Tríceps acima da cabeça',detail:'12 reps',obs:null,band:'Tubular Amarelo',desc:'Elástico atrás da cabeça. Cotovelos para frente. Estenda os braços para cima.',yt:'https://www.youtube.com/results?search_query=triceps+acima+cabeca+elastico+como+fazer'},
-    {n:3,cls:'ex-d',name:'Elevação pélvica com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Mini band Preto — acima dos joelhos',desc:'Ponte com band. Empurre joelhos para fora ao elevar o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band+como+fazer'},
-    {n:4,cls:'ex-d',name:'Abdução em pé com mini band',detail:'15 reps cada lado',obs:null,band:'Mini band Azul ou Amarelo — tornozelos',desc:'Em pé apoiada na parede. Eleve uma perna para o lado contraindo o glúteo.',yt:'https://www.youtube.com/results?search_query=abducao+em+pe+mini+band+como+fazer'},
+    {n:1,cls:'ex-d',name:'Rosca bíceps com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Pise no centro. Palmas para cima, cotovelos fixos. Dobre os braços.',yt:'https://www.youtube.com/results?search_query=rosca+biceps+elastico'},
+    {n:2,cls:'ex-d',name:'Tríceps acima da cabeça',detail:'12 reps',obs:null,band:'Tubular Amarelo',desc:'Elástico atrás da cabeça. Cotovelos para frente. Estenda os braços para cima.',yt:'https://www.youtube.com/results?search_query=triceps+acima+cabeca+elastico'},
+    {n:3,cls:'ex-d',name:'Elevação pélvica com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Mini band Preto — acima dos joelhos',desc:'Ponte com band. Empurre joelhos para fora ao elevar o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
+    {n:4,cls:'ex-d',name:'Abdução em pé com mini band',detail:'15 reps cada lado',obs:null,band:'Mini band Azul ou Amarelo — tornozelos',desc:'Em pé apoiada na parede. Eleve uma perna para o lado contraindo o glúteo.',yt:'https://www.youtube.com/results?search_query=abducao+em+pe+mini+band'},
   ],
 };
 
 const FASES=[
-  {num:1,titulo:'Fase 1 — Base aeróbica',semanas:'Semanas 1–2',cor:'#388E3C',desc:'Consolida o hábito da esteira. Sem pressão de velocidade.',treinos:[{min:'20 min',vel:'6.0 km/h',desc:'Caminhada com inclinação leve. Ritmo constante, foco em respiração.'},{min:'25 min',vel:'6.0 km/h',desc:'Aumenta 5 min quando sentir facilidade.'}]},
-  {num:2,titulo:'Fase 2 — Primeiros trotinhos',semanas:'Semanas 3–4',cor:'#1565C0',desc:'Intercalando caminhada e corrida leve.',treinos:[{min:'25 min',vel:'6.0 / 7.5',desc:'2 min caminhada + 1 min corrida leve. Repete por 25 min.'},{min:'25 min',vel:'6.0 / 8.0',desc:'Quando 7.5 ficar fácil, sobe para 8.0.'}]},
+  {num:1,titulo:'Fase 1 — Base aeróbica',semanas:'Semanas 1–2',cor:'#388E3C',desc:'Consolida o hábito da esteira.',treinos:[{min:'20 min',vel:'6.0 km/h',desc:'Caminhada com inclinação leve. Ritmo constante.'},{min:'25 min',vel:'6.0 km/h',desc:'Aumenta 5 min quando sentir facilidade.'}]},
+  {num:2,titulo:'Fase 2 — Primeiros trotinhos',semanas:'Semanas 3–4',cor:'#1565C0',desc:'Intercalando caminhada e corrida leve.',treinos:[{min:'25 min',vel:'6.0 / 7.5',desc:'2 min caminhada + 1 min corrida. Repete por 25 min.'},{min:'25 min',vel:'6.0 / 8.0',desc:'Quando 7.5 ficar fácil, sobe para 8.0.'}]},
   {num:3,titulo:'Fase 3 — Invertendo a proporção',semanas:'Semanas 5–6',cor:'#F57F17',desc:'Agora corre mais do que caminha.',treinos:[{min:'28 min',vel:'6.0 / 8.0',desc:'1 min caminhada + 2 min corrida. Repete por 28 min.'},{min:'30 min',vel:'6.0 / 8.5',desc:'Testa aumentar para 8.5 na corrida.'}]},
-  {num:4,titulo:'Fase 4 — Corrida contínua',semanas:'Semanas 7–8',cor:'#C62828',desc:'Avalie com fisioterapeuta antes desta fase.',treinos:[{min:'20 min',vel:'7.5–8.0',desc:'Primeira corrida contínua. Velocidade que permita falar frases curtas.'},{min:'25-30 min',vel:'8.0–8.5',desc:'5km a 8.0 km/h = ~37 min. Objetivo próximo!'}]},
+  {num:4,titulo:'Fase 4 — Corrida contínua',semanas:'Semanas 7–8',cor:'#C62828',desc:'Avalie com fisioterapeuta antes desta fase.',treinos:[{min:'20 min',vel:'7.5–8.0',desc:'Primeira corrida contínua.'},{min:'25-30 min',vel:'8.0–8.5',desc:'5km a 8.0 km/h = ~37 min. Objetivo próximo!'}]},
 ];
 
 function buildExercises(id,list){const c=document.getElementById(id);if(!c)return;list.forEach((ex,i)=>{const row=document.createElement('div');row.className='ex-row';row.onclick=()=>togglePanel(id+'-'+i);row.innerHTML=`<div class="ex-num ${ex.cls}">${ex.n}</div><div class="ex-main"><div class="ex-name">${ex.name}</div><div class="ex-detail">${ex.detail}</div>${ex.band?`<div class="ex-band">${ex.band}</div>`:''}${ex.obs?`<div class="ex-obs">${ex.obs}</div>`:''}</div><div class="ex-chevron">›</div>`;c.appendChild(row);const panel=document.createElement('div');panel.className='ex-panel';panel.id=id+'-'+i;panel.innerHTML=`<div class="ex-desc">${ex.desc}</div><a class="yt-btn" href="${ex.yt}" target="_blank">▶ Ver no YouTube</a>`;c.appendChild(panel);});}
@@ -385,26 +422,143 @@ function toggleFase(i){const b=document.getElementById('fbody-'+i);const ch=docu
 Object.keys(EXERCISES).forEach(id=>buildExercises(id,EXERCISES[id]));
 buildFases();
 
-const KEY='meuplanomov_v1';
-let DB={};
-try{DB=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
-if(!DB.days)DB.days={};if(!DB.bio)DB.bio=[];if(!DB.nutri)DB.nutri={};
+function switchCirc(p,k){const sec=p==='ac'?'academia':'casa';document.querySelectorAll(`#${sec} .circ-btn`).forEach((b,i)=>b.classList.toggle('active',i===(k==='a'||k==='1'?0:1)));document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>el.classList.remove('active'));document.getElementById(`${p}-${k}`).classList.add('active');}
 
+// ENERGIA
+const TMB=1176;
+let nivelAtual=null;
+let treinosAtual=new Set();
+
+function initEnergia(){
+  const today=new Date();
+  document.getElementById('energia-date').textContent=today.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+  const rec=DB.energia[todayDK()]||{};
+  if(rec.passos)document.getElementById('passos-input').value=rec.passos;
+  if(rec.minEsteira)document.getElementById('min-esteira').value=rec.minEsteira;
+  nivelAtual=rec.nivel||null;
+  treinosAtual=new Set(rec.treinos||[]);
+  updateNivelUI();
+  updateTreinosUI();
+  calcGasto();
+}
+
+function setNivel(n){nivelAtual=nivelAtual===n?null:n;updateNivelUI();calcGasto();}
+function updateNivelUI(){document.querySelectorAll('.nivel-btn').forEach(b=>{const n=b.getAttribute('onclick').match(/'(\w+)'/)[1];b.classList.toggle('active',n===nivelAtual);});}
+function toggleTreino(t){if(treinosAtual.has(t))treinosAtual.delete(t);else treinosAtual.add(t);updateTreinosUI();calcGasto();}
+function updateTreinosUI(){document.querySelectorAll('.treino-check').forEach(b=>{const t=b.getAttribute('onclick').match(/'(\w+)'/)[1];b.classList.toggle('active',treinosAtual.has(t));});}
+
+function calcGasto(){
+  const passos=parseInt(document.getElementById('passos-input').value)||0;
+  const minEsteira=parseInt(document.getElementById('min-esteira').value)||0;
+  const fatores={sedentario:1.2,leve:1.35,moderado:1.5,ativo:1.65};
+  const fator=fatores[nivelAtual]||1.35;
+  let gasto=Math.round(TMB*fator);
+  if(passos>0)gasto=Math.round(TMB+(passos*0.04));
+  let extras=0;
+  if(treinosAtual.has('academia_a')||treinosAtual.has('academia_b'))extras+=180;
+  if(treinosAtual.has('casa_1')||treinosAtual.has('casa_2'))extras+=130;
+  if(treinosAtual.has('yoga'))extras+=120;
+  if(treinosAtual.has('corrida'))extras+=Math.round(minEsteira*7);
+  gasto+=extras;
+  document.getElementById('gasto-val').textContent=gasto+' kcal';
+  const nkToday=todayDK();
+  const nutriRec=DB.nutri[nkToday]||{refeicoes:[]};
+  let totKcal=0,totProt=0;
+  (nutriRec.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
+  document.getElementById('consumido-val').textContent=Math.round(totKcal)+' kcal';
+  document.getElementById('prot-val').textContent=Math.round(totProt)+'g proteína';
+  const deficit=gasto-Math.round(totKcal);
+  const box=document.getElementById('deficit-box');
+  const val=document.getElementById('deficit-val');
+  const sub=document.getElementById('deficit-sub');
+  if(totKcal===0){box.style.background='var(--v6)';val.style.color='var(--v2)';val.textContent='— kcal';sub.textContent='registre as calorias na aba Calorias';}
+  else if(deficit>=0){box.style.background='var(--v6)';val.style.color='var(--v2)';val.textContent='+'+deficit+' kcal';sub.textContent='déficit calórico — ótimo para emagrecimento';}
+  else{box.style.background='var(--verm-cl)';val.style.color='var(--verm)';val.textContent=deficit+' kcal';sub.textContent='superávit — consumiu mais do que gastou';}
+  return gasto;
+}
+
+function saveEnergia(){
+  const passos=parseInt(document.getElementById('passos-input').value)||0;
+  const minEsteira=parseInt(document.getElementById('min-esteira').value)||0;
+  const gasto=calcGasto();
+  const parsedGasto=parseInt(document.getElementById('gasto-val').textContent)||0;
+  DB.energia[todayDK()]={passos,nivel:nivelAtual,treinos:Array.from(treinosAtual),minEsteira,gasto:parsedGasto};
+  saveDB();
+  alert('Dia salvo!');
+}
+
+// CALORIAS IA
+let calDay=new Date();
+function changeCalDay(d){calDay=new Date(calDay);calDay.setDate(calDay.getDate()+d);if(calDay>new Date())calDay=new Date();renderCalorias();}
+function calDayKey(){return dk(calDay);}
+
+function renderCalorias(){
+  const nk=calDayKey();
+  document.getElementById('cal-date-label').textContent=calDay.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+  const data=DB.nutri[nk]||{refeicoes:[]};
+  let totKcal=0,totProt=0;
+  (data.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
+  document.getElementById('tot-kcal').textContent=Math.round(totKcal);
+  document.getElementById('tot-prot').textContent=Math.round(totProt)+'g';
+  document.getElementById('kcal-bar').style.width=Math.min(100,Math.round(totKcal/1250*100))+'%';
+  document.getElementById('prot-bar').style.width=Math.min(100,Math.round(totProt/80*100))+'%';
+  const lista=document.getElementById('refeicoes-lista');lista.innerHTML='';
+  (data.refeicoes||[]).forEach((ref,ri)=>{
+    let rKcal=0,rProt=0;(ref.alimentos||[]).forEach(a=>{rKcal+=(+a.kcal||0);rProt+=(+a.prot||0);});
+    const div=document.createElement('div');div.className='refeicao-card';
+    div.innerHTML=`<div class="refeicao-titulo">${ref.nome}</div><div class="refeicao-totals">${Math.round(rKcal)} kcal · ${Math.round(rProt)}g proteína</div>${(ref.alimentos||[]).map((a,ai)=>`<div class="alim-row"><div class="alim-desc">${a.desc}</div><div class="alim-vals">${a.kcal} kcal · ${a.prot}g</div><button class="rm-btn-sm" onclick="removeAlim('${nk}',${ri},${ai})">×</button></div>`).join('')}`;
+    lista.appendChild(div);
+  });
+}
+
+function removeAlim(nk,ri,ai){DB.nutri[nk].refeicoes[ri].alimentos.splice(ai,1);saveDB();renderCalorias();}
+
+async function registrarComIA(){
+  const input=document.getElementById('ia-input').value.trim();
+  if(!input){alert('Descreva o que comeu.');return;}
+  const status=document.getElementById('ia-status');
+  status.textContent='Analisando...';
+  document.querySelector('.ia-btn').disabled=true;
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        messages:[{role:'user',content:`Analise o que foi consumido e retorne APENAS um JSON válido, sem texto adicional, sem markdown, no formato:
+{"nome":"nome da refeição (ex: Café da manhã)","alimentos":[{"desc":"descrição do alimento","kcal":numero,"prot":numero}]}
+
+Refeição descrita: "${input}"
+
+Regras:
+- kcal e prot devem ser números inteiros
+- desc deve ser clara e concisa
+- nome deve ser o tipo de refeição (Café da manhã, Almoço, Lanche, Jantar, Pré-sono)
+- Retorne APENAS o JSON, sem nenhum texto antes ou depois`}]}),
+    });
+    const data=await resp.json();
+    const text=data.content[0].text.trim();
+    const parsed=JSON.parse(text);
+    const nk=calDayKey();
+    if(!DB.nutri[nk])DB.nutri[nk]={refeicoes:[]};
+    DB.nutri[nk].refeicoes.push(parsed);
+    saveDB();
+    document.getElementById('ia-input').value='';
+    status.textContent='Registrado com sucesso!';
+    setTimeout(()=>status.textContent='',2000);
+    renderCalorias();
+  }catch(e){
+    status.textContent='Erro ao processar. Tente novamente.';
+    console.error(e);
+  }
+  document.querySelector('.ia-btn').disabled=false;
+}
+
+// CALENDÁRIO HISTÓRICO
 const MONTHS=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const WDAYS=['D','S','T','Q','Q','S','S'];
 let curY=new Date().getFullYear(),curM=new Date().getMonth();
-let editKey=null,selYoga=null,selForca=null,walks=[];
-let nutriDay=new Date();
-
-function saveDB(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){}}
-function dk(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
-function todayDK(){return dk(new Date());}
-function walkMin(rec){return((rec&&rec.walks)||[]).reduce((s,w)=>s+(+w.tempo||0),0);}
-
-const ALL_TABS=['semana','academia','casa','corrida','nutri','historico'];
-function switchTab(t){ALL_TABS.forEach(id=>{document.getElementById(id).classList.toggle('active',id===t);});document.querySelectorAll('.tab-item').forEach(el=>el.classList.remove('active'));event&&event.currentTarget&&event.currentTarget.classList.add('active');if(t==='historico')renderCal();if(t==='nutri')renderNutri();if(t==='bio')renderBio();}
-
-function switchCirc(p,k){const sec=p==='ac'?'academia':'casa';document.querySelectorAll(`#${sec} .circ-btn`).forEach((b,i)=>b.classList.toggle('active',i===(k==='a'||k==='1'?0:1)));document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>el.classList.remove('active'));document.getElementById(`${p}-${k}`).classList.add('active');}
 
 function changeMonth(d){curM+=d;if(curM>11){curM=0;curY++;}if(curM<0){curM=11;curY--;}renderCal();}
 
@@ -416,45 +570,164 @@ function renderCal(){
   const today=new Date();today.setHours(0,0,0,0);
   const firstDow=new Date(curY,curM,1).getDay();
   const daysInM=new Date(curY,curM+1,0).getDate();
-  let mWD=0,mWM=0;
-  let cells=[];for(let i=0;i<firstDow;i++)cells.push(null);for(let d=1;d<=daysInM;d++)cells.push(d);while(cells.length%7!==0)cells.push(null);
-  for(let r=0;r<cells.length/7;r++){const tr=document.createElement('tr');for(let c=0;c<7;c++){const td=document.createElement('td');td.className='cal-cell';const day=cells[r*7+c];if(day!==null){const date=new Date(curY,curM,day);const key=dk(date);const rec=DB.days[key]||{};const min=walkMin(rec);const isFuture=date>today;const isToday=key===todayDK();const done=min>0;const partial=!done&&(rec.yoga||rec.forca);if(done){mWD++;mWM+=min;}const btn=document.createElement('button');btn.className='cal-btn'+(done?' done':partial?' partial':'')+(isToday?' today':'');if(isFuture)btn.disabled=true;else btn.onclick=()=>openModal(key);const numEl=document.createElement('div');numEl.className='cal-num';numEl.textContent=day;btn.appendChild(numEl);const dots=document.createElement('div');dots.className='cal-dots';if(rec.yoga===true){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--am)';dots.appendChild(d2);}if(rec.forca&&rec.forca!=='N'){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--azul)';dots.appendChild(d2);}btn.appendChild(dots);td.appendChild(btn);}tr.appendChild(td);}body.appendChild(tr);}
-  document.getElementById('month-total').textContent=`${MONTHS[curM]}: ${mWD} dias · ${mWM} min de caminhada`;
-  document.getElementById('prog-fill').style.width=Math.min(100,Math.round(mWD/daysInM*100))+'%';
-  let streak=0;for(let i=0;i<180;i++){const d=new Date(today);d.setDate(today.getDate()-i);if(walkMin(DB.days[dk(d)])>0)streak++;else break;}
-  const allD=Object.values(DB.days).filter(r=>walkMin(r)>0).length;
-  const totMin=Object.values(DB.days).reduce((s,r)=>s+walkMin(r),0);
-  document.getElementById('s1').textContent=streak;document.getElementById('s2').textContent=allD;document.getElementById('s3').textContent=totMin;
+  let cells=[];
+  for(let i=0;i<firstDow;i++)cells.push(null);
+  for(let d=1;d<=daysInM;d++)cells.push(d);
+  while(cells.length%7!==0)cells.push(null);
+  let diasAtivos=0;
+  for(let r=0;r<cells.length/7;r++){
+    const tr=document.createElement('tr');
+    for(let c=0;c<7;c++){
+      const td=document.createElement('td');td.className='cal-cell';
+      const day=cells[r*7+c];
+      if(day!==null){
+        const date=new Date(curY,curM,day);
+        const key=dk(date);
+        const isFuture=date>today;
+        const isToday=key===todayDK();
+        const energiaRec=DB.energia[key];
+        const nutriRec=DB.nutri[key];
+        const bioRec=DB.bio.find(b=>b.date===date.toLocaleDateString('pt-BR'));
+        const hasEnergia=!!energiaRec;
+        const hasTreino=energiaRec&&energiaRec.treinos&&energiaRec.treinos.length>0;
+        const hasNutri=nutriRec&&nutriRec.refeicoes&&nutriRec.refeicoes.length>0;
+        const hasBio=!!bioRec;
+        if(hasEnergia)diasAtivos++;
+        const btn=document.createElement('button');
+        btn.className='cal-btn'+(hasEnergia?' has-data':'')+(isToday?' today':'');
+        if(isFuture)btn.disabled=true;
+        else btn.onclick=()=>openDiaModal(key,date);
+        const numEl=document.createElement('div');numEl.className='cal-num';numEl.textContent=day;btn.appendChild(numEl);
+        const dots=document.createElement('div');dots.className='cal-dots';
+        if(hasEnergia){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--v3)';dots.appendChild(d2);}
+        if(hasTreino){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--azul)';dots.appendChild(d2);}
+        if(hasNutri){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--am)';dots.appendChild(d2);}
+        if(hasBio){const d2=document.createElement('div');d2.className='cal-dot';d2.style.background='var(--lj)';dots.appendChild(d2);}
+        btn.appendChild(dots);td.appendChild(btn);
+      }
+      tr.appendChild(td);
+    }
+    body.appendChild(tr);
+  }
+  document.getElementById('month-total').textContent=`${MONTHS[curM]}: ${diasAtivos} dias com energia registrada`;
+  renderBio();
 }
 
-function openModal(key){editKey=key||todayDK();const rec=DB.days[editKey]||{};const parts=editKey.split('-');const d=new Date(+parts[0],+parts[1]-1,+parts[2]);document.getElementById('modal-title').textContent='Registrar — '+d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});walks=rec.walks&&rec.walks.length?JSON.parse(JSON.stringify(rec.walks)):[{tempo:'',vel:''}];selYoga=rec.yoga??null;selForca=rec.forca??null;renderWalks();updateToggles();document.getElementById('modal-bg').classList.add('open');}
-function closeModal(){document.getElementById('modal-bg').classList.remove('open');editKey=null;selYoga=null;selForca=null;walks=[];}
-function bgClick(e){if(e.target===document.getElementById('modal-bg'))closeModal();}
-function renderWalks(){const c=document.getElementById('walk-entries');c.innerHTML='';walks.forEach((w,i)=>{const div=document.createElement('div');div.className='walk-entry';div.innerHTML=`<div><div class="walk-label">Tempo (min)</div><input class="walk-input" type="number" min="0" max="300" placeholder="ex: 30" value="${w.tempo||''}" oninput="walks[${i}].tempo=this.value;updSum()"></div><div><div class="walk-label">Velocidade (km/h)</div><input class="walk-input" type="number" min="0" max="20" step="0.1" placeholder="ex: 6.0" value="${w.vel||''}" oninput="walks[${i}].vel=this.value;updSum()"></div>${walks.length>1?`<button class="rm-btn" onclick="rmWalk(${i})">×</button>`:'<div></div>'}`;c.appendChild(div);});updSum();}
-function addWalkEntry(){walks.push({tempo:'',vel:''});renderWalks();}
-function rmWalk(i){walks.splice(i,1);renderWalks();}
-function updSum(){const total=walks.reduce((s,w)=>s+(+w.tempo||0),0);const el=document.getElementById('walk-summary');if(total>0){const pts=walks.filter(w=>+w.tempo>0).map((w,i)=>`${i+1}ª: ${w.tempo}min${w.vel?` a ${w.vel}km/h`:''}`);el.textContent=`Total: ${total} min — ${pts.join(' · ')}`;}else el.textContent='';}
-function tog(type,v){if(type==='yoga')selYoga=selYoga===v?null:v;else selForca=selForca===v?null:v;updateToggles();}
-function updateToggles(){document.getElementById('yoga-sim').classList.toggle('on',selYoga===true);document.getElementById('yoga-nao').classList.toggle('on',selYoga===false);['A','B','C1','C2','N'].forEach(k=>document.getElementById('f-'+k).classList.toggle('on',selForca===k));}
-function saveDay(){const w=walks.filter(x=>+x.tempo>0||+x.vel>0);DB.days[editKey]={walks:w,yoga:selYoga,forca:selForca};saveDB();closeModal();renderCal();}
+function openDiaModal(key,date){
+  const energiaRec=DB.energia[key]||{};
+  const nutriRec=DB.nutri[key]||{refeicoes:[]};
+  const bioRec=DB.bio.find(b=>b.date===date.toLocaleDateString('pt-BR'));
+  let totKcal=0,totProt=0;
+  (nutriRec.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
+  const gasto=energiaRec.gasto||0;
+  const deficit=gasto-Math.round(totKcal);
+  const nivelLabels={sedentario:'Muito sentada',leve:'Pouco ativa',moderado:'Moderada',ativo:'Muito ativa'};
+  const treinoLabels={academia_a:'Academia A',academia_b:'Academia B',casa_1:'Casa 1',casa_2:'Casa 2',yoga:'Yoga',corrida:'Corrida/Esteira'};
+  const treinosFeitos=(energiaRec.treinos||[]).map(t=>treinoLabels[t]||t).join(', ')||'—';
+  let html=`
+    <div class="modal-header">
+      <div class="modal-title">${date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</div>
+      <button class="modal-close" onclick="closeDiaModal()">×</button>
+    </div>`;
 
-function renderBio(){const list=DB.bio;const last=list[list.length-1];document.getElementById('bio-last-date').textContent=last?`Registrado em ${last.date}`:'Nenhum registro ainda';const statsEl=document.getElementById('bio-stats');statsEl.innerHTML='';if(last){const stats=[{label:'Peso',val:last.peso,unit:'kg',good:true},{label:'Gordura',val:last.gord,unit:'%',good:last.gord<32},{label:'Massa muscular',val:last.musc,unit:'%',good:last.musc>33},{label:'Gordura visceral',val:last.visc,unit:'',good:last.visc<9},{label:'Água',val:last.agua,unit:'%',good:true},{label:'Ossos',val:last.osso,unit:'kg',good:true}];stats.forEach(s=>{const div=document.createElement('div');div.className='bio-stat';div.innerHTML=`<div class="bio-stat-label">${s.label}</div><div class="bio-stat-val">${s.val||'—'}${s.unit?`<span class="bio-stat-unit"> ${s.unit}</span>`:''}</div><div class="bio-stat-badge" style="background:${s.good?'var(--v5)':'var(--verm-cl)'};color:${s.good?'var(--v1)':'var(--verm)'}">${s.good?'Bom':'Atenção'}</div>`;statsEl.appendChild(div);});}const histEl=document.getElementById('bio-hist-list');if(list.length===0){histEl.innerHTML='<div style="font-size:12px;color:#888;text-align:center;padding:10px">Nenhum registro ainda</div>';return;}histEl.innerHTML='';[...list].reverse().forEach(entry=>{const row=document.createElement('div');row.className='bio-hist-row';row.innerHTML=`<div class="bio-hist-date">${entry.date}</div><div class="bio-hist-vals"><span class="bio-chip">${entry.peso}kg</span><span class="bio-chip">${entry.gord}% gord</span><span class="bio-chip">${entry.musc}% musc</span></div>`;histEl.appendChild(row);});}
-function saveBio(){const peso=document.getElementById('b-peso').value;const gord=document.getElementById('b-gord').value;const musc=document.getElementById('b-musc').value;const visc=document.getElementById('b-visc').value;const agua=document.getElementById('b-agua').value;const osso=document.getElementById('b-osso').value;if(!peso&&!gord){alert('Preencha pelo menos peso e gordura.');return;}DB.bio.push({date:new Date().toLocaleDateString('pt-BR'),peso,gord,musc,visc,agua,osso});saveDB();['b-peso','b-gord','b-musc','b-visc','b-agua','b-osso'].forEach(id=>document.getElementById(id).value='');renderBio();}
+  if(gasto>0||totKcal>0){
+    html+=`<div class="dia-section"><div class="dia-section-title">Energia</div>`;
+    html+=`<div class="dia-stat-grid">
+      <div class="dia-stat"><div class="dia-stat-label">Passos</div><div class="dia-stat-val">${energiaRec.passos||'—'}</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Nível de atividade</div><div class="dia-stat-val" style="font-size:13px">${nivelLabels[energiaRec.nivel]||'—'}</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Gasto estimado</div><div class="dia-stat-val">${gasto||'—'} kcal</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Treinos</div><div class="dia-stat-val" style="font-size:11px">${treinosFeitos}</div></div>
+    </div>`;
+    if(gasto>0&&totKcal>0){
+      const deficitOk=deficit>=0;
+      html+=`<div class="dia-deficit" style="background:${deficitOk?'var(--v6)':'var(--verm-cl)'}">
+        <div style="font-size:11px;color:#888;margin-bottom:4px">${deficitOk?'Déficit calórico':'Superávit calórico'}</div>
+        <div style="font-size:24px;font-weight:700;color:${deficitOk?'var(--v2)':'var(--verm)'}">${deficitOk?'+':''}${deficit} kcal</div>
+      </div>`;
+    }
+    html+=`</div>`;
+  }
 
-let alimRefKey=null;
-function changeNutriDay(d){nutriDay=new Date(nutriDay);nutriDay.setDate(nutriDay.getDate()+d);if(nutriDay>new Date())nutriDay=new Date();renderNutri();}
-function nutriKey(){return dk(nutriDay);}
-function renderNutri(){const nk=nutriKey();const data=DB.nutri[nk]||{refeicoes:[]};document.getElementById('nutri-date-label').textContent=nutriDay.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});let totKcal=0,totProt=0;data.refeicoes.forEach(r=>{(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);});});document.getElementById('tot-kcal').textContent=Math.round(totKcal);document.getElementById('tot-prot').textContent=Math.round(totProt)+'g';document.getElementById('tot-ref').textContent=data.refeicoes.length;document.getElementById('kcal-bar').style.width=Math.min(100,Math.round(totKcal/1250*100))+'%';document.getElementById('prot-bar').style.width=Math.min(100,Math.round(totProt/80*100))+'%';const cont=document.getElementById('refeicoes-container');cont.innerHTML='';(data.refeicoes||[]).forEach((ref,ri)=>{let rKcal=0,rProt=0;(ref.alimentos||[]).forEach(a=>{rKcal+=(+a.kcal||0);rProt+=(+a.prot||0);});const div=document.createElement('div');div.className='refeicao-row';div.innerHTML=`<div class="refeicao-header"><div class="refeicao-nome">${ref.nome}</div><div class="refeicao-totals">${Math.round(rKcal)} kcal · ${Math.round(rProt)}g prot</div></div>${(ref.alimentos||[]).map((a,ai)=>`<div class="alimento-row"><div class="alimento-desc">${a.desc}</div><div class="alimento-vals">${a.kcal} kcal · ${a.prot}g</div><button class="rm-alimento" onclick="removeAlimento(${ri},${ai})">×</button></div>`).join('')}<button class="add-alimento-btn" onclick="openAlimModal(${ri})">+ Adicionar alimento</button>`;cont.appendChild(div);});}
-function addRefeicao(){const nk=nutriKey();if(!DB.nutri[nk])DB.nutri[nk]={refeicoes:[]};const nomes=['Café da manhã','Almoço','Lanche','Jantar','Pré-sono','Outro'];const idx=DB.nutri[nk].refeicoes.length;DB.nutri[nk].refeicoes.push({nome:nomes[idx]||`Refeição ${idx+1}`,alimentos:[]});saveDB();renderNutri();}
-function removeAlimento(ri,ai){const nk=nutriKey();DB.nutri[nk].refeicoes[ri].alimentos.splice(ai,1);saveDB();renderNutri();}
-function openAlimModal(ri){alimRefKey=ri;document.getElementById('alim-desc').value='';document.getElementById('alim-kcal').value='';document.getElementById('alim-prot').value='';document.getElementById('alim-modal-bg').classList.add('open');}
-function closeAlimModal(){document.getElementById('alim-modal-bg').classList.remove('open');alimRefKey=null;}
-function bgClickAlim(e){if(e.target===document.getElementById('alim-modal-bg'))closeAlimModal();}
-function saveAlimento(){const desc=document.getElementById('alim-desc').value.trim();const kcal=document.getElementById('alim-kcal').value;const prot=document.getElementById('alim-prot').value;if(!desc){alert('Descreva o alimento.');return;}const nk=nutriKey();DB.nutri[nk].refeicoes[alimRefKey].alimentos.push({desc,kcal:+kcal||0,prot:+prot||0});saveDB();closeAlimModal();renderNutri();}
+  if(totKcal>0){
+    html+=`<div class="dia-section"><div class="dia-section-title">Nutrição</div>
+      <div class="dia-stat-grid">
+        <div class="dia-stat"><div class="dia-stat-label">Calorias</div><div class="dia-stat-val" style="color:var(--verm)">${Math.round(totKcal)} kcal</div></div>
+        <div class="dia-stat"><div class="dia-stat-label">Proteína</div><div class="dia-stat-val" style="color:var(--v2)">${Math.round(totProt)}g</div></div>
+      </div>`;
+    (nutriRec.refeicoes||[]).forEach(ref=>{
+      if(ref.alimentos&&ref.alimentos.length>0){
+        html+=`<div style="font-size:12px;font-weight:600;color:var(--v1);margin:8px 0 4px">${ref.nome}</div>`;
+        ref.alimentos.forEach(a=>{html+=`<div class="alim-item">${a.desc} — ${a.kcal} kcal · ${a.prot}g prot</div>`;});
+      }
+    });
+    html+=`</div>`;
+  }
 
-document.querySelectorAll('.tab-item').forEach((btn,i)=>{btn.addEventListener('click',function(){document.querySelectorAll('.tab-item').forEach(b=>b.classList.remove('active'));this.classList.add('active');});});
+  if(bioRec){
+    html+=`<div class="dia-section"><div class="dia-section-title">Bioimpedância</div>
+      <div class="dia-stat-grid">
+        <div class="dia-stat"><div class="dia-stat-label">Peso</div><div class="dia-stat-val">${bioRec.peso} kg</div></div>
+        <div class="dia-stat"><div class="dia-stat-label">Gordura</div><div class="dia-stat-val">${bioRec.gord}%</div></div>
+        <div class="dia-stat"><div class="dia-stat-label">Massa muscular</div><div class="dia-stat-val">${bioRec.musc}%</div></div>
+        <div class="dia-stat"><div class="dia-stat-label">Gordura visceral</div><div class="dia-stat-val">${bioRec.visc}</div></div>
+      </div>
+    </div>`;
+  }
 
-renderCal();renderNutri();renderBio();
+  if(!gasto&&!totKcal&&!bioRec){
+    html+=`<div style="text-align:center;padding:2rem;color:#aaa;font-size:13px">Nenhum dado registrado para este dia</div>`;
+  }
+
+  document.getElementById('dia-modal-content').innerHTML=html;
+  document.getElementById('dia-modal').classList.add('open');
+}
+
+function closeDiaModal(e){if(!e||e.target===document.getElementById('dia-modal'))document.getElementById('dia-modal').classList.remove('open');}
+
+// BIOIMPEDÂNCIA
+function renderBio(){
+  const list=DB.bio;
+  const last=list[list.length-1];
+  document.getElementById('bio-last-date').textContent=last?`Último registro: ${last.date}`:'Nenhum registro ainda';
+  const statsEl=document.getElementById('bio-last-stats');
+  statsEl.innerHTML='';
+  if(last){
+    [{label:'Peso',val:last.peso,unit:'kg'},{label:'Gordura',val:last.gord,unit:'%'},{label:'Massa muscular',val:last.musc,unit:'%'},{label:'Gordura visceral',val:last.visc,unit:''},{label:'Água',val:last.agua,unit:'%'},{label:'Ossos',val:last.osso,unit:'kg'}].forEach(s=>{
+      const div=document.createElement('div');div.className='dia-stat';
+      div.innerHTML=`<div class="dia-stat-label">${s.label}</div><div class="dia-stat-val">${s.val||'—'}${s.unit?` ${s.unit}`:''}</div>`;
+      statsEl.appendChild(div);
+    });
+  }
+  const histEl=document.getElementById('bio-hist-list');
+  if(list.length===0){histEl.innerHTML='<div style="font-size:12px;color:#888;text-align:center;padding:10px">Nenhum registro ainda</div>';return;}
+  histEl.innerHTML='';
+  [...list].reverse().slice(0,10).forEach(entry=>{
+    const row=document.createElement('div');row.style.cssText='padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:12px;';
+    row.innerHTML=`<div style="font-weight:600;color:var(--v1);margin-bottom:4px">${entry.date}</div><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.peso}kg</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.gord}% gord</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.musc}% musc</span><span style="background:var(--lj-cl);color:var(--lj);padding:2px 8px;border-radius:12px;font-size:11px">visc ${entry.visc}</span></div>`;
+    histEl.appendChild(row);
+  });
+}
+
+function saveBio(){
+  const peso=document.getElementById('b-peso').value;
+  const gord=document.getElementById('b-gord').value;
+  const musc=document.getElementById('b-musc').value;
+  const visc=document.getElementById('b-visc').value;
+  const agua=document.getElementById('b-agua').value;
+  const osso=document.getElementById('b-osso').value;
+  if(!peso&&!gord){alert('Preencha pelo menos peso e gordura.');return;}
+  DB.bio.push({date:new Date().toLocaleDateString('pt-BR'),peso,gord,musc,visc,agua,osso});
+  saveDB();
+  ['b-peso','b-gord','b-musc','b-visc','b-agua','b-osso'].forEach(id=>document.getElementById(id).value='');
+  renderBio();
+  renderCal();
+  alert('Bioimpedância salva!');
+}
+
+// INIT
+initEnergia();
+renderCalorias();
+renderCal();
 </script>
 </body>
 </html>
