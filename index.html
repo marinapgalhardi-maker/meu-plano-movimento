@@ -30,8 +30,6 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .badge-azul{background:var(--azul-cl);color:var(--azul);}
 .badge-am{background:var(--am-cl);color:var(--am);}
 .badge-gray{background:#eee;color:#888;}
-.badge-verde{background:var(--v5);color:var(--v1);}
-.badge-lj{background:var(--lj-cl);color:var(--lj);}
 .circ-selector{display:flex;gap:8px;margin-bottom:1rem;}
 .circ-btn{flex:1;padding:8px;border:1px solid var(--v4);border-radius:8px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;text-align:center;font-family:inherit;}
 .circ-btn.active{background:var(--v3);color:#fff;border-color:var(--v3);}
@@ -88,37 +86,31 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .treino-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
 .treino-check{padding:8px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:12px;color:#555;cursor:pointer;text-align:center;font-family:inherit;}
 .treino-check.active{border-color:var(--azul);background:var(--azul-cl);color:var(--azul);font-weight:600;}
-.deficit-box{border-radius:10px;padding:12px;text-align:center;margin-bottom:0.75rem;}
+.deficit-box{border-radius:10px;padding:16px;text-align:center;margin-bottom:0.75rem;}
 .deficit-label{font-size:12px;margin-bottom:4px;}
-.deficit-val{font-size:28px;font-weight:700;}
+.deficit-val{font-size:32px;font-weight:700;}
 .deficit-sub{font-size:11px;margin-top:4px;opacity:0.8;}
 .stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--v5);}
 .stat-row:last-child{border-bottom:none;}
 .stat-label{font-size:13px;color:#555;}
 .stat-val{font-size:13px;font-weight:600;color:var(--v1);}
-/* CALORIAS IA */
-.ia-input-area{width:100%;padding:10px;border:1px solid var(--v4);border-radius:8px;font-size:13px;font-family:inherit;resize:none;background:var(--v6);min-height:80px;}
-.ia-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;margin-top:8px;}
-.ia-loading{text-align:center;padding:16px;color:#888;font-size:13px;font-style:italic;}
-.refeicao-card{background:var(--v7);border:1px solid var(--v5);border-radius:10px;padding:12px;margin-bottom:8px;}
-.refeicao-titulo{font-size:13px;font-weight:600;color:var(--v1);margin-bottom:6px;}
-.refeicao-totals{font-size:11px;color:#888;margin-bottom:8px;}
-.alim-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;}
-.alim-row:last-child{border-bottom:none;}
-.alim-desc{font-size:12px;color:#444;flex:1;}
-.alim-vals{font-size:11px;color:#888;margin-left:8px;white-space:nowrap;}
-.rm-btn-sm{background:none;border:none;color:#ddd;font-size:14px;cursor:pointer;padding:0 4px;margin-left:4px;}
-.totais-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
-.tot-card{background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:10px;text-align:center;}
-.tot-label{font-size:10px;color:#888;margin-bottom:2px;}
-.tot-val{font-size:18px;font-weight:600;}
-.tot-meta{font-size:10px;color:#888;margin-top:2px;}
-.prog-bar{height:6px;background:var(--v5);border-radius:3px;overflow:hidden;margin-top:4px;}
-.prog-fill{height:100%;border-radius:3px;transition:width 0.3s;}
-.prog-label{font-size:11px;color:#888;margin-bottom:2px;}
-/* HISTORICO */
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+/* CALORIAS SIMPLIFICADO */
+.cal-date-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
 .cal-nav-btn{background:var(--v6);border:1px solid var(--v4);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:18px;color:var(--v2);display:flex;align-items:center;justify-content:center;font-family:inherit;}
+.totais-big{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;}
+.tot-big{background:var(--v6);border:1px solid var(--v5);border-radius:12px;padding:16px;text-align:center;}
+.tot-big-label{font-size:11px;color:#888;margin-bottom:6px;}
+.tot-big-val{font-size:28px;font-weight:700;}
+.tot-big-meta{font-size:11px;color:#888;margin-top:4px;}
+.prog-bar{height:8px;background:#e0e0e0;border-radius:4px;overflow:hidden;margin-top:6px;}
+.prog-fill{height:100%;border-radius:4px;transition:width 0.3s;}
+.dica-box{background:var(--v6);border:1px solid var(--v5);border-radius:8px;padding:10px 12px;margin-bottom:0.75rem;}
+.dica-text{font-size:12px;color:#555;line-height:1.6;}
+.campo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;}
+.campo-label{font-size:12px;color:var(--v2);font-weight:500;margin-bottom:5px;display:block;}
+.save-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;}
+/* HISTÓRICO */
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .cal-month{font-size:15px;font-weight:600;color:var(--v1);}
 .legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#666;}
@@ -134,7 +126,9 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .cal-btn.has-data{background:var(--v6);}
 .cal-dots{display:flex;gap:2px;justify-content:center;min-height:6px;}
 .cal-dot{width:5px;height:5px;border-radius:50%;}
-/* MODAL DIA */
+.month-total{font-size:12px;color:#666;text-align:center;margin-top:8px;}
+.bio-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
+/* MODAL */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:flex-end;justify-content:center;}
 .modal-bg.open{display:flex;}
 .modal{background:#fff;border-radius:16px 16px 0 0;padding:1.25rem;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;}
@@ -146,18 +140,10 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .dia-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
 .dia-stat{background:var(--v6);border-radius:8px;padding:8px;text-align:center;}
 .dia-stat-label{font-size:10px;color:#888;margin-bottom:2px;}
-.dia-stat-val{font-size:16px;font-weight:600;color:var(--v1);}
-.dia-deficit{border-radius:8px;padding:10px;text-align:center;margin-bottom:8px;}
-.alim-item{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:12px;color:#444;}
-.alim-item:last-child{border-bottom:none;}
-.bio-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.75rem;}
-.save-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;}
-input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(--v4);border-radius:8px;font-size:13px;background:var(--v6);font-family:inherit;}
+.dia-stat-val{font-size:15px;font-weight:600;color:var(--v1);}
+.dia-deficit{border-radius:8px;padding:12px;text-align:center;margin-bottom:8px;}
+input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-radius:8px;font-size:15px;background:var(--v6);font-family:inherit;text-align:center;}
 .field-label{font-size:12px;color:var(--v2);margin-bottom:4px;display:block;font-weight:500;}
-.add-btn{width:100%;padding:11px;background:var(--v3);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;margin-top:4px;}
-.toggle-group{display:flex;gap:6px;flex-wrap:wrap;}
-.toggle-btn{padding:6px 10px;border:1px solid var(--v4);border-radius:20px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;font-family:inherit;}
-.toggle-btn.on{background:var(--v3);color:#fff;border-color:var(--v3);}
 </style>
 </head>
 <body>
@@ -173,7 +159,7 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
       <div class="card-title" id="energia-date"></div>
       <div class="deficit-box" id="deficit-box" style="background:var(--v6)">
         <div class="deficit-label" style="color:#888">Déficit do dia</div>
-        <div class="deficit-val" id="deficit-val" style="color:var(--v2)">— kcal</div>
+        <div class="deficit-val" id="deficit-val" style="color:var(--v2)">—</div>
         <div class="deficit-sub" id="deficit-sub" style="color:#888">registre os dados abaixo</div>
       </div>
       <div class="stat-row"><span class="stat-label">Gasto estimado</span><span class="stat-val" id="gasto-val">— kcal</span></div>
@@ -184,7 +170,7 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
     <div class="card">
       <div class="card-title">Passos hoje</div>
       <input type="number" id="passos-input" placeholder="ex: 8500" style="margin-bottom:8px" oninput="calcGasto()">
-      <div style="font-size:11px;color:#888">Se não souber, deixa em branco — use o nível de atividade abaixo</div>
+      <div style="font-size:11px;color:#888">Se não souber, use só o nível de atividade abaixo</div>
     </div>
 
     <div class="card">
@@ -205,15 +191,15 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
         <button class="treino-check" onclick="toggleTreino('casa_1')">Casa 1</button>
         <button class="treino-check" onclick="toggleTreino('casa_2')">Casa 2</button>
         <button class="treino-check" onclick="toggleTreino('yoga')">Yoga</button>
-        <button class="treino-check" onclick="toggleTreino('corrida')">Corrida/Esteira</button>
+        <button class="treino-check" onclick="toggleTreino('esteira')">Esteira/Corrida</button>
       </div>
-      <div style="margin-top:8px;">
-        <label class="field-label">Minutos de esteira/corrida (se fez)</label>
+      <div style="margin-top:10px;">
+        <label class="field-label">Minutos de esteira ou corrida</label>
         <input type="number" id="min-esteira" placeholder="ex: 30" oninput="calcGasto()">
       </div>
     </div>
 
-    <button class="add-btn" onclick="saveEnergia()">Salvar dia</button>
+    <button class="save-btn" onclick="saveEnergia()" style="margin-bottom:0.75rem">Salvar dia</button>
   </div>
 
   <!-- ACADEMIA -->
@@ -263,28 +249,49 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
     <div id="fases-corrida"></div>
   </div>
 
-  <!-- CALORIAS IA -->
+  <!-- CALORIAS SIMPLIFICADO -->
   <div id="calorias" class="section">
     <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div class="cal-date-nav">
         <span style="font-size:13px;font-weight:600;color:var(--v1)" id="cal-date-label"></span>
-        <div style="display:flex;gap:6px;"><button class="cal-nav-btn" onclick="changeCalDay(-1)">‹</button><button class="cal-nav-btn" onclick="changeCalDay(1)">›</button></div>
+        <div style="display:flex;gap:6px;">
+          <button class="cal-nav-btn" onclick="changeCalDay(-1)">‹</button>
+          <button class="cal-nav-btn" onclick="changeCalDay(1)">›</button>
+        </div>
       </div>
-      <div class="totais-bar">
-        <div class="tot-card"><div class="tot-label">Calorias</div><div class="tot-val" id="tot-kcal" style="color:var(--verm)">0</div><div class="tot-meta">meta ~1.250</div><div class="prog-bar"><div class="prog-fill" id="kcal-bar" style="width:0%;background:var(--verm)"></div></div></div>
-        <div class="tot-card"><div class="tot-label">Proteína</div><div class="tot-val" id="tot-prot" style="color:var(--v2)">0g</div><div class="tot-meta">meta ~80g</div><div class="prog-bar"><div class="prog-fill" id="prot-bar" style="width:0%;background:var(--v3)"></div></div></div>
+      <div class="totais-big">
+        <div class="tot-big">
+          <div class="tot-big-label">Calorias consumidas</div>
+          <div class="tot-big-val" id="show-kcal" style="color:var(--verm)">—</div>
+          <div class="tot-big-meta">meta ~1.250 kcal</div>
+          <div class="prog-bar"><div class="prog-fill" id="kcal-bar" style="width:0%;background:var(--verm)"></div></div>
+        </div>
+        <div class="tot-big">
+          <div class="tot-big-label">Proteína</div>
+          <div class="tot-big-val" id="show-prot" style="color:var(--v2)">—</div>
+          <div class="tot-big-meta">meta ~80g</div>
+          <div class="prog-bar"><div class="prog-fill" id="prot-bar" style="width:0%;background:var(--v3)"></div></div>
+        </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Registrar com IA</div>
-      <div style="font-size:12px;color:#666;margin-bottom:8px">Descreva o que comeu — a IA estima as calorias e proteína automaticamente</div>
-      <textarea class="ia-input-area" id="ia-input" placeholder="ex: café da manhã — 2 ovos mexidos, tapioca com queijo e café sem açúcar"></textarea>
-      <button class="ia-btn" onclick="registrarComIA()">✨ Registrar com IA</button>
-      <div id="ia-status" style="font-size:12px;color:#888;margin-top:6px;text-align:center"></div>
+      <div class="card-title">Registrar total do dia</div>
+      <div class="dica-box" style="margin-bottom:1rem">
+        <div class="dica-text">Me conta aqui no chat o que comeu durante o dia e eu calculo o total de calorias e proteína para você registrar abaixo.</div>
+      </div>
+      <div class="campo-grid">
+        <div>
+          <label class="campo-label">Calorias totais (kcal)</label>
+          <input type="number" id="input-kcal" placeholder="ex: 1280">
+        </div>
+        <div>
+          <label class="campo-label">Proteína total (g)</label>
+          <input type="number" id="input-prot" placeholder="ex: 72">
+        </div>
+      </div>
+      <button class="save-btn" onclick="saveCalorias()">Salvar</button>
     </div>
-
-    <div id="refeicoes-lista"></div>
   </div>
 
   <!-- HISTÓRICO -->
@@ -296,38 +303,35 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
         <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
       </div>
       <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--v3)"></div>Energia registrada</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--v3)"></div>Energia</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--azul)"></div>Treino</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--am)"></div>Calorias</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--lj)"></div>Bioimpedância</div>
       </div>
       <table class="cal-table"><thead><tr id="cal-head"></tr></thead><tbody id="cal-body"></tbody></table>
-      <div class="month-total" id="month-total" style="font-size:12px;color:#666;text-align:center;margin-top:8px;"></div>
+      <div class="month-total" id="month-total"></div>
     </div>
 
-    <!-- Bioimpedância no histórico -->
     <div class="card">
       <div class="card-title">Bioimpedância</div>
       <div style="font-size:11px;color:#888;margin-bottom:10px" id="bio-last-date">Nenhum registro ainda</div>
       <div class="bio-form-grid" id="bio-last-stats"></div>
       <div style="font-size:13px;font-weight:600;color:var(--v1);margin:12px 0 8px">Novo registro</div>
       <div class="bio-form-grid">
-        <div><label class="field-label" style="margin-bottom:3px">Peso (kg)</label><input type="number" id="b-peso" step="0.1" placeholder="56.5"></div>
-        <div><label class="field-label" style="margin-bottom:3px">Gordura (%)</label><input type="number" id="b-gord" step="0.1" placeholder="33.6"></div>
-        <div><label class="field-label" style="margin-bottom:3px">Massa muscular (%)</label><input type="number" id="b-musc" step="0.1" placeholder="35.3"></div>
-        <div><label class="field-label" style="margin-bottom:3px">Gordura visceral</label><input type="number" id="b-visc" step="0.1" placeholder="5.5"></div>
-        <div><label class="field-label" style="margin-bottom:3px">Água (%)</label><input type="number" id="b-agua" step="0.1" placeholder="49.0"></div>
-        <div><label class="field-label" style="margin-bottom:3px">Massa óssea (kg)</label><input type="number" id="b-osso" step="0.01" placeholder="2.73"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Peso (kg)</label><input type="number" id="b-peso" step="0.1" placeholder="56.5"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Gordura (%)</label><input type="number" id="b-gord" step="0.1" placeholder="33.6"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Massa muscular (%)</label><input type="number" id="b-musc" step="0.1" placeholder="35.3"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Gordura visceral</label><input type="number" id="b-visc" step="0.1" placeholder="5.5"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Água (%)</label><input type="number" id="b-agua" step="0.1" placeholder="49.0"></div>
+        <div><label class="campo-label" style="margin-bottom:3px">Massa óssea (kg)</label><input type="number" id="b-osso" step="0.01" placeholder="2.73"></div>
       </div>
       <button class="save-btn" onclick="saveBio()">Salvar medição</button>
-
-      <div style="font-size:13px;font-weight:600;color:var(--v1);margin:16px 0 8px">Histórico de medições</div>
+      <div style="font-size:13px;font-weight:600;color:var(--v1);margin:16px 0 8px">Histórico</div>
       <div id="bio-hist-list"><div style="font-size:12px;color:#888;text-align:center;padding:10px">Nenhum registro ainda</div></div>
     </div>
   </div>
 </div>
 
-<!-- BARRA DE NAVEGAÇÃO -->
 <nav class="tab-bar">
   <button class="tab-item active" onclick="switchTab('energia',this)"><span class="tab-icon">⚡</span><span class="tab-label">Energia</span></button>
   <button class="tab-item" onclick="switchTab('academia',this)"><span class="tab-icon">🏋️</span><span class="tab-label">Academia</span></button>
@@ -337,24 +341,21 @@ input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(
   <button class="tab-item" onclick="switchTab('historico',this)"><span class="tab-icon">📊</span><span class="tab-label">Histórico</span></button>
 </nav>
 
-<!-- MODAL DIA -->
 <div class="modal-bg" id="dia-modal" onclick="closeDiaModal(event)">
   <div class="modal" id="dia-modal-content"></div>
 </div>
 
 <script>
-const KEY='meuplanomov_v2';
+const KEY='meuplanomov_v3';
 let DB={};
 try{DB=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
 if(!DB.energia)DB.energia={};
 if(!DB.nutri)DB.nutri={};
 if(!DB.bio)DB.bio=[];
-
-function saveDB(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){alert('Erro ao salvar. Verifique o espaço do navegador.');}}
+function saveDB(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){alert('Erro ao salvar.');}}
 function dk(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 function todayDK(){return dk(new Date());}
 
-// TAB
 function switchTab(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -365,7 +366,6 @@ function switchTab(id,btn){
   if(id==='energia')initEnergia();
 }
 
-// EXERCÍCIOS
 const EXERCISES={
   'ex-ac-a':[
     {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter'},
@@ -421,7 +421,6 @@ function toggleFase(i){const b=document.getElementById('fbody-'+i);const ch=docu
 
 Object.keys(EXERCISES).forEach(id=>buildExercises(id,EXERCISES[id]));
 buildFases();
-
 function switchCirc(p,k){const sec=p==='ac'?'academia':'casa';document.querySelectorAll(`#${sec} .circ-btn`).forEach((b,i)=>b.classList.toggle('active',i===(k==='a'||k==='1'?0:1)));document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>el.classList.remove('active'));document.getElementById(`${p}-${k}`).classList.add('active');}
 
 // ENERGIA
@@ -433,8 +432,8 @@ function initEnergia(){
   const today=new Date();
   document.getElementById('energia-date').textContent=today.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
   const rec=DB.energia[todayDK()]||{};
-  if(rec.passos)document.getElementById('passos-input').value=rec.passos;
-  if(rec.minEsteira)document.getElementById('min-esteira').value=rec.minEsteira;
+  document.getElementById('passos-input').value=rec.passos||'';
+  document.getElementById('min-esteira').value=rec.minEsteira||'';
   nivelAtual=rec.nivel||null;
   treinosAtual=new Set(rec.treinos||[]);
   updateNivelUI();
@@ -454,40 +453,44 @@ function calcGasto(){
   const fator=fatores[nivelAtual]||1.35;
   let gasto=Math.round(TMB*fator);
   if(passos>0)gasto=Math.round(TMB+(passos*0.04));
-  let extras=0;
-  if(treinosAtual.has('academia_a')||treinosAtual.has('academia_b'))extras+=180;
-  if(treinosAtual.has('casa_1')||treinosAtual.has('casa_2'))extras+=130;
-  if(treinosAtual.has('yoga'))extras+=120;
-  if(treinosAtual.has('corrida'))extras+=Math.round(minEsteira*7);
-  gasto+=extras;
+  if(treinosAtual.has('academia_a')||treinosAtual.has('academia_b'))gasto+=180;
+  if(treinosAtual.has('casa_1')||treinosAtual.has('casa_2'))gasto+=130;
+  if(treinosAtual.has('yoga'))gasto+=120;
+  if(treinosAtual.has('esteira'))gasto+=Math.round(minEsteira*7);
   document.getElementById('gasto-val').textContent=gasto+' kcal';
-  const nkToday=todayDK();
-  const nutriRec=DB.nutri[nkToday]||{refeicoes:[]};
-  let totKcal=0,totProt=0;
-  (nutriRec.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
-  document.getElementById('consumido-val').textContent=Math.round(totKcal)+' kcal';
-  document.getElementById('prot-val').textContent=Math.round(totProt)+'g proteína';
-  const deficit=gasto-Math.round(totKcal);
+  const nutriRec=DB.nutri[todayDK()]||{};
+  const totKcal=nutriRec.kcal||0;
+  const totProt=nutriRec.prot||0;
+  document.getElementById('consumido-val').textContent=totKcal>0?totKcal+' kcal':'— kcal';
+  document.getElementById('prot-val').textContent=totProt>0?totProt+'g':'— g';
   const box=document.getElementById('deficit-box');
   const val=document.getElementById('deficit-val');
   const sub=document.getElementById('deficit-sub');
-  if(totKcal===0){box.style.background='var(--v6)';val.style.color='var(--v2)';val.textContent='— kcal';sub.textContent='registre as calorias na aba Calorias';}
-  else if(deficit>=0){box.style.background='var(--v6)';val.style.color='var(--v2)';val.textContent='+'+deficit+' kcal';sub.textContent='déficit calórico — ótimo para emagrecimento';}
-  else{box.style.background='var(--verm-cl)';val.style.color='var(--verm)';val.textContent=deficit+' kcal';sub.textContent='superávit — consumiu mais do que gastou';}
+  if(totKcal===0){
+    box.style.background='var(--v6)';val.style.color='var(--v2)';
+    val.textContent='—';sub.textContent='registre as calorias na aba Calorias';
+  }else{
+    const deficit=gasto-totKcal;
+    const ok=deficit>=0;
+    box.style.background=ok?'var(--v6)':'var(--verm-cl)';
+    val.style.color=ok?'var(--v2)':'var(--verm)';
+    val.textContent=(ok?'+':'')+deficit+' kcal';
+    sub.textContent=ok?'déficit — ótimo para emagrecimento':'superávit — consumiu mais do que gastou';
+  }
   return gasto;
 }
 
 function saveEnergia(){
   const passos=parseInt(document.getElementById('passos-input').value)||0;
   const minEsteira=parseInt(document.getElementById('min-esteira').value)||0;
-  const gasto=calcGasto();
-  const parsedGasto=parseInt(document.getElementById('gasto-val').textContent)||0;
-  DB.energia[todayDK()]={passos,nivel:nivelAtual,treinos:Array.from(treinosAtual),minEsteira,gasto:parsedGasto};
+  const gasto=parseInt(document.getElementById('gasto-val').textContent)||0;
+  DB.energia[todayDK()]={passos,nivel:nivelAtual,treinos:Array.from(treinosAtual),minEsteira,gasto};
   saveDB();
-  alert('Dia salvo!');
+  const btn=document.querySelector('#energia .save-btn');
+  btn.textContent='Salvo!';setTimeout(()=>btn.textContent='Salvar dia',1500);
 }
 
-// CALORIAS IA
+// CALORIAS
 let calDay=new Date();
 function changeCalDay(d){calDay=new Date(calDay);calDay.setDate(calDay.getDate()+d);if(calDay>new Date())calDay=new Date();renderCalorias();}
 function calDayKey(){return dk(calDay);}
@@ -495,71 +498,34 @@ function calDayKey(){return dk(calDay);}
 function renderCalorias(){
   const nk=calDayKey();
   document.getElementById('cal-date-label').textContent=calDay.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
-  const data=DB.nutri[nk]||{refeicoes:[]};
-  let totKcal=0,totProt=0;
-  (data.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
-  document.getElementById('tot-kcal').textContent=Math.round(totKcal);
-  document.getElementById('tot-prot').textContent=Math.round(totProt)+'g';
-  document.getElementById('kcal-bar').style.width=Math.min(100,Math.round(totKcal/1250*100))+'%';
-  document.getElementById('prot-bar').style.width=Math.min(100,Math.round(totProt/80*100))+'%';
-  const lista=document.getElementById('refeicoes-lista');lista.innerHTML='';
-  (data.refeicoes||[]).forEach((ref,ri)=>{
-    let rKcal=0,rProt=0;(ref.alimentos||[]).forEach(a=>{rKcal+=(+a.kcal||0);rProt+=(+a.prot||0);});
-    const div=document.createElement('div');div.className='refeicao-card';
-    div.innerHTML=`<div class="refeicao-titulo">${ref.nome}</div><div class="refeicao-totals">${Math.round(rKcal)} kcal · ${Math.round(rProt)}g proteína</div>${(ref.alimentos||[]).map((a,ai)=>`<div class="alim-row"><div class="alim-desc">${a.desc}</div><div class="alim-vals">${a.kcal} kcal · ${a.prot}g</div><button class="rm-btn-sm" onclick="removeAlim('${nk}',${ri},${ai})">×</button></div>`).join('')}`;
-    lista.appendChild(div);
-  });
+  const rec=DB.nutri[nk]||{};
+  const kcal=rec.kcal||0;
+  const prot=rec.prot||0;
+  document.getElementById('show-kcal').textContent=kcal>0?kcal+' kcal':'—';
+  document.getElementById('show-prot').textContent=prot>0?prot+'g':'—';
+  document.getElementById('kcal-bar').style.width=Math.min(100,Math.round(kcal/1250*100))+'%';
+  document.getElementById('prot-bar').style.width=Math.min(100,Math.round(prot/80*100))+'%';
+  document.getElementById('input-kcal').value=kcal||'';
+  document.getElementById('input-prot').value=prot||'';
 }
 
-function removeAlim(nk,ri,ai){DB.nutri[nk].refeicoes[ri].alimentos.splice(ai,1);saveDB();renderCalorias();}
-
-async function registrarComIA(){
-  const input=document.getElementById('ia-input').value.trim();
-  if(!input){alert('Descreva o que comeu.');return;}
-  const status=document.getElementById('ia-status');
-  status.textContent='Analisando...';
-  document.querySelector('.ia-btn').disabled=true;
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-6',
-        max_tokens:1000,
-        messages:[{role:'user',content:`Analise o que foi consumido e retorne APENAS um JSON válido, sem texto adicional, sem markdown, no formato:
-{"nome":"nome da refeição (ex: Café da manhã)","alimentos":[{"desc":"descrição do alimento","kcal":numero,"prot":numero}]}
-
-Refeição descrita: "${input}"
-
-Regras:
-- kcal e prot devem ser números inteiros
-- desc deve ser clara e concisa
-- nome deve ser o tipo de refeição (Café da manhã, Almoço, Lanche, Jantar, Pré-sono)
-- Retorne APENAS o JSON, sem nenhum texto antes ou depois`}]}),
-    });
-    const data=await resp.json();
-    const text=data.content[0].text.trim();
-    const parsed=JSON.parse(text);
-    const nk=calDayKey();
-    if(!DB.nutri[nk])DB.nutri[nk]={refeicoes:[]};
-    DB.nutri[nk].refeicoes.push(parsed);
-    saveDB();
-    document.getElementById('ia-input').value='';
-    status.textContent='Registrado com sucesso!';
-    setTimeout(()=>status.textContent='',2000);
-    renderCalorias();
-  }catch(e){
-    status.textContent='Erro ao processar. Tente novamente.';
-    console.error(e);
-  }
-  document.querySelector('.ia-btn').disabled=false;
+function saveCalorias(){
+  const kcal=parseInt(document.getElementById('input-kcal').value)||0;
+  const prot=parseInt(document.getElementById('input-prot').value)||0;
+  if(!kcal&&!prot){alert('Preencha pelo menos as calorias.');return;}
+  const nk=calDayKey();
+  DB.nutri[nk]={kcal,prot};
+  saveDB();
+  renderCalorias();
+  calcGasto();
+  const btn=document.querySelector('#calorias .save-btn');
+  btn.textContent='Salvo!';setTimeout(()=>btn.textContent='Salvar',1500);
 }
 
-// CALENDÁRIO HISTÓRICO
+// HISTÓRICO
 const MONTHS=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const WDAYS=['D','S','T','Q','Q','S','S'];
 let curY=new Date().getFullYear(),curM=new Date().getMonth();
-
 function changeMonth(d){curM+=d;if(curM>11){curM=0;curY++;}if(curM<0){curM=11;curY--;}renderCal();}
 
 function renderCal(){
@@ -590,11 +556,11 @@ function renderCal(){
         const bioRec=DB.bio.find(b=>b.date===date.toLocaleDateString('pt-BR'));
         const hasEnergia=!!energiaRec;
         const hasTreino=energiaRec&&energiaRec.treinos&&energiaRec.treinos.length>0;
-        const hasNutri=nutriRec&&nutriRec.refeicoes&&nutriRec.refeicoes.length>0;
+        const hasNutri=nutriRec&&(nutriRec.kcal>0||nutriRec.prot>0);
         const hasBio=!!bioRec;
-        if(hasEnergia)diasAtivos++;
+        if(hasEnergia||hasNutri)diasAtivos++;
         const btn=document.createElement('button');
-        btn.className='cal-btn'+(hasEnergia?' has-data':'')+(isToday?' today':'');
+        btn.className='cal-btn'+((hasEnergia||hasNutri)?' has-data':'')+(isToday?' today':'');
         if(isFuture)btn.disabled=true;
         else btn.onclick=()=>openDiaModal(key,date);
         const numEl=document.createElement('div');numEl.className='cal-num';numEl.textContent=day;btn.appendChild(numEl);
@@ -609,72 +575,60 @@ function renderCal(){
     }
     body.appendChild(tr);
   }
-  document.getElementById('month-total').textContent=`${MONTHS[curM]}: ${diasAtivos} dias com energia registrada`;
+  document.getElementById('month-total').textContent=`${MONTHS[curM]}: ${diasAtivos} dias registrados`;
   renderBio();
 }
 
 function openDiaModal(key,date){
   const energiaRec=DB.energia[key]||{};
-  const nutriRec=DB.nutri[key]||{refeicoes:[]};
+  const nutriRec=DB.nutri[key]||{};
   const bioRec=DB.bio.find(b=>b.date===date.toLocaleDateString('pt-BR'));
-  let totKcal=0,totProt=0;
-  (nutriRec.refeicoes||[]).forEach(r=>(r.alimentos||[]).forEach(a=>{totKcal+=(+a.kcal||0);totProt+=(+a.prot||0);}));
   const gasto=energiaRec.gasto||0;
-  const deficit=gasto-Math.round(totKcal);
+  const kcal=nutriRec.kcal||0;
+  const prot=nutriRec.prot||0;
+  const deficit=gasto-kcal;
   const nivelLabels={sedentario:'Muito sentada',leve:'Pouco ativa',moderado:'Moderada',ativo:'Muito ativa'};
-  const treinoLabels={academia_a:'Academia A',academia_b:'Academia B',casa_1:'Casa 1',casa_2:'Casa 2',yoga:'Yoga',corrida:'Corrida/Esteira'};
+  const treinoLabels={academia_a:'Academia A',academia_b:'Academia B',casa_1:'Casa 1',casa_2:'Casa 2',yoga:'Yoga',esteira:'Esteira/Corrida'};
   const treinosFeitos=(energiaRec.treinos||[]).map(t=>treinoLabels[t]||t).join(', ')||'—';
-  let html=`
-    <div class="modal-header">
-      <div class="modal-title">${date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</div>
-      <button class="modal-close" onclick="closeDiaModal()">×</button>
-    </div>`;
+  let html=`<div class="modal-header"><div class="modal-title">${date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</div><button class="modal-close" onclick="closeDiaModal()">×</button></div>`;
 
-  if(gasto>0||totKcal>0){
-    html+=`<div class="dia-section"><div class="dia-section-title">Energia</div>`;
-    html+=`<div class="dia-stat-grid">
+  if(gasto>0||kcal>0){
+    html+=`<div class="dia-section"><div class="dia-section-title">Energia</div>
+    <div class="dia-stat-grid">
       <div class="dia-stat"><div class="dia-stat-label">Passos</div><div class="dia-stat-val">${energiaRec.passos||'—'}</div></div>
-      <div class="dia-stat"><div class="dia-stat-label">Nível de atividade</div><div class="dia-stat-val" style="font-size:13px">${nivelLabels[energiaRec.nivel]||'—'}</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Atividade</div><div class="dia-stat-val" style="font-size:12px">${nivelLabels[energiaRec.nivel]||'—'}</div></div>
       <div class="dia-stat"><div class="dia-stat-label">Gasto estimado</div><div class="dia-stat-val">${gasto||'—'} kcal</div></div>
       <div class="dia-stat"><div class="dia-stat-label">Treinos</div><div class="dia-stat-val" style="font-size:11px">${treinosFeitos}</div></div>
     </div>`;
-    if(gasto>0&&totKcal>0){
-      const deficitOk=deficit>=0;
-      html+=`<div class="dia-deficit" style="background:${deficitOk?'var(--v6)':'var(--verm-cl)'}">
-        <div style="font-size:11px;color:#888;margin-bottom:4px">${deficitOk?'Déficit calórico':'Superávit calórico'}</div>
-        <div style="font-size:24px;font-weight:700;color:${deficitOk?'var(--v2)':'var(--verm)'}">${deficitOk?'+':''}${deficit} kcal</div>
+    if(gasto>0&&kcal>0){
+      const ok=deficit>=0;
+      html+=`<div class="dia-deficit" style="background:${ok?'var(--v6)':'var(--verm-cl)'}">
+        <div style="font-size:11px;color:#888;margin-bottom:4px">${ok?'Déficit calórico':'Superávit calórico'}</div>
+        <div style="font-size:26px;font-weight:700;color:${ok?'var(--v2)':'var(--verm)'}">${ok?'+':''}${deficit} kcal</div>
       </div>`;
     }
     html+=`</div>`;
   }
 
-  if(totKcal>0){
+  if(kcal>0||prot>0){
     html+=`<div class="dia-section"><div class="dia-section-title">Nutrição</div>
-      <div class="dia-stat-grid">
-        <div class="dia-stat"><div class="dia-stat-label">Calorias</div><div class="dia-stat-val" style="color:var(--verm)">${Math.round(totKcal)} kcal</div></div>
-        <div class="dia-stat"><div class="dia-stat-label">Proteína</div><div class="dia-stat-val" style="color:var(--v2)">${Math.round(totProt)}g</div></div>
-      </div>`;
-    (nutriRec.refeicoes||[]).forEach(ref=>{
-      if(ref.alimentos&&ref.alimentos.length>0){
-        html+=`<div style="font-size:12px;font-weight:600;color:var(--v1);margin:8px 0 4px">${ref.nome}</div>`;
-        ref.alimentos.forEach(a=>{html+=`<div class="alim-item">${a.desc} — ${a.kcal} kcal · ${a.prot}g prot</div>`;});
-      }
-    });
-    html+=`</div>`;
+    <div class="dia-stat-grid">
+      <div class="dia-stat"><div class="dia-stat-label">Calorias</div><div class="dia-stat-val" style="color:var(--verm)">${kcal} kcal</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Proteína</div><div class="dia-stat-val" style="color:var(--v2)">${prot}g</div></div>
+    </div></div>`;
   }
 
   if(bioRec){
     html+=`<div class="dia-section"><div class="dia-section-title">Bioimpedância</div>
-      <div class="dia-stat-grid">
-        <div class="dia-stat"><div class="dia-stat-label">Peso</div><div class="dia-stat-val">${bioRec.peso} kg</div></div>
-        <div class="dia-stat"><div class="dia-stat-label">Gordura</div><div class="dia-stat-val">${bioRec.gord}%</div></div>
-        <div class="dia-stat"><div class="dia-stat-label">Massa muscular</div><div class="dia-stat-val">${bioRec.musc}%</div></div>
-        <div class="dia-stat"><div class="dia-stat-label">Gordura visceral</div><div class="dia-stat-val">${bioRec.visc}</div></div>
-      </div>
-    </div>`;
+    <div class="dia-stat-grid">
+      <div class="dia-stat"><div class="dia-stat-label">Peso</div><div class="dia-stat-val">${bioRec.peso} kg</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Gordura</div><div class="dia-stat-val">${bioRec.gord}%</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Massa muscular</div><div class="dia-stat-val">${bioRec.musc}%</div></div>
+      <div class="dia-stat"><div class="dia-stat-label">Gordura visceral</div><div class="dia-stat-val">${bioRec.visc}</div></div>
+    </div></div>`;
   }
 
-  if(!gasto&&!totKcal&&!bioRec){
+  if(!gasto&&!kcal&&!bioRec){
     html+=`<div style="text-align:center;padding:2rem;color:#aaa;font-size:13px">Nenhum dado registrado para este dia</div>`;
   }
 
@@ -684,7 +638,6 @@ function openDiaModal(key,date){
 
 function closeDiaModal(e){if(!e||e.target===document.getElementById('dia-modal'))document.getElementById('dia-modal').classList.remove('open');}
 
-// BIOIMPEDÂNCIA
 function renderBio(){
   const list=DB.bio;
   const last=list[list.length-1];
@@ -694,7 +647,7 @@ function renderBio(){
   if(last){
     [{label:'Peso',val:last.peso,unit:'kg'},{label:'Gordura',val:last.gord,unit:'%'},{label:'Massa muscular',val:last.musc,unit:'%'},{label:'Gordura visceral',val:last.visc,unit:''},{label:'Água',val:last.agua,unit:'%'},{label:'Ossos',val:last.osso,unit:'kg'}].forEach(s=>{
       const div=document.createElement('div');div.className='dia-stat';
-      div.innerHTML=`<div class="dia-stat-label">${s.label}</div><div class="dia-stat-val">${s.val||'—'}${s.unit?` ${s.unit}`:''}</div>`;
+      div.innerHTML=`<div class="dia-stat-label">${s.label}</div><div class="dia-stat-val">${s.val||'—'}${s.unit?' '+s.unit:''}</div>`;
       statsEl.appendChild(div);
     });
   }
@@ -702,8 +655,8 @@ function renderBio(){
   if(list.length===0){histEl.innerHTML='<div style="font-size:12px;color:#888;text-align:center;padding:10px">Nenhum registro ainda</div>';return;}
   histEl.innerHTML='';
   [...list].reverse().slice(0,10).forEach(entry=>{
-    const row=document.createElement('div');row.style.cssText='padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:12px;';
-    row.innerHTML=`<div style="font-weight:600;color:var(--v1);margin-bottom:4px">${entry.date}</div><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.peso}kg</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.gord}% gord</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.musc}% musc</span><span style="background:var(--lj-cl);color:var(--lj);padding:2px 8px;border-radius:12px;font-size:11px">visc ${entry.visc}</span></div>`;
+    const row=document.createElement('div');row.style.cssText='padding:8px 0;border-bottom:1px solid #f0f0f0;';
+    row.innerHTML=`<div style="font-weight:600;color:var(--v1);font-size:12px;margin-bottom:4px">${entry.date}</div><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.peso}kg</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.gord}% gord</span><span style="background:var(--v5);color:var(--v1);padding:2px 8px;border-radius:12px;font-size:11px">${entry.musc}% musc</span><span style="background:var(--lj-cl);color:var(--lj);padding:2px 8px;border-radius:12px;font-size:11px">visc ${entry.visc}</span></div>`;
     histEl.appendChild(row);
   });
 }
@@ -719,12 +672,11 @@ function saveBio(){
   DB.bio.push({date:new Date().toLocaleDateString('pt-BR'),peso,gord,musc,visc,agua,osso});
   saveDB();
   ['b-peso','b-gord','b-musc','b-visc','b-agua','b-osso'].forEach(id=>document.getElementById(id).value='');
-  renderBio();
-  renderCal();
-  alert('Bioimpedância salva!');
+  renderBio();renderCal();
+  const btn=document.querySelector('#historico .save-btn');
+  btn.textContent='Salvo!';setTimeout(()=>btn.textContent='Salvar medição',1500);
 }
 
-// INIT
 initEnergia();
 renderCalorias();
 renderCal();
