@@ -17,7 +17,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .header{background:var(--v3);color:#fff;padding:1rem 1.25rem 0.85rem;}
 .header h1{font-size:17px;font-weight:600;}
 .header p{font-size:11px;opacity:0.85;margin-top:2px;}
-.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(6,1fr);z-index:100;}
+.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);z-index:100;}
 .tab-item{padding:8px 2px 6px;text-align:center;cursor:pointer;border:none;background:none;font-family:inherit;}
 .tab-icon{font-size:18px;display:block;color:#aaa;}
 .tab-label{font-size:9px;color:#aaa;display:block;margin-top:2px;}
@@ -26,8 +26,8 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .section.active{display:block;}
 .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-bottom:0.75rem;}
 .card-title{font-size:12px;font-weight:600;color:var(--v2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;}
-.circ-selector{display:flex;gap:8px;margin-bottom:1rem;}
-.circ-btn{flex:1;padding:8px;border:1px solid var(--v4);border-radius:8px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;text-align:center;font-family:inherit;}
+.circ-selector{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
+.circ-btn{flex:1;min-width:60px;padding:8px 4px;border:1px solid var(--v4);border-radius:8px;background:var(--v6);font-size:12px;color:var(--v2);cursor:pointer;text-align:center;font-family:inherit;}
 .circ-btn.active{background:var(--v3);color:#fff;border-color:var(--v3);}
 .circ-content{display:none;}
 .circ-content.active{display:block;}
@@ -55,6 +55,9 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f5;min-heigh
 .hipo-title{font-size:12px;font-weight:600;color:var(--roxo);margin-bottom:6px;}
 .hipo-step{font-size:12px;color:#555;padding:3px 0;display:flex;gap:6px;}
 .hipo-step b{color:var(--roxo);}
+.treino-desc-box{background:var(--am-cl);border:1px solid #FFE082;border-radius:8px;padding:8px 12px;margin-bottom:0.75rem;}
+.treino-desc-box p{font-size:12px;color:#5D4037;line-height:1.6;}
+.treino-desc-box strong{color:var(--am);}
 .fase-card{border:1px solid var(--v5);border-radius:12px;margin-bottom:0.75rem;overflow:hidden;}
 .fase-header{padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;}
 .fase-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0;}
@@ -210,10 +213,10 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
     <div class="card">
       <div class="card-title">Outros treinos hoje</div>
       <div class="treino-check-grid">
-        <button class="treino-check" id="tc-academia_a" onclick="toggleTreino('academia_a')">Academia A</button>
-        <button class="treino-check" id="tc-academia_b" onclick="toggleTreino('academia_b')">Academia B</button>
-        <button class="treino-check" id="tc-casa_1" onclick="toggleTreino('casa_1')">Casa 1</button>
-        <button class="treino-check" id="tc-casa_2" onclick="toggleTreino('casa_2')">Casa 2</button>
+        <button class="treino-check" id="tc-casa_a" onclick="toggleTreino('casa_a')">Treino A · Halteres</button>
+        <button class="treino-check" id="tc-casa_b" onclick="toggleTreino('casa_b')">Treino B · Barra</button>
+        <button class="treino-check" id="tc-casa_c" onclick="toggleTreino('casa_c')">Treino C · Kettlebell</button>
+        <button class="treino-check" id="tc-casa_d" onclick="toggleTreino('casa_d')">Treino D · Bands</button>
         <button class="treino-check" id="tc-yoga" onclick="toggleTreino('yoga')">Yoga</button>
       </div>
     </div>
@@ -221,8 +224,8 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
     <button class="save-btn" id="save-energia-btn" onclick="saveEnergia()" style="margin-bottom:0.75rem">Salvar dia</button>
   </div>
 
-  <!-- ACADEMIA -->
-  <div id="academia" class="section">
+  <!-- TREINOS -->
+  <div id="treinos" class="section">
     <div class="hipo-box">
       <div class="hipo-title">🫁 Hipopressivo — antes de tudo (5 min)</div>
       <div class="hipo-step"><b>1.</b> Em pé, joelhos levemente flexionados, coluna neutra.</div>
@@ -230,34 +233,64 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
       <div class="hipo-step"><b>3.</b> Apneia: simule inspiração sem deixar o ar entrar.</div>
       <div class="hipo-step"><b>4.</b> Segure 8-10 seg. Inspire suavemente. Repita 5-6 vezes.</div>
     </div>
-    <div class="circ-selector">
-      <div class="circ-btn active" onclick="switchCirc('ac','a')">Circuito A</div>
-      <div class="circ-btn" onclick="switchCirc('ac','b')">Circuito B</div>
-    </div>
-    <div id="ac-a" class="circ-content active"><div class="card"><div class="bloco-header"><div class="bloco-title">3 rodadas · sem descanso entre exercícios</div></div><div id="ex-ac-a"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div></div>
-    <div id="ac-b" class="circ-content"><div class="card"><div class="bloco-header"><div class="bloco-title">3 rodadas · sem descanso entre exercícios</div></div><div id="ex-ac-b"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div></div>
-  </div>
 
-  <!-- CASA -->
-  <div id="casa" class="section">
-    <div class="hipo-box">
-      <div class="hipo-title">🫁 Hipopressivo — antes de tudo (5 min)</div>
-      <div class="hipo-step"><b>1.</b> Em pé, joelhos levemente flexionados, coluna neutra.</div>
-      <div class="hipo-step"><b>2.</b> Inspire fundo. Expire todo o ar pela boca.</div>
-      <div class="hipo-step"><b>3.</b> Apneia: simule inspiração sem deixar o ar entrar.</div>
-      <div class="hipo-step"><b>4.</b> Segure 8-10 seg. Inspire suavemente. Repita 5-6 vezes.</div>
-    </div>
     <div class="circ-selector">
-      <div class="circ-btn active" onclick="switchCirc('ca','1')">Circuito 1 · Glúteo</div>
-      <div class="circ-btn" onclick="switchCirc('ca','2')">Circuito 2 · Força</div>
+      <div class="circ-btn active" onclick="switchCirc('ca','a')">A · Halteres</div>
+      <div class="circ-btn" onclick="switchCirc('ca','b')">B · Barra</div>
+      <div class="circ-btn" onclick="switchCirc('ca','c')">C · Kettlebell</div>
+      <div class="circ-btn" onclick="switchCirc('ca','d')">D · Bands</div>
     </div>
-    <div id="ca-1" class="circ-content active">
-      <div class="card"><div class="bloco-header"><div class="bloco-title">Bloco 1 · Mini bands · 3 rodadas</div></div><div id="ex-ca-1a"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div>
-      <div class="card"><div class="bloco-header"><div class="bloco-title">Bloco 2 · Mini bands · 3 rodadas</div></div><div id="ex-ca-1b"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div>
+
+    <!-- TREINO A -->
+    <div id="ca-a" class="circ-content active">
+      <div class="treino-desc-box">
+        <p><strong>Treino A · Halteres 4kg</strong> — Full body composto em circuito<br>
+        Movimentos amplos encadeados: agacha + empurra + puxa + corrida no lugar. Cardio + força ao mesmo tempo.</p>
+      </div>
+      <div class="card">
+        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div id="ex-ca-a"></div>
+        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+      </div>
     </div>
-    <div id="ca-2" class="circ-content">
-      <div class="card"><div class="bloco-header"><div class="bloco-title">Bloco 1 · Tubulares + Mini bands · 3 rodadas</div></div><div id="ex-ca-2a"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div>
-      <div class="card"><div class="bloco-header"><div class="bloco-title">Bloco 2 · Tubulares + Mini bands · 3 rodadas</div></div><div id="ex-ca-2b"></div><div class="rodadas">↻ 45-60s entre rodadas</div></div>
+
+    <!-- TREINO B — Barra 8kg -->
+    <div id="ca-b" class="circ-content">
+      <div class="treino-desc-box">
+        <p><strong>Treino B · Barra 8kg</strong> — Full body composto em circuito<br>
+        Sequência clássica de barra: agacha, empurra, puxa, levanta. Todos os grandes grupos musculares.</p>
+      </div>
+      <div class="card">
+        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div id="ex-ca-b"></div>
+        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+      </div>
+    </div>
+
+    <!-- TREINO C — Kettlebell 8kg -->
+    <div id="ca-c" class="circ-content">
+      <div class="treino-desc-box">
+        <p><strong>Treino C · Kettlebell 8kg</strong> — Full body funcional em circuito<br>
+        Movimentos balísticos e de força. Alta demanda de core, glúteos e cardio — ideal para condicionamento.</p>
+      </div>
+      <div class="card">
+        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div id="ex-ca-c"></div>
+        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+      </div>
+    </div>
+
+    <!-- TREINO D — Mini bands de tecido -->
+    <div id="ca-d" class="circ-content">
+      <div class="treino-desc-box">
+        <p><strong>Treino D · Mini bands Topsand</strong> — Full body funcional<br>
+        Ativa glúteos, posterior de coxa, ombros e core com as 3 resistências (leve · média · forte). Ótimo como treino completo ou aquecimento.</p>
+      </div>
+      <div class="card">
+        <div class="bloco-header"><div class="bloco-title">Circuito único · 3 rodadas · descanso 45-60s entre rodadas</div></div>
+        <div id="ex-ca-d"></div>
+        <div class="rodadas">↻ Execute os 6 exercícios sem parar. Descanse 45-60s. Repita 3x.</div>
+      </div>
     </div>
   </div>
 
@@ -345,8 +378,7 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
 
 <nav class="tab-bar">
   <button class="tab-item active" onclick="switchTab('energia',this)"><span class="tab-icon">⚡</span><span class="tab-label">Energia</span></button>
-  <button class="tab-item" onclick="switchTab('academia',this)"><span class="tab-icon">🏋️</span><span class="tab-label">Academia</span></button>
-  <button class="tab-item" onclick="switchTab('casa',this)"><span class="tab-icon">🏠</span><span class="tab-label">Casa</span></button>
+  <button class="tab-item" onclick="switchTab('treinos',this)"><span class="tab-icon">💪</span><span class="tab-label">Treinos</span></button>
   <button class="tab-item" onclick="switchTab('corrida',this)"><span class="tab-icon">🏃</span><span class="tab-label">Corrida</span></button>
   <button class="tab-item" onclick="switchTab('calorias',this)"><span class="tab-icon">🥗</span><span class="tab-label">Calorias</span></button>
   <button class="tab-item" onclick="switchTab('historico',this)"><span class="tab-icon">📊</span><span class="tab-label">Histórico</span></button>
@@ -357,9 +389,9 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
 </div>
 
 <script>
-const PESO=57; // kg
-const TMB=1176; // kcal base
-const KEY='meuplanomov_v4';
+const PESO=57;
+const TMB=1176;
+const KEY='meuplanomov_v4'; // mesma chave — preserva dados existentes
 let DB={};
 try{DB=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
 if(!DB.energia)DB.energia={};
@@ -377,46 +409,121 @@ function switchTab(id,btn){
   if(id==='historico')renderCal();
   if(id==='calorias')renderCalorias();
   if(id==='energia')initEnergia();
+  if(id==='treinos'){}// nada a inicializar
 }
 
+// ===================== EXERCÍCIOS =====================
 const EXERCISES={
+  // ACADEMIA A
   'ex-ac-a':[
-    {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter'},
-    {n:2,cls:'ex-a',name:'Remada no TRX',detail:'TRX · 12 reps',obs:null,band:null,desc:'Segure as alças, incline o corpo para trás. Puxe o peito em direção às mãos dobrando os cotovelos.',yt:'https://www.youtube.com/results?search_query=remada+TRX+como+fazer'},
-    {n:3,cls:'ex-a',name:'Agachamento sumô com halter',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Pés bem abertos, pontas para fora. Desça empurrando joelhos para fora até a coxa ficar paralela ao chão.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+halter'},
-    {n:4,cls:'ex-a',name:'Dead bug',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos sem arquear as costas.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
-    {n:5,cls:'ex-a',name:'Desenvolvimento com halteres',detail:'Halteres · 12 reps',obs:null,band:null,desc:'Sente com halteres nos ombros. Empurre para cima até os braços estenderem. Desça controlado.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+halteres+ombro'},
+    {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo. Ativa glúteo + posterior de coxa.',
+     yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter'},
+    {n:2,cls:'ex-a',name:'Agachamento sumô com halter',detail:'Halteres · 12 reps',obs:null,band:null,
+     desc:'Pés bem abertos, pontas para fora. Segure o halter na vertical. Desça empurrando joelhos para fora até a coxa ficar paralela ao chão. Ativa glúteo, quadríceps e adutores.',
+     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+halter'},
+    {n:3,cls:'ex-a',name:'Remada no TRX',detail:'TRX · 12 reps',obs:null,band:null,
+     desc:'Segure as alças, incline o corpo para trás. Puxe o peito em direção às mãos dobrando os cotovelos. Ativa costas, bíceps e core.',
+     yt:'https://www.youtube.com/results?search_query=remada+TRX+como+fazer'},
+    {n:4,cls:'ex-a',name:'Desenvolvimento com halteres',detail:'Halteres · 12 reps',obs:null,band:null,
+     desc:'Sente com halteres nos ombros. Empurre para cima até os braços estenderem. Desça controlado. Ativa deltóide, trapézio e tríceps.',
+     yt:'https://www.youtube.com/results?search_query=desenvolvimento+halteres+ombro'},
+    {n:5,cls:'ex-a',name:'Dead bug',detail:'Chão · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos sem arquear as costas. Mantém a zona abdominal profunda.',
+     yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
   ],
+  // ACADEMIA B
   'ex-ac-b':[
-    {n:1,cls:'ex-b',name:'Avanço com halteres (lunge)',detail:'Halteres · 10 reps cada lado',obs:null,band:null,desc:'Passo à frente, desça o joelho traseiro sem tocar o chão. Empurre o calcanhar para subir.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+halteres'},
-    {n:2,cls:'ex-b',name:'Supino inclinado com halteres',detail:'Halteres + banco · 12 reps',obs:null,band:null,desc:'Banco a 30-45°. Empurre os halteres para cima e desça controlado sentindo o peitoral superior.',yt:'https://www.youtube.com/results?search_query=supino+inclinado+halteres'},
-    {n:3,cls:'ex-b',name:'Elevação pélvica unilateral',detail:'Chão · 12 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Ponte com uma perna estendida no ar. Eleve usando só a perna de apoio.',yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+unilateral'},
-    {n:4,cls:'ex-b',name:'Rosca direta com barra',detail:'Barra · 12 reps',obs:null,band:null,desc:'Em pé, palmas para cima, cotovelos fixos. Dobre os braços trazendo a barra até os ombros.',yt:'https://www.youtube.com/results?search_query=rosca+direta+barra'},
-    {n:5,cls:'ex-b',name:'Bird dog',detail:'Chão · 8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Quadril nivelado. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
+    {n:1,cls:'ex-b',name:'Avanço com halteres (lunge)',detail:'Halteres · 10 reps cada lado',obs:null,band:null,
+     desc:'Passo à frente, desça o joelho traseiro sem tocar o chão. Empurre o calcanhar para subir. Ativa quadríceps, glúteo e core.',
+     yt:'https://www.youtube.com/results?search_query=avanco+lunge+halteres'},
+    {n:2,cls:'ex-b',name:'Supino inclinado com halteres',detail:'Halteres + banco · 12 reps',obs:null,band:null,
+     desc:'Banco a 30-45°. Empurre os halteres para cima e desça controlado sentindo o peitoral superior. Ativa peitoral, ombro anterior e tríceps.',
+     yt:'https://www.youtube.com/results?search_query=supino+inclinado+halteres'},
+    {n:3,cls:'ex-b',name:'Elevação pélvica unilateral',detail:'Chão · 12 reps cada lado',obs:'✓ Seguro para diástase',band:null,
+     desc:'Ponte com uma perna estendida no ar. Eleve usando só a perna de apoio. Ativa glúteo e posterior de coxa com mais intensidade.',
+     yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+unilateral'},
+    {n:4,cls:'ex-b',name:'Rosca direta com barra',detail:'Barra · 12 reps',obs:null,band:null,
+     desc:'Em pé, palmas para cima, cotovelos fixos. Dobre os braços trazendo a barra até os ombros. Ativa bíceps e antebraço.',
+     yt:'https://www.youtube.com/results?search_query=rosca+direta+barra'},
+    {n:5,cls:'ex-b',name:'Bird dog',detail:'Chão · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
+     desc:'De quatro apoios, estenda braço e perna opostos. Quadril nivelado. Segure 2-3 seg. Ativa core profundo e estabilizadores do quadril.',
+     yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
   ],
-  'ex-ca-1a':[
-    {n:1,cls:'ex-c',name:'Ponte de glúteo com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Deite, joelhos dobrados, band acima dos joelhos. Empurre joelhos para fora. Eleve o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
-    {n:2,cls:'ex-c',name:'Agachamento com mini band',detail:'12 reps',obs:null,band:'Amarelo ou Vermelho — acima dos joelhos',desc:'Band acima dos joelhos. Agachamento empurrando joelhos para fora contra o elástico.',yt:'https://www.youtube.com/results?search_query=agachamento+mini+band'},
-    {n:3,cls:'ex-c',name:'Abdução lateral deitada',detail:'15 reps cada lado',obs:null,band:'Verde ou Azul — tornozelos',desc:'Deite de lado, band nos tornozelos, pé em flexão. Eleve a perna de cima devagar.',yt:'https://www.youtube.com/results?search_query=abducao+lateral+mini+band'},
-    {n:4,cls:'ex-c',name:'Dead bug',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos.',yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
+  // TREINO A — Halteres 4kg (par) — COMPOSTO FULL BODY
+  'ex-ca-a':[
+    {n:1,cls:'ex-a',name:'Thruster com halteres',detail:'4kg cada mão · 10 reps',obs:'✓ Composto — pernas + ombros',band:null,
+     desc:'Segure os halteres nos ombros, palmas para dentro. Desça em agachamento profundo. Na subida, empurre os halteres acima da cabeça num movimento contínuo. Expire no esforço. Ativa quadríceps, glúteo, core e ombros num único movimento.',
+     yt:'https://www.youtube.com/results?search_query=thruster+halteres+como+fazer'},
+    {n:2,cls:'ex-a',name:'Avanço + Rosca bíceps',detail:'4kg cada mão · 10 reps cada lado',obs:'✓ Composto — pernas + braços',band:null,
+     desc:'Avance um passo à frente (lunge). Enquanto está embaixo, faça a rosca bíceps com os dois braços. Volte e repita do outro lado. Une quadríceps, glúteo, bíceps e equilíbrio.',
+     yt:'https://www.youtube.com/results?search_query=lunge+rosca+biceps+halteres'},
+    {n:3,cls:'ex-a',name:'Remada + Extensão tríceps',detail:'4kg cada mão · 12 reps',obs:'✓ Composto — costas + braços',band:null,
+     desc:'Em posição de remada inclinada (tronco a 45°, halteres pendurados). Puxe os cotovelos para cima (remada). No topo, estenda os antebraços para trás (tríceps). Volta. Duas articulações num só exercício.',
+     yt:'https://www.youtube.com/results?search_query=remada+triceps+halteres'},
+    {n:4,cls:'ex-a',name:'Agachamento sumô + Desenvolvimento lateral',detail:'4kg cada mão · 10 reps',obs:'✓ Composto — pernas + ombros',band:null,
+     desc:'Pés bem abertos. Desça no agachamento sumô. Ao subir, eleve os halteres lateralmente até a altura dos ombros (desenvolvimento lateral). Ativa glúteo, adutores e deltóide médio.',
+     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+elevacao+lateral'},
+    {n:5,cls:'ex-a',name:'Ponte de glúteo com halter + Press',detail:'Um halter 4kg · 12 reps',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas, halter no quadril. Faça a ponte de glúteo. No topo, segure a posição e faça um press (empurra o halter para o teto). Baixe o halter, desça o quadril. Ativa glúteo, core e peitoral.',
+     yt:'https://www.youtube.com/results?search_query=hip+thrust+press+halteres'},
   ],
-  'ex-ca-1b':[
-    {n:1,cls:'ex-c',name:'Chute de glúteo com mini band',detail:'15 reps cada lado',obs:null,band:'Azul ou Amarelo — tornozelos',desc:'De quatro apoios, band nos tornozelos. Empurre o calcanhar para o teto a 90°.',yt:'https://www.youtube.com/results?search_query=chute+gluteo+mini+band'},
-    {n:2,cls:'ex-c',name:'Avanço com mini band',detail:'10 reps cada lado',obs:null,band:'Azul ou Amarelo — acima dos joelhos',desc:'Lunge com band. Empurre o joelho da frente para fora ao descer.',yt:'https://www.youtube.com/results?search_query=avanco+lunge+mini+band'},
-    {n:3,cls:'ex-c',name:'Ponte unilateral com band',detail:'12 reps cada lado',obs:'Core seguro para diástase',band:'Vermelho ou Preto — acima dos joelhos',desc:'Ponte com uma perna no ar e band acima dos joelhos.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+unilateral+mini+band'},
-    {n:4,cls:'ex-c',name:'Bird dog',detail:'8 reps cada lado',obs:'Core seguro para diástase',band:null,desc:'De quatro apoios, estenda braço e perna opostos. Segure 2-3 seg.',yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
+  // TREINO B — Barra 8kg — COMPOSTO FULL BODY
+  'ex-ca-b':[
+    {n:1,cls:'ex-b',name:'Agachamento com barra',detail:'8kg · 12 reps',obs:'✓ Composto — pernas completas',band:null,
+     desc:'Barra nos trapézios (ou segure na frente ao nível do peito se preferir front squat). Pés na largura dos ombros. Desça até as coxas paralelas ao chão. Suba empurrando o chão. Ativa quadríceps, glúteo, posteriores e core.',
+     yt:'https://www.youtube.com/results?search_query=agachamento+barra+como+fazer'},
+    {n:2,cls:'ex-b',name:'Desenvolvimento militar com barra',detail:'8kg · 10 reps',obs:'✓ Composto — ombros + core',band:null,
+     desc:'Em pé, barra na frente dos ombros (pegada um pouco mais larga que ombros). Empurre a barra para cima até os braços estenderem. Desça controlado. Ativa deltóide frontal e médio, trapézio e tríceps — e exige core estabilizador.',
+     yt:'https://www.youtube.com/results?search_query=desenvolvimento+militar+barra+em+pe'},
+    {n:3,cls:'ex-b',name:'Remada inclinada com barra',detail:'8kg · 12 reps',obs:'✓ Composto — costas + bíceps',band:null,
+     desc:'Tronco inclinado a 45°, barra com as duas mãos. Puxe a barra em direção ao umbigo dobrando os cotovelos. Segure 1s. Desça devagar. Ativa latíssimo do dorso, rombóides e bíceps.',
+     yt:'https://www.youtube.com/results?search_query=remada+inclinada+barra+como+fazer'},
+    {n:4,cls:'ex-b',name:'Agachamento + Desenvolvimento (Thruster de barra)',detail:'8kg · 8 reps',obs:'✓ Composto total',band:null,
+     desc:'Barra ao nível dos ombros (frente). Agache. Na subida, continue o movimento e empurre a barra acima da cabeça — movimento contínuo de baixo para cima. Retorna. O exercício mais completo do treino.',
+     yt:'https://www.youtube.com/results?search_query=thruster+barra+como+fazer'},
+    {n:5,cls:'ex-b',name:'Elevação pélvica com barra',detail:'8kg sobre o quadril · 15 reps',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas, barra apoiada sobre o quadril com as mãos. Joelhos dobrados, pés no chão. Eleve o quadril contraindo bem o glúteo. Segure 2s no topo. Ativa glúteo máximo com carga.',
+     yt:'https://www.youtube.com/results?search_query=hip+thrust+barra+como+fazer'},
   ],
-  'ex-ca-2a':[
-    {n:1,cls:'ex-d',name:'Remada com tubular',detail:'12 reps',obs:null,band:'Tubular Verde ou Vermelho',desc:'Sente no chão, elástico nos pés. Puxe as alças em direção ao abdômen.',yt:'https://www.youtube.com/results?search_query=remada+elastico+tubular'},
-    {n:2,cls:'ex-d',name:'Desenvolvimento com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Em pé, pise no centro. Segure as alças nos ombros. Empurre para cima.',yt:'https://www.youtube.com/results?search_query=desenvolvimento+elastico+tubular'},
-    {n:3,cls:'ex-d',name:'Agachamento sumô com mini band',detail:'12 reps',obs:null,band:'Mini band Vermelho ou Preto',desc:'Pés bem abertos, band acima dos joelhos. Desça empurrando joelhos para fora.',yt:'https://www.youtube.com/results?search_query=agachamento+sumo+mini+band'},
-    {n:4,cls:'ex-d',name:'Prancha modificada (joelhos)',detail:'30 seg',obs:'Core seguro para diástase',band:null,desc:'Apoie antebraços e joelhos. Corpo reto. Contraia o abdômen sem empurrar a barriga.',yt:'https://www.youtube.com/results?search_query=prancha+joelhos+modificada'},
+  // TREINO C — Kettlebell 8kg — COMPOSTO FULL BODY
+  'ex-ca-c':[
+    {n:1,cls:'ex-c',name:'Kettlebell Swing',detail:'8kg · 15 reps',obs:'✓ Composto — glúteo + core + cardio',band:null,
+     desc:'Pés na largura dos ombros. Segure o kettlebell com as duas mãos. Flexione os joelhos ligeiramente, incline o tronco e deixe o kettlebell balançar entre as pernas. Projete os quadris para a frente com força para elevar o kettlebell até a altura dos ombros. É o quadril que impulsiona, não os braços. Potência máxima para glúteos e posterior de coxa.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+swing+como+fazer+iniciante'},
+    {n:2,cls:'ex-c',name:'Kettlebell Goblet Squat',detail:'8kg · 12 reps',obs:'✓ Composto — pernas + core',band:null,
+     desc:'Segure o kettlebell com as duas mãos na frente do peito (como um cálice). Pés um pouco mais largos que os ombros. Agache fundo empurrando os joelhos para fora. Suba. A posição frontal do peso força o core e mantém o tronco ereto.',
+     yt:'https://www.youtube.com/results?search_query=goblet+squat+kettlebell+como+fazer'},
+    {n:3,cls:'ex-c',name:'Kettlebell Single-arm Row',detail:'8kg · 10 reps cada lado',obs:'✓ Composto — costas + bíceps',band:null,
+     desc:'Apoie a mão e o joelho direitos numa cadeira ou banco. Kettlebell no chão à esquerda. Puxe o kettlebell com a mão esquerda, cotovelo próximo ao corpo. Segure 1s. Desça. Troca. Ativa latíssimo e rombóide.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+one+arm+row+como+fazer'},
+    {n:4,cls:'ex-c',name:'Kettlebell Clean + Press',detail:'8kg · 8 reps cada lado',obs:'✓ Composto total — pernas + ombros',band:null,
+     desc:'Parta com o kettlebell entre as pernas (semi-agachamento). Puxe-o com uma mão em um movimento fluido até a posição de rack (na frente do ombro). Depois empurre para cima (press). Desça controlado. Une quadril, costas, ombro e tríceps.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+clean+and+press+como+fazer'},
+    {n:5,cls:'ex-c',name:'Kettlebell Dead Bug Hold',detail:'8kg · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas. Segure o kettlebell com as duas mãos acima do peito (braços estendidos). Joelhos a 90°. Estenda uma perna para baixo (sem tocar o chão) enquanto mantém o kettlebell parado. Retorna. Troca. Core profundo com carga.',
+     yt:'https://www.youtube.com/results?search_query=dead+bug+kettlebell+como+fazer'},
   ],
-  'ex-ca-2b':[
-    {n:1,cls:'ex-d',name:'Rosca bíceps com tubular',detail:'12 reps',obs:null,band:'Tubular Amarelo ou Verde',desc:'Pise no centro. Palmas para cima, cotovelos fixos. Dobre os braços.',yt:'https://www.youtube.com/results?search_query=rosca+biceps+elastico'},
-    {n:2,cls:'ex-d',name:'Tríceps acima da cabeça',detail:'12 reps',obs:null,band:'Tubular Amarelo',desc:'Elástico atrás da cabeça. Cotovelos para frente. Estenda os braços para cima.',yt:'https://www.youtube.com/results?search_query=triceps+acima+cabeca+elastico'},
-    {n:3,cls:'ex-d',name:'Elevação pélvica com mini band',detail:'15 reps',obs:'Core seguro para diástase',band:'Mini band Preto — acima dos joelhos',desc:'Ponte com band. Empurre joelhos para fora ao elevar o quadril.',yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
-    {n:4,cls:'ex-d',name:'Abdução em pé com mini band',detail:'15 reps cada lado',obs:null,band:'Mini band Azul ou Amarelo — tornozelos',desc:'Em pé apoiada na parede. Eleve uma perna para o lado contraindo o glúteo.',yt:'https://www.youtube.com/results?search_query=abducao+em+pe+mini+band'},
+  // TREINO D — Mini bands Topsand — FULL BODY COMPOSTO
+  'ex-ca-d':[
+    {n:1,cls:'ex-d',name:'Agachamento + Elevação lateral com band',detail:'Band rosa (média) · 12 reps',obs:'✓ Composto — pernas + ombros',band:'Band no punho (acima dos pulsos)',
+     desc:'Band ao redor dos pulsos. Pés na largura dos ombros. Desça no agachamento. Ao subir, eleve os braços lateralmente até a altura dos ombros, vencendo a resistência. Ativa quadríceps, glúteo, deltóide médio e rotadores externos do ombro.',
+     yt:'https://www.youtube.com/results?search_query=agachamento+mini+band+bracos'},
+    {n:2,cls:'ex-d',name:'Passo lateral (Monster Walk)',detail:'Band roxa (forte) · 15 passos cada lado',obs:'✓ Composto — glúteo + adutores',band:'Band acima dos joelhos',
+     desc:'Band acima dos joelhos, levemente agachada (posição atlética). Dê passos largos para o lado mantendo a tensão na band. 15 passos para a direita, 15 para a esquerda. Ativa glúteo médio e mínimo — fundamental para saúde do joelho.',
+     yt:'https://www.youtube.com/results?search_query=monster+walk+mini+band+lateral'},
+    {n:3,cls:'ex-d',name:'Avanço + Rosca bíceps com band',detail:'Band rosa (média) · 10 reps cada lado',obs:'✓ Composto — pernas + braços',band:'Band sob os pés',
+     desc:'Pise no centro da band com o pé da frente (avanço). Segure as extremidades da band com as mãos. Desça no lunge e ao subir faça a rosca bíceps contra a resistência. Ativa quadríceps, glúteo e bíceps ao mesmo tempo.',
+     yt:'https://www.youtube.com/results?search_query=lunge+rosca+biceps+elastico'},
+    {n:4,cls:'ex-d',name:'Ponte de glúteo com band',detail:'Band roxa (forte) · 15 reps',obs:'✓ Seguro para diástase',band:'Band acima dos joelhos',
+     desc:'Deite de costas, band acima dos joelhos. Empurre os joelhos para fora contra a band. Eleve o quadril. Segure 2s no topo. A tensão da band ativa o glúteo médio além do glúteo máximo.',
+     yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
+    {n:5,cls:'ex-d',name:'Remada em pé com band',detail:'Band verde (leve) · 12 reps',obs:'✓ Composto — costas + bíceps',band:'Band ancorada na frente (porta, mesa)',
+     desc:'Ancore a band numa superfície firme na altura do umbigo. Segure as pontas com as duas mãos. Afaste-se até sentir tensão. Puxe as mãos em direção ao abdômen dobrando os cotovelos — como uma remada. Retorna devagar. Ativa rombóides e bíceps.',
+     yt:'https://www.youtube.com/results?search_query=remada+em+pe+elastico+mini+band'},
+    {n:6,cls:'ex-d',name:'Chute de glúteo + Abdução em 4 apoios',detail:'Band verde (leve) · 12 reps cada lado',obs:'✓ Seguro para diástase',band:'Band nos tornozelos',
+     desc:'De quatro apoios, band nos tornozelos. Primeiro empurre o calcanhar direito para o teto (chute de glúteo — 6 reps). Depois abra a mesma perna para o lado (abdução — 6 reps). Troca. Ativa glúteo máximo + médio com controle.',
+     yt:'https://www.youtube.com/results?search_query=donkey+kick+fire+hydrant+mini+band'},
   ],
 };
 
@@ -427,16 +534,68 @@ const FASES=[
   {num:4,titulo:'Fase 4 — Corrida contínua',semanas:'Semanas 7–8',cor:'#C62828',desc:'Avalie com fisioterapeuta antes desta fase.',treinos:[{min:'20 min',vel:'7.5–8.0',desc:'Primeira corrida contínua.'},{min:'25-30 min',vel:'8.0–8.5',desc:'5km a 8.0 km/h = ~37 min. Objetivo próximo!'}]},
 ];
 
-function buildExercises(id,list){const c=document.getElementById(id);if(!c)return;list.forEach((ex,i)=>{const row=document.createElement('div');row.className='ex-row';row.onclick=()=>togglePanel(id+'-'+i);row.innerHTML=`<div class="ex-num ${ex.cls}">${ex.n}</div><div class="ex-main"><div class="ex-name">${ex.name}</div><div class="ex-detail">${ex.detail}</div>${ex.band?`<div class="ex-band">${ex.band}</div>`:''}${ex.obs?`<div class="ex-obs">${ex.obs}</div>`:''}</div><div class="ex-chevron">›</div>`;c.appendChild(row);const panel=document.createElement('div');panel.className='ex-panel';panel.id=id+'-'+i;panel.innerHTML=`<div class="ex-desc">${ex.desc}</div><a class="yt-btn" href="${ex.yt}" target="_blank">▶ Ver no YouTube</a>`;c.appendChild(panel);});}
-function togglePanel(id){const p=document.getElementById(id);const open=p.classList.contains('open');p.classList.toggle('open',!open);const row=p.previousElementSibling;if(row)row.querySelector('.ex-chevron').textContent=open?'›':'⌄';}
-function buildFases(){const c=document.getElementById('fases-corrida');FASES.forEach((f,i)=>{const div=document.createElement('div');div.className='fase-card';div.innerHTML=`<div class="fase-header" onclick="toggleFase(${i})"><div class="fase-num" style="background:${f.cor}">${f.num}</div><div class="fase-info"><div class="fase-title" style="color:${f.cor}">${f.titulo}</div><div class="fase-sub">${f.semanas}</div></div><div class="fase-chevron" id="fchev-${i}">›</div></div><div class="fase-body" id="fbody-${i}"><p style="font-size:12px;color:#555;margin:10px 0 8px;font-style:italic">${f.desc}</p>${f.treinos.map(t=>`<div class="treino-row"><div><div class="treino-min" style="background:${f.cor}">${t.min}</div><div style="font-size:11px;color:#888;margin-top:3px;text-align:center">${t.vel}</div></div><div class="treino-desc">${t.desc}</div></div>`).join('')}</div>`;c.appendChild(div);});}
-function toggleFase(i){const b=document.getElementById('fbody-'+i);const ch=document.getElementById('fchev-'+i);const open=b.classList.contains('open');b.classList.toggle('open',!open);ch.textContent=open?'›':'⌄';}
+function buildExercises(id,list){
+  const c=document.getElementById(id);
+  if(!c)return;
+  list.forEach((ex,i)=>{
+    const row=document.createElement('div');
+    row.className='ex-row';
+    row.onclick=()=>togglePanel(id+'-'+i);
+    row.innerHTML=`<div class="ex-num ${ex.cls}">${ex.n}</div><div class="ex-main"><div class="ex-name">${ex.name}</div><div class="ex-detail">${ex.detail}</div>${ex.band?`<div class="ex-band">📍 ${ex.band}</div>`:''}${ex.obs?`<div class="ex-obs">${ex.obs}</div>`:''}</div><div class="ex-chevron">›</div>`;
+    c.appendChild(row);
+    const panel=document.createElement('div');
+    panel.className='ex-panel';
+    panel.id=id+'-'+i;
+    panel.innerHTML=`<div class="ex-desc">${ex.desc}</div><a class="yt-btn" href="${ex.yt}" target="_blank">▶ Ver no YouTube</a>`;
+    c.appendChild(panel);
+  });
+}
 
-Object.keys(EXERCISES).forEach(id=>buildExercises(id,EXERCISES[id]));
+function togglePanel(id){
+  const p=document.getElementById(id);
+  const open=p.classList.contains('open');
+  p.classList.toggle('open',!open);
+  const row=p.previousElementSibling;
+  if(row)row.querySelector('.ex-chevron').textContent=open?'›':'⌄';
+}
+
+function buildFases(){
+  const c=document.getElementById('fases-corrida');
+  FASES.forEach((f,i)=>{
+    const div=document.createElement('div');
+    div.className='fase-card';
+    div.innerHTML=`<div class="fase-header" onclick="toggleFase(${i})"><div class="fase-num" style="background:${f.cor}">${f.num}</div><div class="fase-info"><div class="fase-title" style="color:${f.cor}">${f.titulo}</div><div class="fase-sub">${f.semanas}</div></div><div class="fase-chevron" id="fchev-${i}">›</div></div><div class="fase-body" id="fbody-${i}"><p style="font-size:12px;color:#555;margin:10px 0 8px;font-style:italic">${f.desc}</p>${f.treinos.map(t=>`<div class="treino-row"><div><div class="treino-min" style="background:${f.cor}">${t.min}</div><div style="font-size:11px;color:#888;margin-top:3px;text-align:center">${t.vel}</div></div><div class="treino-desc">${t.desc}</div></div>`).join('')}</div>`;
+    c.appendChild(div);
+  });
+}
+
+function toggleFase(i){
+  const b=document.getElementById('fbody-'+i);
+  const ch=document.getElementById('fchev-'+i);
+  const open=b.classList.contains('open');
+  b.classList.toggle('open',!open);
+  ch.textContent=open?'›':'⌄';
+}
+
+// Só monta os treinos da aba Treinos (remove os da academia antiga)
+['ex-ca-a','ex-ca-b','ex-ca-c','ex-ca-d'].forEach(id=>buildExercises(id,EXERCISES[id]));
 buildFases();
-function switchCirc(p,k){const sec=p==='ac'?'academia':'casa';document.querySelectorAll(`#${sec} .circ-btn`).forEach((b,i)=>b.classList.toggle('active',i===(k==='a'||k==='1'?0:1)));document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>el.classList.remove('active'));document.getElementById(`${p}-${k}`).classList.add('active');}
 
-// ENERGIA — estado global
+function switchCirc(p,k){
+  const map={ac:'academia',ca:'casa'};
+  const sec=map[p]||p;
+  const btns=document.querySelectorAll(`#${sec} .circ-btn`);
+  const letterMap={a:0,b:1,c:2,d:3,'1':0,'2':1};
+  const idx=letterMap[k]??0;
+  btns.forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>{
+    el.classList.remove('active');
+  });
+  const target=document.getElementById(`${p}-${k}`);
+  if(target)target.classList.add('active');
+}
+
+// ENERGIA
 let nivelAtual=null;
 let treinosAtual=new Set();
 let inclAtual=0;
@@ -456,11 +615,7 @@ function initEnergia(){
   calcGasto();
 }
 
-function setNivel(n){
-  nivelAtual=(nivelAtual===n)?null:n;
-  updateNivelUI();
-  calcGasto();
-}
+function setNivel(n){nivelAtual=(nivelAtual===n)?null:n;updateNivelUI();calcGasto();}
 
 function updateNivelUI(){
   ['sedentario','leve','moderado','ativo'].forEach(n=>{
@@ -477,17 +632,13 @@ function toggleTreino(t){
 }
 
 function updateTreinosUI(){
-  ['academia_a','academia_b','casa_1','casa_2','yoga'].forEach(t=>{
+  ['casa_a','casa_b','casa_c','casa_d','yoga'].forEach(t=>{
     const el=document.getElementById('tc-'+t);
     if(el)el.classList.toggle('active',treinosAtual.has(t));
   });
 }
 
-function setIncl(v){
-  inclAtual=v;
-  updateInclUI();
-  calcGasto();
-}
+function setIncl(v){inclAtual=v;updateInclUI();calcGasto();}
 
 function updateInclUI(){
   [0,1,2,3].forEach(v=>{
@@ -496,7 +647,6 @@ function updateInclUI(){
   });
 }
 
-// MET por velocidade (km/h)
 function getMET(vel){
   if(vel<=0)return 0;
   if(vel<=4)return 3.0;
@@ -508,12 +658,11 @@ function getMET(vel){
   return 11.5;
 }
 
-// Fator de inclinação
 function getInclFator(incl){
   if(incl===0)return 1.0;
-  if(incl===1)return 1.08; // +8% (1-2%)
-  if(incl===2)return 1.18; // +18% (3-5%)
-  return 1.28; // +28% (6%+)
+  if(incl===1)return 1.08;
+  if(incl===2)return 1.18;
+  return 1.28;
 }
 
 function calcGasto(){
@@ -523,11 +672,9 @@ function calcGasto(){
   const itens=[];
   let gasto=0;
 
-  // BASE: TMB
   gasto+=TMB;
   itens.push({label:'Metabolismo basal',val:TMB});
 
-  // ATIVIDADE GERAL: passos OU nível
   if(passos>0){
     const gastoPassos=Math.round(passos*0.04);
     gasto+=gastoPassos;
@@ -539,7 +686,6 @@ function calcGasto(){
     if(extra>0){gasto+=extra;itens.push({label:labels[nivelAtual],val:extra});}
   }
 
-  // ESTEIRA/CORRIDA com MET + inclinação
   if(minEsteira>0&&velEsteira>0){
     const met=getMET(velEsteira);
     const fatorIncl=getInclFator(inclAtual);
@@ -548,27 +694,25 @@ function calcGasto(){
     const inclLabel=['','inclinada leve','inclinada moderada','muito inclinada'];
     itens.push({label:`Esteira ${minEsteira}min a ${velEsteira}km/h${inclAtual>0?' '+inclLabel[inclAtual]:''}`,val:gastoEsteira});
   } else if(minEsteira>0){
-    // sem velocidade informada — estimativa genérica
     const gastoEsteira=Math.round(minEsteira*6);
     gasto+=gastoEsteira;
     itens.push({label:`Esteira ${minEsteira}min (velocidade não informada)`,val:gastoEsteira});
   }
 
-  // OUTROS TREINOS
-  if(treinosAtual.has('academia_a')||treinosAtual.has('academia_b')){
-    gasto+=180;itens.push({label:'Circuito academia (30 min)',val:180});
+  // Treinos compostos — circuito ~25-30min, alta intensidade
+  const casaCompostos=['casa_a','casa_b','casa_c'];
+  if(casaCompostos.some(t=>treinosAtual.has(t))){
+    gasto+=200;itens.push({label:'Treino composto em casa (30 min)',val:200});
   }
-  if(treinosAtual.has('casa_1')||treinosAtual.has('casa_2')){
-    gasto+=130;itens.push({label:'Treino em casa (20 min)',val:130});
+  if(treinosAtual.has('casa_d')){
+    gasto+=150;itens.push({label:'Treino bands em casa (25 min)',val:150});
   }
   if(treinosAtual.has('yoga')){
     gasto+=120;itens.push({label:'Yoga (60 min)',val:120});
   }
 
-  // Atualiza UI
   document.getElementById('gasto-val').textContent=gasto+' kcal';
 
-  // Detalhe
   const detalhe=document.getElementById('gasto-detalhe');
   const itensEl=document.getElementById('gasto-itens');
   if(itens.length>1){
@@ -578,14 +722,12 @@ function calcGasto(){
     detalhe.style.display='none';
   }
 
-  // Calorias consumidas
   const nutriRec=DB.nutri[todayDK()]||{};
   const totKcal=nutriRec.kcal||0;
   const totProt=nutriRec.prot||0;
   document.getElementById('consumido-val').textContent=totKcal>0?totKcal+' kcal':'—';
   document.getElementById('prot-val').textContent=totProt>0?totProt+'g':'—';
 
-  // Déficit
   const box=document.getElementById('deficit-box');
   const val=document.getElementById('deficit-val');
   const sub=document.getElementById('deficit-sub');
@@ -703,7 +845,7 @@ function openDiaModal(key,date){
   const kcal=nutriRec.kcal||0;const prot=nutriRec.prot||0;
   const deficit=gasto-kcal;
   const nivelLabels={sedentario:'Muito sentada',leve:'Pouco ativa',moderado:'Moderada',ativo:'Muito ativa'};
-  const treinoLabels={academia_a:'Academia A',academia_b:'Academia B',casa_1:'Casa 1',casa_2:'Casa 2',yoga:'Yoga'};
+  const treinoLabels={casa_a:'Treino A · Halteres',casa_b:'Treino B · Barra',casa_c:'Treino C · Kettlebell',casa_d:'Treino D · Bands',yoga:'Yoga'};
   const treinosFeitos=(energiaRec.treinos||[]).map(t=>treinoLabels[t]||t).join(', ')||'—';
   const inclLabels=['Sem inclinação','Leve (1-2%)','Moderada (3-5%)','Alta (6%+)'];
   let html=`<div class="modal-header"><div class="modal-title">${date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</div><button class="modal-close" onclick="closeDiaModal()">×</button></div>`;
