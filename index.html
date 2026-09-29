@@ -216,7 +216,6 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
         <button class="treino-check" id="tc-casa_a" onclick="toggleTreino('casa_a')">Treino A · Halteres</button>
         <button class="treino-check" id="tc-casa_b" onclick="toggleTreino('casa_b')">Treino B · Barra</button>
         <button class="treino-check" id="tc-casa_c" onclick="toggleTreino('casa_c')">Treino C · Kettlebell</button>
-        <button class="treino-check" id="tc-casa_d" onclick="toggleTreino('casa_d')">Treino D · Bands</button>
         <button class="treino-check" id="tc-yoga" onclick="toggleTreino('yoga')">Yoga</button>
       </div>
     </div>
@@ -238,14 +237,13 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
       <div class="circ-btn active" onclick="switchCirc('ca','a')">A · Halteres</div>
       <div class="circ-btn" onclick="switchCirc('ca','b')">B · Barra</div>
       <div class="circ-btn" onclick="switchCirc('ca','c')">C · Kettlebell</div>
-      <div class="circ-btn" onclick="switchCirc('ca','d')">D · Bands</div>
     </div>
 
     <!-- TREINO A -->
     <div id="ca-a" class="circ-content active">
       <div class="treino-desc-box">
-        <p><strong>Treino A · Halteres 4kg</strong> — Full body composto em circuito<br>
-        Movimentos amplos encadeados: agacha + empurra + puxa + corrida no lugar. Cardio + força ao mesmo tempo.</p>
+        <p><strong>Treino A · Halteres 4kg</strong> — Full body · dominante de joelho<br>
+        Foco em quadríceps, peitoral e deltóide. Agachar + empurrar + puxar horizontal. Band integrada no agachamento e na ponte.</p>
       </div>
       <div class="card">
         <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
@@ -257,8 +255,8 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
     <!-- TREINO B — Barra 8kg -->
     <div id="ca-b" class="circ-content">
       <div class="treino-desc-box">
-        <p><strong>Treino B · Barra 8kg</strong> — Full body composto em circuito<br>
-        Sequência clássica de barra: agacha, empurra, puxa, levanta. Todos os grandes grupos musculares.</p>
+        <p><strong>Treino B · Barra 8kg</strong> — Full body · dominante de quadril<br>
+        Foco em glúteo, posteriores de coxa e costas. Dobrar + puxar vertical + dobradiça. Band no agachamento sumô.</p>
       </div>
       <div class="card">
         <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
@@ -270,8 +268,8 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
     <!-- TREINO C — Kettlebell 8kg -->
     <div id="ca-c" class="circ-content">
       <div class="treino-desc-box">
-        <p><strong>Treino C · Kettlebell 8kg</strong> — Full body funcional em circuito<br>
-        Movimentos balísticos e de força. Alta demanda de core, glúteos e cardio — ideal para condicionamento.</p>
+        <p><strong>Treino C · Kettlebell 8kg</strong> — Full body · rotacional e unilateral<br>
+        Foco em glúteo médio, core anti-rotação e estabilizadores. Carregar + balançar + movimentos assimétricos. Core seguro para diástase.</p>
       </div>
       <div class="card">
         <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
@@ -280,18 +278,6 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
       </div>
     </div>
 
-    <!-- TREINO D — Mini bands de tecido -->
-    <div id="ca-d" class="circ-content">
-      <div class="treino-desc-box">
-        <p><strong>Treino D · Mini bands Topsand</strong> — Full body funcional<br>
-        Ativa glúteos, posterior de coxa, ombros e core com as 3 resistências (leve · média · forte). Ótimo como treino completo ou aquecimento.</p>
-      </div>
-      <div class="card">
-        <div class="bloco-header"><div class="bloco-title">Circuito único · 3 rodadas · descanso 45-60s entre rodadas</div></div>
-        <div id="ex-ca-d"></div>
-        <div class="rodadas">↻ Execute os 6 exercícios sem parar. Descanse 45-60s. Repita 3x.</div>
-      </div>
-    </div>
   </div>
 
   <!-- CORRIDA -->
@@ -414,116 +400,62 @@ function switchTab(id,btn){
 
 // ===================== EXERCÍCIOS =====================
 const EXERCISES={
-  // ACADEMIA A
-  'ex-ac-a':[
-    {n:1,cls:'ex-a',name:'Elevação pélvica com halter',detail:'Chão ou banco · 15 reps',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas, joelhos dobrados, halter no quadril. Eleve o quadril contraindo o glúteo. Segure 2s no topo. Ativa glúteo + posterior de coxa.',
-     yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+halter'},
-    {n:2,cls:'ex-a',name:'Agachamento sumô com halter',detail:'Halteres · 12 reps',obs:null,band:null,
-     desc:'Pés bem abertos, pontas para fora. Segure o halter na vertical. Desça empurrando joelhos para fora até a coxa ficar paralela ao chão. Ativa glúteo, quadríceps e adutores.',
-     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+halter'},
-    {n:3,cls:'ex-a',name:'Remada no TRX',detail:'TRX · 12 reps',obs:null,band:null,
-     desc:'Segure as alças, incline o corpo para trás. Puxe o peito em direção às mãos dobrando os cotovelos. Ativa costas, bíceps e core.',
-     yt:'https://www.youtube.com/results?search_query=remada+TRX+como+fazer'},
-    {n:4,cls:'ex-a',name:'Desenvolvimento com halteres',detail:'Halteres · 12 reps',obs:null,band:null,
-     desc:'Sente com halteres nos ombros. Empurre para cima até os braços estenderem. Desça controlado. Ativa deltóide, trapézio e tríceps.',
-     yt:'https://www.youtube.com/results?search_query=desenvolvimento+halteres+ombro'},
-    {n:5,cls:'ex-a',name:'Dead bug',detail:'Chão · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas, braços para o teto, joelhos a 90°. Estenda braço e perna opostos sem arquear as costas. Mantém a zona abdominal profunda.',
-     yt:'https://www.youtube.com/results?search_query=dead+bug+exercicio'},
-  ],
-  // ACADEMIA B
-  'ex-ac-b':[
-    {n:1,cls:'ex-b',name:'Avanço com halteres (lunge)',detail:'Halteres · 10 reps cada lado',obs:null,band:null,
-     desc:'Passo à frente, desça o joelho traseiro sem tocar o chão. Empurre o calcanhar para subir. Ativa quadríceps, glúteo e core.',
-     yt:'https://www.youtube.com/results?search_query=avanco+lunge+halteres'},
-    {n:2,cls:'ex-b',name:'Supino inclinado com halteres',detail:'Halteres + banco · 12 reps',obs:null,band:null,
-     desc:'Banco a 30-45°. Empurre os halteres para cima e desça controlado sentindo o peitoral superior. Ativa peitoral, ombro anterior e tríceps.',
-     yt:'https://www.youtube.com/results?search_query=supino+inclinado+halteres'},
-    {n:3,cls:'ex-b',name:'Elevação pélvica unilateral',detail:'Chão · 12 reps cada lado',obs:'✓ Seguro para diástase',band:null,
-     desc:'Ponte com uma perna estendida no ar. Eleve usando só a perna de apoio. Ativa glúteo e posterior de coxa com mais intensidade.',
-     yt:'https://www.youtube.com/results?search_query=elevacao+pelvica+unilateral'},
-    {n:4,cls:'ex-b',name:'Rosca direta com barra',detail:'Barra · 12 reps',obs:null,band:null,
-     desc:'Em pé, palmas para cima, cotovelos fixos. Dobre os braços trazendo a barra até os ombros. Ativa bíceps e antebraço.',
-     yt:'https://www.youtube.com/results?search_query=rosca+direta+barra'},
-    {n:5,cls:'ex-b',name:'Bird dog',detail:'Chão · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
-     desc:'De quatro apoios, estenda braço e perna opostos. Quadril nivelado. Segure 2-3 seg. Ativa core profundo e estabilizadores do quadril.',
-     yt:'https://www.youtube.com/results?search_query=bird+dog+exercicio'},
-  ],
-  // TREINO A — Halteres 4kg (par) — COMPOSTO FULL BODY
+  // TREINO A — Halteres 4kg — DOMINANTE DE JOELHO (agachar + empurrar + puxar horizontal)
+  // Foco: quadríceps, peitoral, deltóide, bíceps | Band ativa glúteo médio no agachamento
   'ex-ca-a':[
-    {n:1,cls:'ex-a',name:'Thruster com halteres',detail:'4kg cada mão · 10 reps',obs:'✓ Composto — pernas + ombros',band:null,
-     desc:'Segure os halteres nos ombros, palmas para dentro. Desça em agachamento profundo. Na subida, empurre os halteres acima da cabeça num movimento contínuo. Expire no esforço. Ativa quadríceps, glúteo, core e ombros num único movimento.',
+    {n:1,cls:'ex-a',name:'Agachamento + Desenvolvimento',detail:'4kg cada mão · 10 reps',obs:'✓ Composto total — pernas + ombros',band:'Band verde acima dos joelhos',
+     desc:'Band acima dos joelhos para ativar glúteo médio e evitar joelhos caindo para dentro. Segure os halteres nos ombros. Agache fundo empurrando os joelhos para fora (contra a band). Na subida, empurre os halteres acima da cabeça. Movimento thruster — tudo junto, sem parar.',
      yt:'https://www.youtube.com/results?search_query=thruster+halteres+como+fazer'},
-    {n:2,cls:'ex-a',name:'Avanço + Rosca bíceps',detail:'4kg cada mão · 10 reps cada lado',obs:'✓ Composto — pernas + braços',band:null,
-     desc:'Avance um passo à frente (lunge). Enquanto está embaixo, faça a rosca bíceps com os dois braços. Volte e repita do outro lado. Une quadríceps, glúteo, bíceps e equilíbrio.',
-     yt:'https://www.youtube.com/results?search_query=lunge+rosca+biceps+halteres'},
-    {n:3,cls:'ex-a',name:'Remada + Extensão tríceps',detail:'4kg cada mão · 12 reps',obs:'✓ Composto — costas + braços',band:null,
-     desc:'Em posição de remada inclinada (tronco a 45°, halteres pendurados). Puxe os cotovelos para cima (remada). No topo, estenda os antebraços para trás (tríceps). Volta. Duas articulações num só exercício.',
-     yt:'https://www.youtube.com/results?search_query=remada+triceps+halteres'},
-    {n:4,cls:'ex-a',name:'Agachamento sumô + Desenvolvimento lateral',detail:'4kg cada mão · 10 reps',obs:'✓ Composto — pernas + ombros',band:null,
-     desc:'Pés bem abertos. Desça no agachamento sumô. Ao subir, eleve os halteres lateralmente até a altura dos ombros (desenvolvimento lateral). Ativa glúteo, adutores e deltóide médio.',
-     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+elevacao+lateral'},
-    {n:5,cls:'ex-a',name:'Ponte de glúteo com halter + Press',detail:'Um halter 4kg · 12 reps',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas, halter no quadril. Faça a ponte de glúteo. No topo, segure a posição e faça um press (empurra o halter para o teto). Baixe o halter, desça o quadril. Ativa glúteo, core e peitoral.',
-     yt:'https://www.youtube.com/results?search_query=hip+thrust+press+halteres'},
+    {n:2,cls:'ex-a',name:'Avanço lateral com halter',detail:'4kg em uma mão · 10 reps cada lado',obs:'✓ Composto — pernas + equilíbrio',band:null,
+     desc:'Passo largo para o lado, joelho da perna que avança dobra, outro fica estendido (afundo lateral). Segure o halter na mão do lado que avança. Empurre o calcanhar para voltar. Ativa quadríceps, adutores e glúteo médio num plano diferente do agachamento.',
+     yt:'https://www.youtube.com/results?search_query=avanco+lateral+haltere+como+fazer'},
+    {n:3,cls:'ex-a',name:'Remada curvada com halteres',detail:'4kg cada mão · 12 reps',obs:'✓ Composto — costas + bíceps',band:null,
+     desc:'Pés na largura dos ombros, tronco inclinado a 45° com costas retas. Halteres pendurados, palmas uma para a outra. Puxe os cotovelos para cima e para trás até os halteres chegarem às costelas. Segure 1s. Desça devagar. Ativa latíssimo, rombóides e bíceps — padrão puxar horizontal.',
+     yt:'https://www.youtube.com/results?search_query=remada+curvada+halteres+como+fazer'},
+    {n:4,cls:'ex-a',name:'Flexão de peitoral (push-up)',detail:'Peso corporal · 8-12 reps',obs:'✓ Composto — peitoral + tríceps + core',band:null,
+     desc:'Mãos um pouco mais largas que os ombros, corpo em linha reta do calcanhar à cabeça. Desça até o peito quase tocar o chão. Suba. Se precisar, apoie nos joelhos — mantém a qualidade. Contraparte de empurrar horizontal ao padrão de puxar da remada.',
+     yt:'https://www.youtube.com/results?search_query=flexao+de+braco+correta+como+fazer'},
+    {n:5,cls:'ex-a',name:'Ponte de glúteo com halteres',detail:'4kg cada mão no quadril · 15 reps',obs:'✓ Seguro para diástase',band:'Band rosa acima dos joelhos',
+     desc:'Deite de costas, joelhos dobrados, halteres apoiados no quadril, band acima dos joelhos. Empurre os joelhos para fora contra a band. Eleve o quadril contraindo bem o glúteo no topo. Segure 2s. A band duplica a ativação do glúteo médio além do máximo.',
+     yt:'https://www.youtube.com/results?search_query=hip+thrust+halteres+mini+band'},
   ],
-  // TREINO B — Barra 8kg — COMPOSTO FULL BODY
+  // TREINO B — Barra 8kg — DOMINANTE DE QUADRIL (dobrar + puxar vertical + empurrar)
+  // Foco: glúteo, posterior de coxa, costas, ombro | Band no agachamento controla joelhos
   'ex-ca-b':[
-    {n:1,cls:'ex-b',name:'Agachamento com barra',detail:'8kg · 12 reps',obs:'✓ Composto — pernas completas',band:null,
-     desc:'Barra nos trapézios (ou segure na frente ao nível do peito se preferir front squat). Pés na largura dos ombros. Desça até as coxas paralelas ao chão. Suba empurrando o chão. Ativa quadríceps, glúteo, posteriores e core.',
-     yt:'https://www.youtube.com/results?search_query=agachamento+barra+como+fazer'},
-    {n:2,cls:'ex-b',name:'Desenvolvimento militar com barra',detail:'8kg · 10 reps',obs:'✓ Composto — ombros + core',band:null,
-     desc:'Em pé, barra na frente dos ombros (pegada um pouco mais larga que ombros). Empurre a barra para cima até os braços estenderem. Desça controlado. Ativa deltóide frontal e médio, trapézio e tríceps — e exige core estabilizador.',
-     yt:'https://www.youtube.com/results?search_query=desenvolvimento+militar+barra+em+pe'},
-    {n:3,cls:'ex-b',name:'Remada inclinada com barra',detail:'8kg · 12 reps',obs:'✓ Composto — costas + bíceps',band:null,
-     desc:'Tronco inclinado a 45°, barra com as duas mãos. Puxe a barra em direção ao umbigo dobrando os cotovelos. Segure 1s. Desça devagar. Ativa latíssimo do dorso, rombóides e bíceps.',
-     yt:'https://www.youtube.com/results?search_query=remada+inclinada+barra+como+fazer'},
-    {n:4,cls:'ex-b',name:'Agachamento + Desenvolvimento (Thruster de barra)',detail:'8kg · 8 reps',obs:'✓ Composto total',band:null,
-     desc:'Barra ao nível dos ombros (frente). Agache. Na subida, continue o movimento e empurre a barra acima da cabeça — movimento contínuo de baixo para cima. Retorna. O exercício mais completo do treino.',
-     yt:'https://www.youtube.com/results?search_query=thruster+barra+como+fazer'},
-    {n:5,cls:'ex-b',name:'Elevação pélvica com barra',detail:'8kg sobre o quadril · 15 reps',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas, barra apoiada sobre o quadril com as mãos. Joelhos dobrados, pés no chão. Eleve o quadril contraindo bem o glúteo. Segure 2s no topo. Ativa glúteo máximo com carga.',
-     yt:'https://www.youtube.com/results?search_query=hip+thrust+barra+como+fazer'},
+    {n:1,cls:'ex-b',name:'Levantamento terra com barra',detail:'8kg · 10 reps',obs:'✓ Composto — posterior completo',band:null,
+     desc:'Barra no chão à frente dos pés. Agache com as costas retas, pegue a barra com as duas mãos. Suba empurrando o chão e estendendo os quadris — não arredonde as costas. Baixe controlado. Ativa glúteo máximo, posteriores de coxa, lombar e core de forma integrada. O padrão de movimento mais diferente do agachamento.',
+     yt:'https://www.youtube.com/results?search_query=levantamento+terra+barra+como+fazer+iniciante'},
+    {n:2,cls:'ex-b',name:'Remada upright (ao queixo)',detail:'8kg · 12 reps',obs:'✓ Composto — ombros + trapézio',band:null,
+     desc:'Em pé, barra na frente das coxas com pegada fechada (mãos a 20cm). Puxe a barra verticalmente até a altura do queixo, cotovelos subindo acima da barra. Desça controlado. Ativa deltóide médio, trapézio superior e bíceps — padrão puxar vertical que não aparece nos outros treinos.',
+     yt:'https://www.youtube.com/results?search_query=remada+ao+queixo+barra+como+fazer'},
+    {n:3,cls:'ex-b',name:'Agachamento sumô com barra',detail:'8kg · 12 reps',obs:'✓ Composto — glúteo + adutores',band:'Band verde acima dos joelhos',
+     desc:'Pés bem abertos, pontas para fora. Barra apoiada nos trapézios ou segura na frente do peito. Band acima dos joelhos — empurre os joelhos para fora ao longo de todo o movimento. Agache até as coxas paralelas. Ativa glúteo e adutores mais do que o agachamento convencional.',
+     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+barra+como+fazer'},
+    {n:4,cls:'ex-b',name:'Good morning com barra',detail:'8kg · 12 reps',obs:'✓ Composto — posterior de coxa + lombar',band:null,
+     desc:'Barra nos trapézios, joelhos levemente flexionados. Incline o tronco para frente dobrando nos quadris (não na cintura) até sentir o alongamento dos posteriores de coxa. Volte estendendo os quadris. Movimento de dobradiça puro — ativa toda a cadeia posterior sem dobrar a coluna.',
+     yt:'https://www.youtube.com/results?search_query=good+morning+barra+como+fazer'},
+    {n:5,cls:'ex-b',name:'Elevação pélvica unilateral com barra',detail:'8kg no quadril · 12 reps cada lado',obs:'✓ Seguro para diástase',band:null,
+     desc:'Deite de costas, barra no quadril. Uma perna dobrada no chão, a outra estendida no ar. Eleve o quadril usando só a perna de apoio. Segure 2s no topo. Muito mais intenso que a versão bilateral — isola cada glúteo separadamente e desafia o equilíbrio pélvico.',
+     yt:'https://www.youtube.com/results?search_query=hip+thrust+unilateral+barra+como+fazer'},
   ],
-  // TREINO C — Kettlebell 8kg — COMPOSTO FULL BODY
+  // TREINO C — Kettlebell 8kg — DOMINANTE ROTACIONAL/UNILATERAL (carregar + balançar + estabilizar)
+  // Foco: glúteo médio, core anti-rotação, estabilizadores — movimentos assimétricos e balísticos
   'ex-ca-c':[
-    {n:1,cls:'ex-c',name:'Kettlebell Swing',detail:'8kg · 15 reps',obs:'✓ Composto — glúteo + core + cardio',band:null,
-     desc:'Pés na largura dos ombros. Segure o kettlebell com as duas mãos. Flexione os joelhos ligeiramente, incline o tronco e deixe o kettlebell balançar entre as pernas. Projete os quadris para a frente com força para elevar o kettlebell até a altura dos ombros. É o quadril que impulsiona, não os braços. Potência máxima para glúteos e posterior de coxa.',
+    {n:1,cls:'ex-c',name:'Kettlebell Swing',detail:'8kg · 15 reps',obs:'✓ Potência — glúteo + posterior + cardio',band:null,
+     desc:'Pés na largura dos ombros. Deixe o KB balançar entre as pernas inclinando o tronco (dobradiça de quadril, não agachamento). Projete os quadris para a frente com força explosiva — os braços apenas seguem o movimento, não puxam. KB sobe até a altura dos ombros. Trabalha potência de quadril que nenhum outro treino acessa.',
      yt:'https://www.youtube.com/results?search_query=kettlebell+swing+como+fazer+iniciante'},
-    {n:2,cls:'ex-c',name:'Kettlebell Goblet Squat',detail:'8kg · 12 reps',obs:'✓ Composto — pernas + core',band:null,
-     desc:'Segure o kettlebell com as duas mãos na frente do peito (como um cálice). Pés um pouco mais largos que os ombros. Agache fundo empurrando os joelhos para fora. Suba. A posição frontal do peso força o core e mantém o tronco ereto.',
-     yt:'https://www.youtube.com/results?search_query=goblet+squat+kettlebell+como+fazer'},
-    {n:3,cls:'ex-c',name:'Kettlebell Single-arm Row',detail:'8kg · 10 reps cada lado',obs:'✓ Composto — costas + bíceps',band:null,
-     desc:'Apoie a mão e o joelho direitos numa cadeira ou banco. Kettlebell no chão à esquerda. Puxe o kettlebell com a mão esquerda, cotovelo próximo ao corpo. Segure 1s. Desça. Troca. Ativa latíssimo e rombóide.',
-     yt:'https://www.youtube.com/results?search_query=kettlebell+one+arm+row+como+fazer'},
-    {n:4,cls:'ex-c',name:'Kettlebell Clean + Press',detail:'8kg · 8 reps cada lado',obs:'✓ Composto total — pernas + ombros',band:null,
-     desc:'Parta com o kettlebell entre as pernas (semi-agachamento). Puxe-o com uma mão em um movimento fluido até a posição de rack (na frente do ombro). Depois empurre para cima (press). Desça controlado. Une quadril, costas, ombro e tríceps.',
-     yt:'https://www.youtube.com/results?search_query=kettlebell+clean+and+press+como+fazer'},
-    {n:5,cls:'ex-c',name:'Kettlebell Dead Bug Hold',detail:'8kg · 8 reps cada lado',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas. Segure o kettlebell com as duas mãos acima do peito (braços estendidos). Joelhos a 90°. Estenda uma perna para baixo (sem tocar o chão) enquanto mantém o kettlebell parado. Retorna. Troca. Core profundo com carga.',
+    {n:2,cls:'ex-c',name:'Avanço com KB na posição rack (unilateral)',detail:'8kg em uma mão · 10 reps cada lado',obs:'✓ Composto — pernas + core anti-rotação',band:null,
+     desc:'Segure o KB em posição rack (cotovelo dobrado, KB descansando no antebraço, na frente do ombro) em uma mão. Avance com a perna oposta ao KB. O peso assimétrico obriga o core a trabalhar contra a rotação — muito diferente do avanço com halteres simétricos.',
+     yt:'https://www.youtube.com/results?search_query=lunge+kettlebell+rack+position'},
+    {n:3,cls:'ex-c',name:'KB Halo',detail:'8kg · 8 reps cada direção',obs:'✓ Mobilidade + core + ombros',band:null,
+     desc:'Em pé ou ajoelhada, segure o KB pela alça ou pela base (invertido). Faça círculos lentos ao redor da cabeça, mantendo os cotovelos próximos. 8 rotações para cada lado. Ativa rotadores de ombro, mobiliza a coluna torácica e exige core estabilizador — movimento completamente diferente dos outros treinos.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+halo+como+fazer'},
+    {n:4,cls:'ex-c',name:'KB Clean + Press unilateral',detail:'8kg · 8 reps cada lado',obs:'✓ Composto total — quadril + ombro',band:null,
+     desc:'KB entre as pernas (meio swing). Puxe com uma mão em movimento fluido até o rack no ombro (clean). Empurre para cima até o braço estender (press). Desça controlado. Unilateral: cada lado trabalha de forma independente, detectando desequilíbrios e ativando core de forma máxima.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+clean+press+unilateral+como+fazer'},
+    {n:5,cls:'ex-c',name:'Dead bug com KB',detail:'8kg · 8 reps cada lado',obs:'✓ Seguro para diástase — core profundo',band:null,
+     desc:'Deite de costas. Segure o KB com as duas mãos acima do peito (braços estendidos para o teto). Joelhos a 90°. Expire todo o ar. Estenda uma perna lentamente para baixo sem deixar a lombar sair do chão. Retorna. Troca. O KB adiciona carga ao transverso do abdômen — o músculo mais importante para a diástase.',
      yt:'https://www.youtube.com/results?search_query=dead+bug+kettlebell+como+fazer'},
-  ],
-  // TREINO D — Mini bands Topsand — FULL BODY COMPOSTO
-  'ex-ca-d':[
-    {n:1,cls:'ex-d',name:'Agachamento + Elevação lateral com band',detail:'Band rosa (média) · 12 reps',obs:'✓ Composto — pernas + ombros',band:'Band no punho (acima dos pulsos)',
-     desc:'Band ao redor dos pulsos. Pés na largura dos ombros. Desça no agachamento. Ao subir, eleve os braços lateralmente até a altura dos ombros, vencendo a resistência. Ativa quadríceps, glúteo, deltóide médio e rotadores externos do ombro.',
-     yt:'https://www.youtube.com/results?search_query=agachamento+mini+band+bracos'},
-    {n:2,cls:'ex-d',name:'Passo lateral (Monster Walk)',detail:'Band roxa (forte) · 15 passos cada lado',obs:'✓ Composto — glúteo + adutores',band:'Band acima dos joelhos',
-     desc:'Band acima dos joelhos, levemente agachada (posição atlética). Dê passos largos para o lado mantendo a tensão na band. 15 passos para a direita, 15 para a esquerda. Ativa glúteo médio e mínimo — fundamental para saúde do joelho.',
-     yt:'https://www.youtube.com/results?search_query=monster+walk+mini+band+lateral'},
-    {n:3,cls:'ex-d',name:'Avanço + Rosca bíceps com band',detail:'Band rosa (média) · 10 reps cada lado',obs:'✓ Composto — pernas + braços',band:'Band sob os pés',
-     desc:'Pise no centro da band com o pé da frente (avanço). Segure as extremidades da band com as mãos. Desça no lunge e ao subir faça a rosca bíceps contra a resistência. Ativa quadríceps, glúteo e bíceps ao mesmo tempo.',
-     yt:'https://www.youtube.com/results?search_query=lunge+rosca+biceps+elastico'},
-    {n:4,cls:'ex-d',name:'Ponte de glúteo com band',detail:'Band roxa (forte) · 15 reps',obs:'✓ Seguro para diástase',band:'Band acima dos joelhos',
-     desc:'Deite de costas, band acima dos joelhos. Empurre os joelhos para fora contra a band. Eleve o quadril. Segure 2s no topo. A tensão da band ativa o glúteo médio além do glúteo máximo.',
-     yt:'https://www.youtube.com/results?search_query=ponte+gluteo+mini+band'},
-    {n:5,cls:'ex-d',name:'Remada em pé com band',detail:'Band verde (leve) · 12 reps',obs:'✓ Composto — costas + bíceps',band:'Band ancorada na frente (porta, mesa)',
-     desc:'Ancore a band numa superfície firme na altura do umbigo. Segure as pontas com as duas mãos. Afaste-se até sentir tensão. Puxe as mãos em direção ao abdômen dobrando os cotovelos — como uma remada. Retorna devagar. Ativa rombóides e bíceps.',
-     yt:'https://www.youtube.com/results?search_query=remada+em+pe+elastico+mini+band'},
-    {n:6,cls:'ex-d',name:'Chute de glúteo + Abdução em 4 apoios',detail:'Band verde (leve) · 12 reps cada lado',obs:'✓ Seguro para diástase',band:'Band nos tornozelos',
-     desc:'De quatro apoios, band nos tornozelos. Primeiro empurre o calcanhar direito para o teto (chute de glúteo — 6 reps). Depois abra a mesma perna para o lado (abdução — 6 reps). Troca. Ativa glúteo máximo + médio com controle.',
-     yt:'https://www.youtube.com/results?search_query=donkey+kick+fire+hydrant+mini+band'},
   ],
 };
 
@@ -578,11 +510,11 @@ function toggleFase(i){
 }
 
 // Só monta os treinos da aba Treinos (remove os da academia antiga)
-['ex-ca-a','ex-ca-b','ex-ca-c','ex-ca-d'].forEach(id=>buildExercises(id,EXERCISES[id]));
+['ex-ca-a','ex-ca-b','ex-ca-c'].forEach(id=>buildExercises(id,EXERCISES[id]));
 buildFases();
 
 function switchCirc(p,k){
-  const map={ac:'academia',ca:'casa'};
+  const map={ac:'academia',ca:'treinos'};
   const sec=map[p]||p;
   const btns=document.querySelectorAll(`#${sec} .circ-btn`);
   const letterMap={a:0,b:1,c:2,d:3,'1':0,'2':1};
@@ -632,7 +564,7 @@ function toggleTreino(t){
 }
 
 function updateTreinosUI(){
-  ['casa_a','casa_b','casa_c','casa_d','yoga'].forEach(t=>{
+  ['casa_a','casa_b','casa_c','yoga'].forEach(t=>{
     const el=document.getElementById('tc-'+t);
     if(el)el.classList.toggle('active',treinosAtual.has(t));
   });
@@ -703,9 +635,6 @@ function calcGasto(){
   const casaCompostos=['casa_a','casa_b','casa_c'];
   if(casaCompostos.some(t=>treinosAtual.has(t))){
     gasto+=200;itens.push({label:'Treino composto em casa (30 min)',val:200});
-  }
-  if(treinosAtual.has('casa_d')){
-    gasto+=150;itens.push({label:'Treino bands em casa (25 min)',val:150});
   }
   if(treinosAtual.has('yoga')){
     gasto+=120;itens.push({label:'Yoga (60 min)',val:120});
@@ -845,7 +774,7 @@ function openDiaModal(key,date){
   const kcal=nutriRec.kcal||0;const prot=nutriRec.prot||0;
   const deficit=gasto-kcal;
   const nivelLabels={sedentario:'Muito sentada',leve:'Pouco ativa',moderado:'Moderada',ativo:'Muito ativa'};
-  const treinoLabels={casa_a:'Treino A · Halteres',casa_b:'Treino B · Barra',casa_c:'Treino C · Kettlebell',casa_d:'Treino D · Bands',yoga:'Yoga'};
+  const treinoLabels={casa_a:'Treino A · Halteres',casa_b:'Treino B · Barra',casa_c:'Treino C · Kettlebell',yoga:'Yoga'};
   const treinosFeitos=(energiaRec.treinos||[]).map(t=>treinoLabels[t]||t).join(', ')||'—';
   const inclLabels=['Sem inclinação','Leve (1-2%)','Moderada (3-5%)','Alta (6%+)'];
   let html=`<div class="modal-header"><div class="modal-title">${date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</div><button class="modal-close" onclick="closeDiaModal()">×</button></div>`;
