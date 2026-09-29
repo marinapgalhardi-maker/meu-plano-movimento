@@ -242,39 +242,39 @@ input[type=number]{width:100%;padding:10px;border:1px solid var(--v4);border-rad
     <!-- TREINO A -->
     <div id="ca-a" class="circ-content active">
       <div class="treino-desc-box">
-        <p><strong>Treino A · Halteres 4kg</strong> — Full body · dominante de joelho<br>
-        Foco em quadríceps, peitoral e deltóide. Agachar + empurrar + puxar horizontal. Band integrada no agachamento e na ponte.</p>
+        <p><strong>Treino A · Halteres 4kg</strong> — 4 complexos fluidos · foco frontal/empurrar<br>
+        Cada complexo encadeia 3–4 movimentos sem parar. Não existe "um exercício por vez" — o fluxo é o treino. Sem impacto. Band integrada no agachamento e na ponte.</p>
       </div>
       <div class="card">
-        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div class="bloco-header"><div class="bloco-title">4 complexos · 3 rodadas · 60–90s de descanso entre rodadas</div></div>
         <div id="ex-ca-a"></div>
-        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+        <div class="rodadas">↻ Execute os 4 complexos em sequência sem parar. Descanse 60-90s. Repita 3x.</div>
       </div>
     </div>
 
     <!-- TREINO B — Barra 8kg -->
     <div id="ca-b" class="circ-content">
       <div class="treino-desc-box">
-        <p><strong>Treino B · Barra 8kg</strong> — Full body · dominante de quadril<br>
-        Foco em glúteo, posteriores de coxa e costas. Dobrar + puxar vertical + dobradiça. Band no agachamento sumô.</p>
+        <p><strong>Treino B · Barra 8kg</strong> — 4 complexos fluidos · foco posterior/puxar<br>
+        Barbell complex: a barra não pousa entre as fases do complexo. Cada sequência trabalha cadeia posterior completa. Band integrada no agachamento sumô.</p>
       </div>
       <div class="card">
-        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div class="bloco-header"><div class="bloco-title">4 complexos · 3 rodadas · 60–90s de descanso entre rodadas</div></div>
         <div id="ex-ca-b"></div>
-        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+        <div class="rodadas">↻ Execute os 4 complexos em sequência sem parar. Descanse 60-90s. Repita 3x.</div>
       </div>
     </div>
 
     <!-- TREINO C — Kettlebell 8kg -->
     <div id="ca-c" class="circ-content">
       <div class="treino-desc-box">
-        <p><strong>Treino C · Kettlebell 8kg</strong> — Full body · rotacional e unilateral<br>
-        Foco em glúteo médio, core anti-rotação e estabilizadores. Carregar + balançar + movimentos assimétricos. Core seguro para diástase.</p>
+        <p><strong>Treino C · Kettlebell 8kg</strong> — 4 complexos fluidos · foco unilateral/cardio<br>
+        KB complex: potência + estabilidade + mobilidade em sequência. Movimentos assimétricos e balísticos. Band integrada no complexo de passo lateral. Core seguro para diástase.</p>
       </div>
       <div class="card">
-        <div class="bloco-header"><div class="bloco-title">Circuito único · 4 rodadas · descanso 60s entre rodadas</div></div>
+        <div class="bloco-header"><div class="bloco-title">4 complexos · 3 rodadas · 60–90s de descanso entre rodadas</div></div>
         <div id="ex-ca-c"></div>
-        <div class="rodadas">↻ Execute os 5 exercícios sem parar. Descanse 60s. Repita 4x.</div>
+        <div class="rodadas">↻ Execute os 4 complexos em sequência sem parar. Descanse 60-90s. Repita 3x.</div>
       </div>
     </div>
 
@@ -399,63 +399,57 @@ function switchTab(id,btn){
 }
 
 // ===================== EXERCÍCIOS =====================
+// Formato: COMPLEXOS FLUIDOS — cada "exercício" é uma sequência de 3-4 movimentos encadeados
+// sem parar entre eles. Conta como 1 repetição do complexo.
+// Sem impacto (sem saltos), seguro para diástase.
 const EXERCISES={
-  // TREINO A — Halteres 4kg — DOMINANTE DE JOELHO (agachar + empurrar + puxar horizontal)
-  // Foco: quadríceps, peitoral, deltóide, bíceps | Band ativa glúteo médio no agachamento
+  // TREINO A — Halteres 4kg — COMPLEXOS FLUIDOS · foco frontal/empurrar
+  // Cada complexo = sequência contínua de movimentos. Execute lento, sem pressa.
   'ex-ca-a':[
-    {n:1,cls:'ex-a',name:'Agachamento + Desenvolvimento',detail:'4kg cada mão · 10 reps',obs:'✓ Composto total — pernas + ombros',band:'Band verde acima dos joelhos',
-     desc:'Band acima dos joelhos para ativar glúteo médio e evitar joelhos caindo para dentro. Segure os halteres nos ombros. Agache fundo empurrando os joelhos para fora (contra a band). Na subida, empurre os halteres acima da cabeça. Movimento thruster — tudo junto, sem parar.',
-     yt:'https://www.youtube.com/results?search_query=thruster+halteres+como+fazer'},
-    {n:2,cls:'ex-a',name:'Avanço lateral com halter',detail:'4kg em uma mão · 10 reps cada lado',obs:'✓ Composto — pernas + equilíbrio',band:null,
-     desc:'Passo largo para o lado, joelho da perna que avança dobra, outro fica estendido (afundo lateral). Segure o halter na mão do lado que avança. Empurre o calcanhar para voltar. Ativa quadríceps, adutores e glúteo médio num plano diferente do agachamento.',
-     yt:'https://www.youtube.com/results?search_query=avanco+lateral+haltere+como+fazer'},
-    {n:3,cls:'ex-a',name:'Remada curvada com halteres',detail:'4kg cada mão · 12 reps',obs:'✓ Composto — costas + bíceps',band:null,
-     desc:'Pés na largura dos ombros, tronco inclinado a 45° com costas retas. Halteres pendurados, palmas uma para a outra. Puxe os cotovelos para cima e para trás até os halteres chegarem às costelas. Segure 1s. Desça devagar. Ativa latíssimo, rombóides e bíceps — padrão puxar horizontal.',
-     yt:'https://www.youtube.com/results?search_query=remada+curvada+halteres+como+fazer'},
-    {n:4,cls:'ex-a',name:'Flexão de peitoral (push-up)',detail:'Peso corporal · 8-12 reps',obs:'✓ Composto — peitoral + tríceps + core',band:null,
-     desc:'Mãos um pouco mais largas que os ombros, corpo em linha reta do calcanhar à cabeça. Desça até o peito quase tocar o chão. Suba. Se precisar, apoie nos joelhos — mantém a qualidade. Contraparte de empurrar horizontal ao padrão de puxar da remada.',
-     yt:'https://www.youtube.com/results?search_query=flexao+de+braco+correta+como+fazer'},
-    {n:5,cls:'ex-a',name:'Ponte de glúteo com halteres',detail:'4kg cada mão no quadril · 15 reps',obs:'✓ Seguro para diástase',band:'Band rosa acima dos joelhos',
-     desc:'Deite de costas, joelhos dobrados, halteres apoiados no quadril, band acima dos joelhos. Empurre os joelhos para fora contra a band. Eleve o quadril contraindo bem o glúteo no topo. Segure 2s. A band duplica a ativação do glúteo médio além do máximo.',
-     yt:'https://www.youtube.com/results?search_query=hip+thrust+halteres+mini+band'},
+    {n:1,cls:'ex-a',name:'Complexo 1 · Agacha → Press → Remada',detail:'4kg cada mão · 8 reps do complexo',obs:'✓ Pernas + ombros + costas em sequência',band:'Band verde acima dos joelhos',
+     desc:'<b>Sequência contínua (não para entre os movimentos):</b><br>① Segure os halteres nos ombros. Band acima dos joelhos. Agache fundo, empurrando os joelhos para fora contra a band.<br>② Ao subir, continue e empurre os halteres acima da cabeça (press).<br>③ Traga os halteres de volta aos ombros e incline o tronco a 45°.<br>④ Puxe os cotovelos para trás (remada). Volte à posição ereta. Isso é 1 rep.<br><br>Respira: expire no esforço de cada fase. Fluxo: baixo → press → remada → reinicia.',
+     yt:'https://www.youtube.com/results?search_query=dumbbell+complex+squat+press+row'},
+    {n:2,cls:'ex-a',name:'Complexo 2 · Avanço → Rosca → Press unilateral',detail:'4kg em uma mão · 8 reps cada lado',obs:'✓ Pernas + bíceps + ombro — unilateral',band:null,
+     desc:'<b>Sequência contínua com um halter de cada vez:</b><br>① Halter na mão direita. Avance com a perna esquerda (lunge).<br>② No fundo do lunge, faça a rosca bíceps com a mão direita.<br>③ Suba voltando à posição inicial e, no movimento de subida, converta em press empurrando o halter acima da cabeça.<br>④ Desça o halter. Isso é 1 rep. Faça 8 de cada lado antes de trocar.<br><br>O peso unilateral obriga o core a estabilizar contra a rotação ao longo de todo o complexo.',
+     yt:'https://www.youtube.com/results?search_query=lunge+bicep+curl+overhead+press+dumbbell+complex'},
+    {n:3,cls:'ex-a',name:'Complexo 3 · Push-up → Remada no chão → Bird dog',detail:'Peso corporal + 4kg · 6 reps do complexo',obs:'✓ Peitoral + costas + core — seguro diástase',band:null,
+     desc:'<b>Sequência no chão, contínua:</b><br>① Fique em posição de prancha com as mãos nos halteres (no chão).<br>② Faça 1 flexão de peitoral (push-up). Apoie nos joelhos se precisar manter a qualidade.<br>③ Sem sair da prancha, puxe o halter direito para as costelas (remada unilateral). Apoie no esquerdo. Volta.<br>④ Repita a remada com o esquerdo.<br>⑤ Fique em 4 apoios, estenda braço esquerdo + perna direita (bird dog). Segure 2s. Troca.<br><br>Expire na flexão, expire na remada. Core firme mas sem aperto excessivo na barriga — ativa o transverso.',
+     yt:'https://www.youtube.com/results?search_query=push+up+renegade+row+bird+dog+complex'},
+    {n:4,cls:'ex-a',name:'Complexo 4 · Ponte → Abertura → Pullover',detail:'4kg cada mão · 10 reps do complexo',obs:'✓ Glúteo + peitoral + dorsal — seguro diástase',band:'Band rosa acima dos joelhos',
+     desc:'<b>Sequência no chão, deitada de costas:</b><br>① Band acima dos joelhos. Halteres nos ombros, braços dobrados.<br>② Empurre os joelhos para fora contra a band e eleve o quadril (ponte de glúteo). Segure 2s no topo.<br>③ Sem baixar o quadril, estenda os braços para o teto (press no topo da ponte).<br>④ Baixe o quadril de volta ao chão e, com os braços estendidos, leve os halteres para trás da cabeça (pullover — ativa dorsal).<br>⑤ Traga os halteres de volta. Isso é 1 rep.<br><br>Glúteo + peitoral + dorsal num único fluxo deitada.',
+     yt:'https://www.youtube.com/results?search_query=glute+bridge+press+pullover+dumbbell+complex'},
   ],
-  // TREINO B — Barra 8kg — DOMINANTE DE QUADRIL (dobrar + puxar vertical + empurrar)
-  // Foco: glúteo, posterior de coxa, costas, ombro | Band no agachamento controla joelhos
+  // TREINO B — Barra 8kg — COMPLEXOS FLUIDOS · foco posterior/puxar
+  // Barbell complex clássico: todos os movimentos com a barra, sem pousar entre eles
   'ex-ca-b':[
-    {n:1,cls:'ex-b',name:'Levantamento terra com barra',detail:'8kg · 10 reps',obs:'✓ Composto — posterior completo',band:null,
-     desc:'Barra no chão à frente dos pés. Agache com as costas retas, pegue a barra com as duas mãos. Suba empurrando o chão e estendendo os quadris — não arredonde as costas. Baixe controlado. Ativa glúteo máximo, posteriores de coxa, lombar e core de forma integrada. O padrão de movimento mais diferente do agachamento.',
-     yt:'https://www.youtube.com/results?search_query=levantamento+terra+barra+como+fazer+iniciante'},
-    {n:2,cls:'ex-b',name:'Remada upright (ao queixo)',detail:'8kg · 12 reps',obs:'✓ Composto — ombros + trapézio',band:null,
-     desc:'Em pé, barra na frente das coxas com pegada fechada (mãos a 20cm). Puxe a barra verticalmente até a altura do queixo, cotovelos subindo acima da barra. Desça controlado. Ativa deltóide médio, trapézio superior e bíceps — padrão puxar vertical que não aparece nos outros treinos.',
-     yt:'https://www.youtube.com/results?search_query=remada+ao+queixo+barra+como+fazer'},
-    {n:3,cls:'ex-b',name:'Agachamento sumô com barra',detail:'8kg · 12 reps',obs:'✓ Composto — glúteo + adutores',band:'Band verde acima dos joelhos',
-     desc:'Pés bem abertos, pontas para fora. Barra apoiada nos trapézios ou segura na frente do peito. Band acima dos joelhos — empurre os joelhos para fora ao longo de todo o movimento. Agache até as coxas paralelas. Ativa glúteo e adutores mais do que o agachamento convencional.',
-     yt:'https://www.youtube.com/results?search_query=agachamento+sumo+barra+como+fazer'},
-    {n:4,cls:'ex-b',name:'Good morning com barra',detail:'8kg · 12 reps',obs:'✓ Composto — posterior de coxa + lombar',band:null,
-     desc:'Barra nos trapézios, joelhos levemente flexionados. Incline o tronco para frente dobrando nos quadris (não na cintura) até sentir o alongamento dos posteriores de coxa. Volte estendendo os quadris. Movimento de dobradiça puro — ativa toda a cadeia posterior sem dobrar a coluna.',
-     yt:'https://www.youtube.com/results?search_query=good+morning+barra+como+fazer'},
-    {n:5,cls:'ex-b',name:'Elevação pélvica unilateral com barra',detail:'8kg no quadril · 12 reps cada lado',obs:'✓ Seguro para diástase',band:null,
-     desc:'Deite de costas, barra no quadril. Uma perna dobrada no chão, a outra estendida no ar. Eleve o quadril usando só a perna de apoio. Segure 2s no topo. Muito mais intenso que a versão bilateral — isola cada glúteo separadamente e desafia o equilíbrio pélvico.',
-     yt:'https://www.youtube.com/results?search_query=hip+thrust+unilateral+barra+como+fazer'},
+    {n:1,cls:'ex-b',name:'Complexo 1 · Terra → Upright row → Press',detail:'8kg · 8 reps do complexo',obs:'✓ Posterior + ombros + trapézio — cadeia completa',band:null,
+     desc:'<b>Barbell complex — barra nunca pousa entre as fases:</b><br>① Barra no chão. Agache com costas retas e pegue a barra.<br>② Suba estendendo os quadris (levantamento terra) até ficar em pé com a barra na frente das coxas.<br>③ Sem parar, puxe a barra verticalmente até o queixo (upright row — cotovelos sobem).<br>④ No topo, converta em press empurrando a barra acima da cabeça até os braços estenderem.<br>⑤ Desça a barra aos ombros, depois às coxas, depois ao chão com controle. Isso é 1 rep.<br><br>Fluxo: chão → em pé → queixo → acima da cabeça → chão. Não force a lombar — o poder vem dos quadris.',
+     yt:'https://www.youtube.com/results?search_query=barbell+complex+deadlift+upright+row+press'},
+    {n:2,cls:'ex-b',name:'Complexo 2 · Good morning → Agachamento sumô → Remada',detail:'8kg · 8 reps do complexo',obs:'✓ Posterior de coxa + glúteo + costas',band:'Band verde acima dos joelhos (no agachamento)',
+     desc:'<b>Barbell complex — barra nos ombros/trapézios:</b><br>① Barra nos trapézios, band acima dos joelhos. Joelhos levemente dobrados.<br>② Incline o tronco para frente dobrando nos quadris até sentir o alongamento dos posteriores (good morning).<br>③ Volte à posição ereta.<br>④ Abra os pés bem largos (sumô), empurre os joelhos para fora contra a band e desça no agachamento sumô.<br>⑤ Suba, feche os pés. Incline o tronco a 45° e segure a barra com as mãos na frente (muda o grip).<br>⑥ Faça 1 remada puxando a barra para o abdômen. Volta. Isso é 1 rep.<br><br>Posterior de coxa, glúteo médio e costas num único complexo fluido.',
+     yt:'https://www.youtube.com/results?search_query=barbell+complex+good+morning+sumo+squat+row'},
+    {n:3,cls:'ex-b',name:'Complexo 3 · Terra romeno → Remada → Encolhimento',detail:'8kg · 10 reps do complexo',obs:'✓ Cadeia posterior completa — glúteo + lombar + trapézio',band:null,
+     desc:'<b>Barbell complex — foco total na cadeia posterior:</b><br>① Em pé, barra na frente das coxas. Joelhos levemente dobrados, costas retas.<br>② Descend a barra deslizando pelas pernas, inclinando o tronco (terra romeno / RDL) — sinta o alongamento do posterior. Para na altura das canelas.<br>③ Sem pousar a barra, puxe os cotovelos para trás (remada inclinada) com o tronco na posição inclinada do romeno.<br>④ Desça os braços. Suba voltando à posição ereta com a barra nas coxas.<br>⑤ Eleve os ombros em direção às orelhas (encolhimento / shrug), segure 1s. Isso é 1 rep.<br><br>Lombar, isquiotibiais, glúteo, latíssimo e trapézio em sequência.',
+     yt:'https://www.youtube.com/results?search_query=barbell+complex+romanian+deadlift+row+shrug'},
+    {n:4,cls:'ex-b',name:'Complexo 4 · Hip thrust bilateral → Unilateral → Abdução isométrica',detail:'8kg no quadril · 10 reps do complexo',obs:'✓ Glúteo máximo + médio — seguro diástase',band:'Band rosa acima dos joelhos',
+     desc:'<b>Sequência no chão, deitada de costas:</b><br>① Barra no quadril, band acima dos joelhos. Joelhos dobrados, pés no chão.<br>② Empurre os joelhos para fora contra a band e eleve o quadril (hip thrust bilateral). Segure 2s no topo.<br>③ Sem baixar completamente, estenda a perna direita no ar e faça 3 pontes unilaterais com a perna esquerda como apoio.<br>④ Troca: perna esquerda estendida, 3 pontes com a direita.<br>⑤ Baixe o quadril ao chão. Mantenha a band, empurre os joelhos para fora isometricamente por 10s (abdução isométrica).<br><br>Glúteo máximo bilateral + unilateral + médio isométrico — tudo com a mesma band sem sair do chão.',
+     yt:'https://www.youtube.com/results?search_query=hip+thrust+unilateral+mini+band+glute+complex'},
   ],
-  // TREINO C — Kettlebell 8kg — DOMINANTE ROTACIONAL/UNILATERAL (carregar + balançar + estabilizar)
-  // Foco: glúteo médio, core anti-rotação, estabilizadores — movimentos assimétricos e balísticos
+  // TREINO C — Kettlebell 8kg — COMPLEXOS FLUIDOS · foco unilateral/rotacional/cardio
+  // KB complex: potência + estabilidade + mobilidade em sequência fluida
   'ex-ca-c':[
-    {n:1,cls:'ex-c',name:'Kettlebell Swing',detail:'8kg · 15 reps',obs:'✓ Potência — glúteo + posterior + cardio',band:null,
-     desc:'Pés na largura dos ombros. Deixe o KB balançar entre as pernas inclinando o tronco (dobradiça de quadril, não agachamento). Projete os quadris para a frente com força explosiva — os braços apenas seguem o movimento, não puxam. KB sobe até a altura dos ombros. Trabalha potência de quadril que nenhum outro treino acessa.',
-     yt:'https://www.youtube.com/results?search_query=kettlebell+swing+como+fazer+iniciante'},
-    {n:2,cls:'ex-c',name:'Avanço com KB na posição rack (unilateral)',detail:'8kg em uma mão · 10 reps cada lado',obs:'✓ Composto — pernas + core anti-rotação',band:null,
-     desc:'Segure o KB em posição rack (cotovelo dobrado, KB descansando no antebraço, na frente do ombro) em uma mão. Avance com a perna oposta ao KB. O peso assimétrico obriga o core a trabalhar contra a rotação — muito diferente do avanço com halteres simétricos.',
-     yt:'https://www.youtube.com/results?search_query=lunge+kettlebell+rack+position'},
-    {n:3,cls:'ex-c',name:'KB Halo',detail:'8kg · 8 reps cada direção',obs:'✓ Mobilidade + core + ombros',band:null,
-     desc:'Em pé ou ajoelhada, segure o KB pela alça ou pela base (invertido). Faça círculos lentos ao redor da cabeça, mantendo os cotovelos próximos. 8 rotações para cada lado. Ativa rotadores de ombro, mobiliza a coluna torácica e exige core estabilizador — movimento completamente diferente dos outros treinos.',
-     yt:'https://www.youtube.com/results?search_query=kettlebell+halo+como+fazer'},
-    {n:4,cls:'ex-c',name:'KB Clean + Press unilateral',detail:'8kg · 8 reps cada lado',obs:'✓ Composto total — quadril + ombro',band:null,
-     desc:'KB entre as pernas (meio swing). Puxe com uma mão em movimento fluido até o rack no ombro (clean). Empurre para cima até o braço estender (press). Desça controlado. Unilateral: cada lado trabalha de forma independente, detectando desequilíbrios e ativando core de forma máxima.',
-     yt:'https://www.youtube.com/results?search_query=kettlebell+clean+press+unilateral+como+fazer'},
-    {n:5,cls:'ex-c',name:'Dead bug com KB',detail:'8kg · 8 reps cada lado',obs:'✓ Seguro para diástase — core profundo',band:null,
-     desc:'Deite de costas. Segure o KB com as duas mãos acima do peito (braços estendidos para o teto). Joelhos a 90°. Expire todo o ar. Estenda uma perna lentamente para baixo sem deixar a lombar sair do chão. Retorna. Troca. O KB adiciona carga ao transverso do abdômen — o músculo mais importante para a diástase.',
-     yt:'https://www.youtube.com/results?search_query=dead+bug+kettlebell+como+fazer'},
+    {n:1,cls:'ex-c',name:'Complexo 1 · Swing → Clean → Press → Squat (KB complex clássico)',detail:'8kg · 6 reps cada lado',obs:'✓ Potência total — quadril + ombro + pernas em sequência',band:null,
+     desc:'<b>KB complex unilateral — um lado de cada vez, sem pausar:</b><br>① KB no chão entre os pés. Swing com uma mão (deixe subir até o ombro).<br>② Na descida do swing, redirecione o movimento e puxe o KB em clean até a posição rack (cotovelo dobrado, KB no antebraço).<br>③ Do rack, empurre acima da cabeça (press) até o braço estender.<br>④ Com o KB no alto, desça em goblet squat (ou agachamento com KB preso no alto). Suba.<br>⑤ Desça o KB de volta ao rack, depois solte e repita. Isso é 1 rep.<br><br>Swing → clean → press → squat: os 4 padrões fundamentais em 1 complexo. Execute lento, com controle em cada fase.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+complex+swing+clean+press+squat'},
+    {n:2,cls:'ex-c',name:'Complexo 2 · Avanço rack → Halo → Dead bug',detail:'8kg · 6 reps do complexo',obs:'✓ Core anti-rotação + mobilidade — seguro diástase',band:null,
+     desc:'<b>Sequência fluida de estabilidade e mobilidade:</b><br>① KB em posição rack na mão direita (cotovelo dobrado, KB no antebraço).<br>② Avance com a perna esquerda (lunge). O KB rack força o core a resistir à rotação. Suba. Repita 3 avanços.<br>③ Com as duas mãos, segure o KB pela base (invertido) ou pela alça. Faça 4 círculos lentos ao redor da cabeça (halo) — 2 para cada lado. Ombros relaxados, cotovelos próximos.<br>④ Deite de costas com o KB seguro pelas duas mãos acima do peito (braços estendidos). Expire todo o ar. Estenda perna direita para baixo sem tirar a lombar do chão. Retorna. Troca. 4 reps. Isso fecha 1 rodada.<br><br>Mobilidade torácica + core profundo + estabilidade de ombro num único fluxo.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+complex+lunge+halo+dead+bug'},
+    {n:3,cls:'ex-c',name:'Complexo 3 · RDL unilateral → Row → Curl → Press',detail:'8kg · 6 reps cada lado',obs:'✓ Equilíbrio + cadeia posterior + braços',band:null,
+     desc:'<b>KB complex unilateral em pé — equilibra em uma perna:</b><br>① KB na mão direita. Equilíbrio na perna direita (perna esquerda levantada atrás).<br>② Incline o tronco para frente descendo o KB (terra romeno unilateral — RDL). Mantenha o equilíbrio, costas retas.<br>③ No fundo, puxe o KB para as costelas (remada unilateral).<br>④ Desça o braço. Suba voltando à posição ereta (ainda em equilíbrio se possível).<br>⑤ Faça 1 rosca bíceps.<br>⑥ Converta em press empurrando acima da cabeça. Desce. Isso é 1 rep. Faça 6 de cada lado.<br><br>RDL → row → curl → press: cadeia posterior + braços inteiros + equilíbrio unilateral.',
+     yt:'https://www.youtube.com/results?search_query=kettlebell+single+leg+rdl+row+complex'},
+    {n:4,cls:'ex-c',name:'Complexo 4 · Passo lateral (band) → Goblet squat → Around the world',detail:'8kg + band · 8 reps do complexo',obs:'✓ Glúteo médio + pernas + mobilidade',band:'Band rosa acima dos joelhos ou tornozelos',
+     desc:'<b>Sequência que combina band e KB:</b><br>① Band acima dos joelhos (ou tornozelos). Sem o KB por enquanto. Dê 5 passos largos laterais para a direita (monster walk), empurrando os joelhos contra a band.<br>② 5 passos de volta para a esquerda.<br>③ Pegue o KB com as duas mãos no peito (goblet). Agache fundo, joelhos para fora. Suba. 4 reps de goblet squat.<br>④ Segure o KB com as duas mãos estendidas. Faça um círculo horizontal lento ao redor do corpo — passe o KB de mão em mão (around the world). 3 reps para cada direção.<br><br>Glúteo médio com band → pernas com carga → mobilidade de tronco. Encerra o treino C com mobilidade.',
+     yt:'https://www.youtube.com/results?search_query=monster+walk+band+goblet+squat+around+the+world+kettlebell'},
   ],
 };
 
